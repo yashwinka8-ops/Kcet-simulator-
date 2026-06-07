@@ -1,0 +1,116 @@
+export interface MetroLine {
+  id: string;
+  name: string;
+  color: string;
+  stations: string[];
+}
+
+export const metroLines: MetroLine[] = [
+  {
+    id: "green",
+    name: "Green Line",
+    color: "#00A651",
+    stations: [
+      "Madavara",
+      "Chikkabidarakallu",
+      "Manjunath Nagar",
+      "Nagasandra",
+      "Dasarahalli",
+      "Jalahalli",
+      "Peenya Industry",
+      "Peenya",
+      "Goraguntepalya",
+      "Yeshwanthpur",
+      "Sandal Soap Factory",
+      "Mahalakshmi",
+      "Rajajinagar",
+      "Kuvempu Road",
+      "Srirampura",
+      "Mantri Square Sampige Road",
+      "Nadaprabhu Kempegowda (Majestic)",
+      "Chickpete",
+      "Krishna Rajendra Market",
+      "National College",
+      "Lalbagh",
+      "South End Circle",
+      "Jayanagar",
+      "Rashtreeya Vidyalaya Road",
+      "Banashankari",
+      "Jaya Prakash Nagar",
+      "Yelachenahalli",
+      "Konanakunte Cross",
+      "Doddakallasandra",
+      "Vajarahalli",
+      "Thalaghattapura",
+      "Silk Institute"
+    ]
+  },
+  {
+    id: "purple",
+    name: "Purple Line",
+    color: "#91278F",
+    stations: [
+      "Challaghatta",
+      "Kengeri",
+      "Kengeri Bus Terminal",
+      "Pattanagere",
+      "Jnanabharathi",
+      "Rajarajeshwari Nagar",
+      "Nayandahalli",
+      "Mysuru Road",
+      "Deepanjali Nagar",
+      "Attiguppe",
+      "Vijayanagar",
+      "Hosahalli",
+      "Magadi Road",
+      "Nadaprabhu Kempegowda (Majestic)",
+      "City Railway Station",
+      "Sir M. Visvesvaraya",
+      "Dr. B.R. Ambedkar Station",
+      "Cubbon Park",
+      "Mahatma Gandhi Road",
+      "Trinity",
+      "Halasuru",
+      "Indiranagar",
+      "Swami Vivekananda Road",
+      "Baiyappanahalli",
+      "Benniganahalli",
+      "K.R. Pura",
+      "Singayyanapalya",
+      "Garudacharapalya",
+      "Hoodi Junction",
+      "Seetharampalya",
+      "Kundalahalli",
+      "Nallurhalli",
+      "Sri Sathya Sai Hospital",
+      "Pattandur Agrahara",
+      "Kadugodi Tree Park",
+      "Hopefarm Channasandra",
+      "Whitefield (Kadugodi)"
+    ]
+  },
+  {
+    id: "yellow",
+    name: "Yellow Line",
+    color: "#FFD400",
+    stations: [
+      "Rashtreeya Vidyalaya Road",
+      "Ragigudda",
+      "Jayadeva Hospital",
+      "BTM Layout",
+      "Central Silk Board",
+      "Bommanahalli",
+      "Hongasandra",
+      "Kudlu Gate",
+      "Singasandra",
+      "Hosa Road",
+      "Basapura Road",
+      "Chikkabegur",
+      "Electronic City",
+      "Infosys Foundation Konappana Agrahara",
+      "Huskur Road",
+      "Hebbagodi",
+      "Bommasandra"
+    ]
+  }
+];

@@ -1,0 +1,170 @@
+{
+  "updated_at": "2026-05-04T05:06:24.051Z",
+  "top_gems": [
+    {
+      "college_id": "E003",
+      "name": "B M S College of Engineering",
+      "score": 85.6,
+      "metrics": {
+        "salary": 11.4,
+        "fees": 96000,
+        "cutoff": 100000,
+        "roi": 11.9
+      }
+    },
+    {
+      "college_id": "E022",
+      "name": "The National Institute of Engineering",
+      "score": 81.7,
+      "metrics": {
+        "salary": 10.425,
+        "fees": 96000,
+        "cutoff": 100000,
+        "roi": 10.9
+      }
+    },
+    {
+      "college_id": "E024",
+      "name": "Malnad College of Engineering",
+      "score": 70,
+      "metrics": {
+        "salary": 7.5,
+        "fees": 90000,
+        "cutoff": 100000,
+        "roi": 8.3
+      }
+    },
+    {
+      "college_id": "E126",
+      "name": "B M S Institute of Technology & Management",
+      "score": 42.93,
+      "metrics": {
+        "salary": 9.2,
+        "fees": 107000,
+        "cutoff": 12263,
+        "roi": 8.6
+      }
+    },
+    {
+      "college_id": "E036",
+      "name": "K L E Technological Univeristy",
+      "score": 41.79,
+      "metrics": {
+        "salary": 7.5,
+        "fees": 107000,
+        "cutoff": 23578,
+        "roi": 7
+      }
+    },
+    {
+      "college_id": "E099",
+      "name": "New Horizon College of Engineering",
+      "score": 39.08,
+      "metrics": {
+        "salary": 7.6,
+        "fees": 107000,
+        "cutoff": 17363,
+        "roi": 7.1
+      }
+    },
+    {
+      "college_id": "E232",
+      "name": "REVA University RUKMINI KNOWLEDGE PARK",
+      "score": 37.44,
+      "metrics": {
+        "salary": 6.5,
+        "fees": 100000,
+        "cutoff": 22888,
+        "roi": 6.5
+      }
+    },
+    {
+      "college_id": "E097",
+      "name": "C M R Institute of Technology",
+      "score": 36.54,
+      "metrics": {
+        "salary": 6.75,
+        "fees": 107000,
+        "cutoff": 19071,
+        "roi": 6.3
+      }
+    },
+    {
+      "college_id": "E107",
+      "name": "B N M Institute of Technology",
+      "score": 35.76,
+      "metrics": {
+        "salary": 7.15,
+        "fees": 107000,
+        "cutoff": 14324,
+        "roi": 6.7
+      }
+    },
+    {
+      "college_id": "E012",
+      "name": "Sir M.Visvesvaraya Institute of Technology",
+      "score": 33.35,
+      "metrics": {
+        "salary": 6,
+        "fees": 107000,
+        "cutoff": 18692,
+        "roi": 5.6
+      }
+    },
+    {
+      "college_id": "E118",
+      "name": "RNS Institute of Technology",
+      "score": 33.29,
+      "metrics": {
+        "salary": 6.75,
+        "fees": 107000,
+        "cutoff": 12586,
+        "roi": 6.3
+      }
+    },
+    {
+      "college_id": "E071",
+      "name": "Vidya Vardhaka College of Engineering",
+      "score": 32.41,
+      "metrics": {
+        "salary": 5.85,
+        "fees": 107000,
+        "cutoff": 18017,
+        "roi": 5.5
+      }
+    },
+    {
+      "college_id": "E160",
+      "name": "Sahyadri College Of Engineering & Management",
+      "score": 31.57,
+      "metrics": {
+        "salary": 5.5,
+        "fees": 107000,
+        "cutoff": 19138,
+        "roi": 5.1
+      }
+    },
+    {
+      "college_id": "E034",
+      "name": "SDM College of Engineering",
+      "score": 30.36,
+      "metrics": {
+        "salary": 5.5,
+        "fees": 107000,
+        "cutoff": 16712,
+        "roi": 5.1
+      }
+    },
+    {
+      "college_id": "E004",
+      "name": "Dr. Ambedkar Institute of Technology",
+      "score": 30.23,
+      "metrics": {
+        "salary": 6,
+        "fees": 96000,
+        "cutoff": 12452,
+        "roi": 6.3
+      }
+    }
+  ]
+}

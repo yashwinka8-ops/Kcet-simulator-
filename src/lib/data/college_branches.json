@@ -1,0 +1,8867 @@
+[
+  {
+    "id": "E001-AIDS",
+    "college_id": "E001",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E001-CIVIL",
+    "college_id": "E001",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E001-CSE",
+    "college_id": "E001",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E001-EEE",
+    "college_id": "E001",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E001-ECE",
+    "college_id": "E001",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E001-ISE",
+    "college_id": "E001",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E001-MECH",
+    "college_id": "E001",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E001-ECNE",
+    "college_id": "E001",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E002-CIVIL",
+    "college_id": "E002",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E002-CSE",
+    "college_id": "E002",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E002-ECE",
+    "college_id": "E002",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E002-SILK",
+    "college_id": "E002",
+    "branch_id": "SILK"
+  },
+  {
+    "id": "E002-TT",
+    "college_id": "E002",
+    "branch_id": "TT"
+  },
+  {
+    "id": "E002-ECNE",
+    "college_id": "E002",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E003-CIVIL",
+    "college_id": "E003",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E003-EEE",
+    "college_id": "E003",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E003-ECE",
+    "college_id": "E003",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E003-IEM",
+    "college_id": "E003",
+    "branch_id": "IEM"
+  },
+  {
+    "id": "E003-MECH",
+    "college_id": "E003",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E003-ECNE",
+    "college_id": "E003",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E004-CIVIL",
+    "college_id": "E004",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E004-CSE",
+    "college_id": "E004",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E004-EEE",
+    "college_id": "E004",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E004-ECE",
+    "college_id": "E004",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E004-EIE",
+    "college_id": "E004",
+    "branch_id": "EIE"
+  },
+  {
+    "id": "E004-E & TIE",
+    "college_id": "E004",
+    "branch_id": "E & TIE"
+  },
+  {
+    "id": "E004-IEM",
+    "college_id": "E004",
+    "branch_id": "IEM"
+  },
+  {
+    "id": "E004-MECH",
+    "college_id": "E004",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E004-ECNE",
+    "college_id": "E004",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E004-ETAE",
+    "college_id": "E004",
+    "branch_id": "ETAE"
+  },
+  {
+    "id": "E005-ASE",
+    "college_id": "E005",
+    "branch_id": "ASE"
+  },
+  {
+    "id": "E005-BT",
+    "college_id": "E005",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E005-CHEM",
+    "college_id": "E005",
+    "branch_id": "CHEM"
+  },
+  {
+    "id": "E005-CIVIL",
+    "college_id": "E005",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E005-AIML",
+    "college_id": "E005",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E005-CSE",
+    "college_id": "E005",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E005-EEE",
+    "college_id": "E005",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E005-ECE",
+    "college_id": "E005",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E005-E & TIE",
+    "college_id": "E005",
+    "branch_id": "E & TIE"
+  },
+  {
+    "id": "E005-IEM",
+    "college_id": "E005",
+    "branch_id": "IEM"
+  },
+  {
+    "id": "E005-MECH",
+    "college_id": "E005",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E005-CS & ELI&ML",
+    "college_id": "E005",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E005-ECNE",
+    "college_id": "E005",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E005-ETAE",
+    "college_id": "E005",
+    "branch_id": "ETAE"
+  },
+  {
+    "id": "E006-ASE",
+    "college_id": "E006",
+    "branch_id": "ASE"
+  },
+  {
+    "id": "E006-AIDS",
+    "college_id": "E006",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E006-AIML",
+    "college_id": "E006",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E006-BT",
+    "college_id": "E006",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E006-CHEM",
+    "college_id": "E006",
+    "branch_id": "CHEM"
+  },
+  {
+    "id": "E006-CIVIL",
+    "college_id": "E006",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E006-CSE",
+    "college_id": "E006",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E006-EEE",
+    "college_id": "E006",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E006-ECE",
+    "college_id": "E006",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E006-EIE",
+    "college_id": "E006",
+    "branch_id": "EIE"
+  },
+  {
+    "id": "E006-E & TIE",
+    "college_id": "E006",
+    "branch_id": "E & TIE"
+  },
+  {
+    "id": "E006-IEM",
+    "college_id": "E006",
+    "branch_id": "IEM"
+  },
+  {
+    "id": "E006-ISE",
+    "college_id": "E006",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E006-MECH",
+    "college_id": "E006",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E006-MED",
+    "college_id": "E006",
+    "branch_id": "MED"
+  },
+  {
+    "id": "E006-CS & ELI&ML",
+    "college_id": "E006",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E006-ECNE",
+    "college_id": "E006",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E006-ETAE",
+    "college_id": "E006",
+    "branch_id": "ETAE"
+  },
+  {
+    "id": "E007-AERO",
+    "college_id": "E007",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E007-AIML",
+    "college_id": "E007",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E007-AUTO",
+    "college_id": "E007",
+    "branch_id": "AUTO"
+  },
+  {
+    "id": "E007-BT",
+    "college_id": "E007",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E007-CHEM",
+    "college_id": "E007",
+    "branch_id": "CHEM"
+  },
+  {
+    "id": "E007-CIVIL",
+    "college_id": "E007",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E007-CS & D",
+    "college_id": "E007",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E007-CYBER",
+    "college_id": "E007",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E007-CSE",
+    "college_id": "E007",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E007-EEE",
+    "college_id": "E007",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E007-ECE",
+    "college_id": "E007",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E007-E & TIE",
+    "college_id": "E007",
+    "branch_id": "E & TIE"
+  },
+  {
+    "id": "E007-ISE",
+    "college_id": "E007",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E007-MECH",
+    "college_id": "E007",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E007-MED",
+    "college_id": "E007",
+    "branch_id": "MED"
+  },
+  {
+    "id": "E007-RAI",
+    "college_id": "E007",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E007-ECNE",
+    "college_id": "E007",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E007-ETAE",
+    "college_id": "E007",
+    "branch_id": "ETAE"
+  },
+  {
+    "id": "E008-AIML",
+    "college_id": "E008",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E008-CIVIL",
+    "college_id": "E008",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E008-CYBER",
+    "college_id": "E008",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E008-CSE",
+    "college_id": "E008",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E008-EEE",
+    "college_id": "E008",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E008-EED & T",
+    "college_id": "E008",
+    "branch_id": "EED & T"
+  },
+  {
+    "id": "E008-ECE",
+    "college_id": "E008",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E008-EIE",
+    "college_id": "E008",
+    "branch_id": "EIE"
+  },
+  {
+    "id": "E008-E & TIE",
+    "college_id": "E008",
+    "branch_id": "E & TIE"
+  },
+  {
+    "id": "E008-ISE",
+    "college_id": "E008",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E008-MECH",
+    "college_id": "E008",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E008-RAI",
+    "college_id": "E008",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E008-EELD & T",
+    "college_id": "E008",
+    "branch_id": "EELD & T"
+  },
+  {
+    "id": "E008-ECNE",
+    "college_id": "E008",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E008-ETAE",
+    "college_id": "E008",
+    "branch_id": "ETAE"
+  },
+  {
+    "id": "E009-BTBT",
+    "college_id": "E009",
+    "branch_id": "BTBT"
+  },
+  {
+    "id": "E009-BTCS & EAI&ML",
+    "college_id": "E009",
+    "branch_id": "BTCS & EAI&ML"
+  },
+  {
+    "id": "E009-CSE",
+    "college_id": "E009",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E009-EEE",
+    "college_id": "E009",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E009-BTE & CE",
+    "college_id": "E009",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E009-MECH",
+    "college_id": "E009",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E009-BTE & CNE",
+    "college_id": "E009",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E011-ASE",
+    "college_id": "E011",
+    "branch_id": "ASE"
+  },
+  {
+    "id": "E011-AERO",
+    "college_id": "E011",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E011-AIML",
+    "college_id": "E011",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E011-CHEM",
+    "college_id": "E011",
+    "branch_id": "CHEM"
+  },
+  {
+    "id": "E011-CIVIL",
+    "college_id": "E011",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E011-CS & D",
+    "college_id": "E011",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E011-CSE",
+    "college_id": "E011",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E011-EEE",
+    "college_id": "E011",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E011-EED & T",
+    "college_id": "E011",
+    "branch_id": "EED & T"
+  },
+  {
+    "id": "E011-E & CACT",
+    "college_id": "E011",
+    "branch_id": "E & CACT"
+  },
+  {
+    "id": "E011-ECE",
+    "college_id": "E011",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E011-II",
+    "college_id": "E011",
+    "branch_id": "II"
+  },
+  {
+    "id": "E011-ISE",
+    "college_id": "E011",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E011-MECH",
+    "college_id": "E011",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E011-EELD & T",
+    "college_id": "E011",
+    "branch_id": "EELD & T"
+  },
+  {
+    "id": "E011-ECNACT",
+    "college_id": "E011",
+    "branch_id": "ECNACT"
+  },
+  {
+    "id": "E011-ECNE",
+    "college_id": "E011",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E012-AIML",
+    "college_id": "E012",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E012-BT",
+    "college_id": "E012",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E012-CIVIL",
+    "college_id": "E012",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E012-CYBER",
+    "college_id": "E012",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E012-CSE",
+    "college_id": "E012",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E012-EEE",
+    "college_id": "E012",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E012-E & CE",
+    "college_id": "E012",
+    "branch_id": "E & CE"
+  },
+  {
+    "id": "E012-ECE",
+    "college_id": "E012",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E012-E & TIE",
+    "college_id": "E012",
+    "branch_id": "E & TIE"
+  },
+  {
+    "id": "E012-ISE",
+    "college_id": "E012",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E012-MECH",
+    "college_id": "E012",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E012-RAI",
+    "college_id": "E012",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E012-ECNE",
+    "college_id": "E012",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E012-ETAE",
+    "college_id": "E012",
+    "branch_id": "ETAE"
+  },
+  {
+    "id": "E013-AIML",
+    "college_id": "E013",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E013-CIVIL",
+    "college_id": "E013",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E013-CSE",
+    "college_id": "E013",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E013-EEE",
+    "college_id": "E013",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E013-ECE",
+    "college_id": "E013",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E013-ISE",
+    "college_id": "E013",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E013-RAI",
+    "college_id": "E013",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E013-ECNE",
+    "college_id": "E013",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E014-ASE",
+    "college_id": "E014",
+    "branch_id": "ASE"
+  },
+  {
+    "id": "E014-AERO",
+    "college_id": "E014",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E014-AIDS",
+    "college_id": "E014",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E014-CIVIL",
+    "college_id": "E014",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E014-CS & D",
+    "college_id": "E014",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E014-AIML",
+    "college_id": "E014",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E014-CSE",
+    "college_id": "E014",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E014-ECE",
+    "college_id": "E014",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E014-ISE",
+    "college_id": "E014",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E014-MECH",
+    "college_id": "E014",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E014-CS & ELI&ML",
+    "college_id": "E014",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E014-ECNE",
+    "college_id": "E014",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E015-AIML",
+    "college_id": "E015",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E015-CSE",
+    "college_id": "E015",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E015-EEE",
+    "college_id": "E015",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E015-ECE",
+    "college_id": "E015",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E015-MECH",
+    "college_id": "E015",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E015-MINING",
+    "college_id": "E015",
+    "branch_id": "MINING"
+  },
+  {
+    "id": "E015-CS & ELI&ML",
+    "college_id": "E015",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E015-ECNE",
+    "college_id": "E015",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E016-BT",
+    "college_id": "E016",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E016-CHEM",
+    "college_id": "E016",
+    "branch_id": "CHEM"
+  },
+  {
+    "id": "E016-CIVIL",
+    "college_id": "E016",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E016-AIML",
+    "college_id": "E016",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E016-CSE",
+    "college_id": "E016",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E016-EEE",
+    "college_id": "E016",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E016-ECE",
+    "college_id": "E016",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E016-EIE",
+    "college_id": "E016",
+    "branch_id": "EIE"
+  },
+  {
+    "id": "E016-E & TIE",
+    "college_id": "E016",
+    "branch_id": "E & TIE"
+  },
+  {
+    "id": "E016-IEM",
+    "college_id": "E016",
+    "branch_id": "IEM"
+  },
+  {
+    "id": "E016-ISE",
+    "college_id": "E016",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E016-MECH",
+    "college_id": "E016",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E016-CS & ELI&ML",
+    "college_id": "E016",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E016-ECNE",
+    "college_id": "E016",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E016-ETAE",
+    "college_id": "E016",
+    "branch_id": "ETAE"
+  },
+  {
+    "id": "E017-AIML",
+    "college_id": "E017",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E017-BME",
+    "college_id": "E017",
+    "branch_id": "BME"
+  },
+  {
+    "id": "E017-CIVIL",
+    "college_id": "E017",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E017-CSE",
+    "college_id": "E017",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E017-EEE",
+    "college_id": "E017",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E017-ECE",
+    "college_id": "E017",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E017-E & TIE",
+    "college_id": "E017",
+    "branch_id": "E & TIE"
+  },
+  {
+    "id": "E017-ISE",
+    "college_id": "E017",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E017-MECH",
+    "college_id": "E017",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E017-RAI",
+    "college_id": "E017",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E017-ECNE",
+    "college_id": "E017",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E017-ETAE",
+    "college_id": "E017",
+    "branch_id": "ETAE"
+  },
+  {
+    "id": "E018-AIML",
+    "college_id": "E018",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E018-CIVIL",
+    "college_id": "E018",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E018-CSE",
+    "college_id": "E018",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E018-ECE",
+    "college_id": "E018",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E018-ISE",
+    "college_id": "E018",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E018-MECH",
+    "college_id": "E018",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E018-ECNE",
+    "college_id": "E018",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E021-CIVIL",
+    "college_id": "E021",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E021-CSE",
+    "college_id": "E021",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E021-EEE",
+    "college_id": "E021",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E021-E & IE",
+    "college_id": "E021",
+    "branch_id": "E & IE"
+  },
+  {
+    "id": "E021-ECE",
+    "college_id": "E021",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E021-ENV",
+    "college_id": "E021",
+    "branch_id": "ENV"
+  },
+  {
+    "id": "E021-I & PE",
+    "college_id": "E021",
+    "branch_id": "I & PE"
+  },
+  {
+    "id": "E021-MECH",
+    "college_id": "E021",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E021-PS & T",
+    "college_id": "E021",
+    "branch_id": "PS & T"
+  },
+  {
+    "id": "E021-ECNE",
+    "college_id": "E021",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E021-ELE",
+    "college_id": "E021",
+    "branch_id": "ELE"
+  },
+  {
+    "id": "E022-CIVIL",
+    "college_id": "E022",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E022-ECE",
+    "college_id": "E022",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E022-MECH",
+    "college_id": "E022",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E022-ECNE",
+    "college_id": "E022",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E023-CIVIL",
+    "college_id": "E023",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E023-EEE",
+    "college_id": "E023",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E023-ECE",
+    "college_id": "E023",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E023-MECH",
+    "college_id": "E023",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E023-ECNE",
+    "college_id": "E023",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E024-CIVIL",
+    "college_id": "E024",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E024-EEE",
+    "college_id": "E024",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E024-ECE",
+    "college_id": "E024",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E024-MECH",
+    "college_id": "E024",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E024-ECNE",
+    "college_id": "E024",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E028-AE",
+    "college_id": "E028",
+    "branch_id": "AE"
+  },
+  {
+    "id": "E028-AIML",
+    "college_id": "E028",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E028-CIVIL",
+    "college_id": "E028",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E028-CS & D",
+    "college_id": "E028",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E028-CSE",
+    "college_id": "E028",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E028-EEE",
+    "college_id": "E028",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E028-ECE",
+    "college_id": "E028",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E028-MECH",
+    "college_id": "E028",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E028-ECNE",
+    "college_id": "E028",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E029-CSE",
+    "college_id": "E029",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E029-ECE",
+    "college_id": "E029",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E029-MECH",
+    "college_id": "E029",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E029-RAI",
+    "college_id": "E029",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E029-ECNE",
+    "college_id": "E029",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E031-CIVIL",
+    "college_id": "E031",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E031-CSE",
+    "college_id": "E031",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E031-EEE",
+    "college_id": "E031",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E031-ECE",
+    "college_id": "E031",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E031-I & PE",
+    "college_id": "E031",
+    "branch_id": "I & PE"
+  },
+  {
+    "id": "E031-MECH",
+    "college_id": "E031",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E031-ECNE",
+    "college_id": "E031",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E032-AIML",
+    "college_id": "E032",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E032-CIVIL",
+    "college_id": "E032",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E032-CSE",
+    "college_id": "E032",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E032-ECE",
+    "college_id": "E032",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E032-MECH",
+    "college_id": "E032",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E032-TT",
+    "college_id": "E032",
+    "branch_id": "TT"
+  },
+  {
+    "id": "E032-ECNE",
+    "college_id": "E032",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E033-CIVIL",
+    "college_id": "E033",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E033-CSE",
+    "college_id": "E033",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E033-EEE",
+    "college_id": "E033",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E033-ECE",
+    "college_id": "E033",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E033-ISE",
+    "college_id": "E033",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E033-MECH",
+    "college_id": "E033",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E033-ECNE",
+    "college_id": "E033",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E034-AIML",
+    "college_id": "E034",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E034-CHEM",
+    "college_id": "E034",
+    "branch_id": "CHEM"
+  },
+  {
+    "id": "E034-CIVIL",
+    "college_id": "E034",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E034-CSE",
+    "college_id": "E034",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E034-EEE",
+    "college_id": "E034",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E034-ECE",
+    "college_id": "E034",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E034-ISE",
+    "college_id": "E034",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E034-MECH",
+    "college_id": "E034",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E034-ECNE",
+    "college_id": "E034",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E035-CIVIL",
+    "college_id": "E035",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E035-AIML",
+    "college_id": "E035",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E035-CSE",
+    "college_id": "E035",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E035-EEE",
+    "college_id": "E035",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E035-ECE",
+    "college_id": "E035",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E035-MECH",
+    "college_id": "E035",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E035-RAI",
+    "college_id": "E035",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E035-CS & ELI&ML",
+    "college_id": "E035",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E035-ECNE",
+    "college_id": "E035",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E036-BME",
+    "college_id": "E036",
+    "branch_id": "BME"
+  },
+  {
+    "id": "E036-CHEM",
+    "college_id": "E036",
+    "branch_id": "CHEM"
+  },
+  {
+    "id": "E036-CIVIL",
+    "college_id": "E036",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E036-CS & EAI",
+    "college_id": "E036",
+    "branch_id": "CS & EAI"
+  },
+  {
+    "id": "E036-CSE",
+    "college_id": "E036",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E036-EEE",
+    "college_id": "E036",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E036-ECE",
+    "college_id": "E036",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E036-MECH",
+    "college_id": "E036",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E036-ECNE",
+    "college_id": "E036",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E037-AERO",
+    "college_id": "E037",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E037-CIVIL",
+    "college_id": "E037",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E037-CD",
+    "college_id": "E037",
+    "branch_id": "CD"
+  },
+  {
+    "id": "E037-AIML",
+    "college_id": "E037",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E037-CSE",
+    "college_id": "E037",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E037-EEE",
+    "college_id": "E037",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E037-ECE",
+    "college_id": "E037",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E037-FD",
+    "college_id": "E037",
+    "branch_id": "FD"
+  },
+  {
+    "id": "E037-ID",
+    "college_id": "E037",
+    "branch_id": "ID"
+  },
+  {
+    "id": "E037-LS & AD",
+    "college_id": "E037",
+    "branch_id": "LS & AD"
+  },
+  {
+    "id": "E037-MECH",
+    "college_id": "E037",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E037-CND",
+    "college_id": "E037",
+    "branch_id": "CND"
+  },
+  {
+    "id": "E037-CS & ELI&ML",
+    "college_id": "E037",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E037-ECNE",
+    "college_id": "E037",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E038-CIVIL",
+    "college_id": "E038",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E038-AIML",
+    "college_id": "E038",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E038-CSE",
+    "college_id": "E038",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E038-EEE",
+    "college_id": "E038",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E038-ECE",
+    "college_id": "E038",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E038-ISE",
+    "college_id": "E038",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E038-MECH",
+    "college_id": "E038",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E038-CS & ELI&ML",
+    "college_id": "E038",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E038-ECNE",
+    "college_id": "E038",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E040-CSE",
+    "college_id": "E040",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E040-EEE",
+    "college_id": "E040",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E040-ECE",
+    "college_id": "E040",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E040-MECH",
+    "college_id": "E040",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E040-ECNE",
+    "college_id": "E040",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E041-CIVIL",
+    "college_id": "E041",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E041-EEE",
+    "college_id": "E041",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E041-ECE",
+    "college_id": "E041",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E041-I & PE",
+    "college_id": "E041",
+    "branch_id": "I & PE"
+  },
+  {
+    "id": "E041-MECH",
+    "college_id": "E041",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E041-ECNE",
+    "college_id": "E041",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E042-AERO",
+    "college_id": "E042",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E042-CIVIL",
+    "college_id": "E042",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E042-CSE",
+    "college_id": "E042",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E042-ECE",
+    "college_id": "E042",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E042-MECH",
+    "college_id": "E042",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E042-ECNE",
+    "college_id": "E042",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E043-AIML",
+    "college_id": "E043",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E043-CIVIL",
+    "college_id": "E043",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E043-CYBER",
+    "college_id": "E043",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E043-CSE",
+    "college_id": "E043",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E043-EEE",
+    "college_id": "E043",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E043-ECE",
+    "college_id": "E043",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E043-ISE",
+    "college_id": "E043",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E043-MECH",
+    "college_id": "E043",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E043-CS & ELI&ML",
+    "college_id": "E043",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E043-ECNE",
+    "college_id": "E043",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E044-CHEM",
+    "college_id": "E044",
+    "branch_id": "CHEM"
+  },
+  {
+    "id": "E044-CIVIL",
+    "college_id": "E044",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E044-AIML",
+    "college_id": "E044",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E044-CSE",
+    "college_id": "E044",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E044-ECE",
+    "college_id": "E044",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E044-MECH",
+    "college_id": "E044",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E044-CS & ELI&ML",
+    "college_id": "E044",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E044-ECNE",
+    "college_id": "E044",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E045-CIVIL",
+    "college_id": "E045",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E045-AIML",
+    "college_id": "E045",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E045-CSE",
+    "college_id": "E045",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E045-EEE",
+    "college_id": "E045",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E045-ECE",
+    "college_id": "E045",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E045-ISE",
+    "college_id": "E045",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E045-MECH",
+    "college_id": "E045",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E045-CS & ELI&ML",
+    "college_id": "E045",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E045-ECNE",
+    "college_id": "E045",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E046-CIVIL",
+    "college_id": "E046",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E046-CSE",
+    "college_id": "E046",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E046-ECE",
+    "college_id": "E046",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E046-MECH",
+    "college_id": "E046",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E046-ECNE",
+    "college_id": "E046",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E047-CIVIL",
+    "college_id": "E047",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E047-CSBS",
+    "college_id": "E047",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E047-AIML",
+    "college_id": "E047",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E047-CSE",
+    "college_id": "E047",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E047-EEE",
+    "college_id": "E047",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E047-EED & T",
+    "college_id": "E047",
+    "branch_id": "EED & T"
+  },
+  {
+    "id": "E047-ECE",
+    "college_id": "E047",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E047-RAI",
+    "college_id": "E047",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E047-CS & ELI&ML",
+    "college_id": "E047",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E047-EELD & T",
+    "college_id": "E047",
+    "branch_id": "EELD & T"
+  },
+  {
+    "id": "E047-ECNE",
+    "college_id": "E047",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E048-AIDS",
+    "college_id": "E048",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E048-AIML",
+    "college_id": "E048",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E048-BT",
+    "college_id": "E048",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E048-CHEM",
+    "college_id": "E048",
+    "branch_id": "CHEM"
+  },
+  {
+    "id": "E048-CIVIL",
+    "college_id": "E048",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E048-CSBS",
+    "college_id": "E048",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E048-CYBER",
+    "college_id": "E048",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E048-CSE",
+    "college_id": "E048",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E048-ECE",
+    "college_id": "E048",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E048-MECH",
+    "college_id": "E048",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E048-ECNE",
+    "college_id": "E048",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E049-AIML",
+    "college_id": "E049",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E049-AUTO",
+    "college_id": "E049",
+    "branch_id": "AUTO"
+  },
+  {
+    "id": "E049-BT",
+    "college_id": "E049",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E049-CIVIL",
+    "college_id": "E049",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E049-CSE",
+    "college_id": "E049",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E049-E & CE",
+    "college_id": "E049",
+    "branch_id": "E & CE"
+  },
+  {
+    "id": "E049-ECE",
+    "college_id": "E049",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E049-ISE",
+    "college_id": "E049",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E049-ECNE",
+    "college_id": "E049",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E054-CIVIL",
+    "college_id": "E054",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E054-AIML",
+    "college_id": "E054",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E054-CSE",
+    "college_id": "E054",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E054-ECE",
+    "college_id": "E054",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E054-CS & ELI&ML",
+    "college_id": "E054",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E054-ECNE",
+    "college_id": "E054",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E055-AIML",
+    "college_id": "E055",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E055-BT",
+    "college_id": "E055",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E055-CIVIL",
+    "college_id": "E055",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E055-CYBER",
+    "college_id": "E055",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E055-CSE",
+    "college_id": "E055",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E055-ECE",
+    "college_id": "E055",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E055-MECH",
+    "college_id": "E055",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E055-ECNE",
+    "college_id": "E055",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E056-CIVIL",
+    "college_id": "E056",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E056-EEE",
+    "college_id": "E056",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E056-ECE",
+    "college_id": "E056",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E056-MECH",
+    "college_id": "E056",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E056-ECNE",
+    "college_id": "E056",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E057-BT",
+    "college_id": "E057",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E057-CIVIL",
+    "college_id": "E057",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E057-CSBS",
+    "college_id": "E057",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E057-AIML",
+    "college_id": "E057",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E057-CSE",
+    "college_id": "E057",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E057-CONSTR",
+    "college_id": "E057",
+    "branch_id": "CONSTR"
+  },
+  {
+    "id": "E057-ECE",
+    "college_id": "E057",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E057-ISE",
+    "college_id": "E057",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E057-MECH",
+    "college_id": "E057",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E057-CS & ELI&ML",
+    "college_id": "E057",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E057-ECNE",
+    "college_id": "E057",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E058-CIVIL",
+    "college_id": "E058",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E058-CSBS",
+    "college_id": "E058",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E058-AIML",
+    "college_id": "E058",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E058-CSE",
+    "college_id": "E058",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E058-EEE",
+    "college_id": "E058",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E058-ECE",
+    "college_id": "E058",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E058-ISE",
+    "college_id": "E058",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E058-RAI",
+    "college_id": "E058",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E058-CS & ELI&ML",
+    "college_id": "E058",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E058-ECNE",
+    "college_id": "E058",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E058-ECNEVD & T",
+    "college_id": "E058",
+    "branch_id": "ECNEVD & T"
+  },
+  {
+    "id": "E059-AIML",
+    "college_id": "E059",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E059-C & CE",
+    "college_id": "E059",
+    "branch_id": "C & CE"
+  },
+  {
+    "id": "E059-CIVIL",
+    "college_id": "E059",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E059-CS & D",
+    "college_id": "E059",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E059-CSE",
+    "college_id": "E059",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E059-EEE",
+    "college_id": "E059",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E059-ECE",
+    "college_id": "E059",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E059-EIE",
+    "college_id": "E059",
+    "branch_id": "EIE"
+  },
+  {
+    "id": "E059-I & PE",
+    "college_id": "E059",
+    "branch_id": "I & PE"
+  },
+  {
+    "id": "E059-ISE",
+    "college_id": "E059",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E059-MECH",
+    "college_id": "E059",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E059-ECNE",
+    "college_id": "E059",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E060-AERO",
+    "college_id": "E060",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E060-AIML",
+    "college_id": "E060",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E060-CIVIL",
+    "college_id": "E060",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E060-CSBS",
+    "college_id": "E060",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E060-CSE",
+    "college_id": "E060",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E060-ECE",
+    "college_id": "E060",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E060-ISE",
+    "college_id": "E060",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E060-ECNE",
+    "college_id": "E060",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E060-ECNEVD & T",
+    "college_id": "E060",
+    "branch_id": "ECNEVD & T"
+  },
+  {
+    "id": "E061-CIVIL",
+    "college_id": "E061",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E061-CSE",
+    "college_id": "E061",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E061-EEE",
+    "college_id": "E061",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E061-ECE",
+    "college_id": "E061",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E061-EIE",
+    "college_id": "E061",
+    "branch_id": "EIE"
+  },
+  {
+    "id": "E061-MECH",
+    "college_id": "E061",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E061-RAI",
+    "college_id": "E061",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E061-ECNE",
+    "college_id": "E061",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E062-AIML",
+    "college_id": "E062",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E062-BT",
+    "college_id": "E062",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E062-CHEM",
+    "college_id": "E062",
+    "branch_id": "CHEM"
+  },
+  {
+    "id": "E062-CIVIL",
+    "college_id": "E062",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E062-CSBS",
+    "college_id": "E062",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E062-CS & D",
+    "college_id": "E062",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E062-CSE",
+    "college_id": "E062",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E062-EEE",
+    "college_id": "E062",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E062-ECE",
+    "college_id": "E062",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E062-ISE",
+    "college_id": "E062",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E062-MECH",
+    "college_id": "E062",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E062-TT",
+    "college_id": "E062",
+    "branch_id": "TT"
+  },
+  {
+    "id": "E062-ECNE",
+    "college_id": "E062",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E063-AIML",
+    "college_id": "E063",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E063-CIVIL",
+    "college_id": "E063",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E063-CSE",
+    "college_id": "E063",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E063-EEE",
+    "college_id": "E063",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E063-ECE",
+    "college_id": "E063",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E063-MECH",
+    "college_id": "E063",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E063-ECNE",
+    "college_id": "E063",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E064-AIML",
+    "college_id": "E064",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E064-CIVIL",
+    "college_id": "E064",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E064-CSE",
+    "college_id": "E064",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E064-EEE",
+    "college_id": "E064",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E064-ECE",
+    "college_id": "E064",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E064-ISE",
+    "college_id": "E064",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E064-MECH",
+    "college_id": "E064",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E064-RAI",
+    "college_id": "E064",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E064-ECNE",
+    "college_id": "E064",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E065-AIML",
+    "college_id": "E065",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E065-CIVIL",
+    "college_id": "E065",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E065-CSE",
+    "college_id": "E065",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E065-EEE",
+    "college_id": "E065",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E065-ECE",
+    "college_id": "E065",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E065-E & TIE",
+    "college_id": "E065",
+    "branch_id": "E & TIE"
+  },
+  {
+    "id": "E065-ISE",
+    "college_id": "E065",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E065-MECH",
+    "college_id": "E065",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E065-RAI",
+    "college_id": "E065",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E065-ECNE",
+    "college_id": "E065",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E065-ETAE",
+    "college_id": "E065",
+    "branch_id": "ETAE"
+  },
+  {
+    "id": "E066-CIVIL",
+    "college_id": "E066",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E066-CSE",
+    "college_id": "E066",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E066-EEE",
+    "college_id": "E066",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E066-ECE",
+    "college_id": "E066",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E066-EIE",
+    "college_id": "E066",
+    "branch_id": "EIE"
+  },
+  {
+    "id": "E066-MECH",
+    "college_id": "E066",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E066-RAI",
+    "college_id": "E066",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E066-ECNE",
+    "college_id": "E066",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E070-AIML",
+    "college_id": "E070",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E070-CIVIL",
+    "college_id": "E070",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E070-CSE",
+    "college_id": "E070",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E070-ECE",
+    "college_id": "E070",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E070-ISE",
+    "college_id": "E070",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E070-MECH",
+    "college_id": "E070",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E070-ECNE",
+    "college_id": "E070",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E071-CIVIL",
+    "college_id": "E071",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E071-AIML",
+    "college_id": "E071",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E071-CSE",
+    "college_id": "E071",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E071-EEE",
+    "college_id": "E071",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E071-ECE",
+    "college_id": "E071",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E071-MECH",
+    "college_id": "E071",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E071-CS & ELI&ML",
+    "college_id": "E071",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E071-ECNE",
+    "college_id": "E071",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E075-AIML",
+    "college_id": "E075",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E075-CIVIL",
+    "college_id": "E075",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E075-CS & EAI",
+    "college_id": "E075",
+    "branch_id": "CS & EAI"
+  },
+  {
+    "id": "E075-CSE",
+    "college_id": "E075",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E075-EEE",
+    "college_id": "E075",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E075-ECE",
+    "college_id": "E075",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E075-MECH",
+    "college_id": "E075",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E075-ECNE",
+    "college_id": "E075",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E076-CIVIL",
+    "college_id": "E076",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E076-AIML",
+    "college_id": "E076",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E076-CSE",
+    "college_id": "E076",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E076-EEE",
+    "college_id": "E076",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E076-ECE",
+    "college_id": "E076",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E076-MECH",
+    "college_id": "E076",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E076-CS & ELI&ML",
+    "college_id": "E076",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E076-ECNE",
+    "college_id": "E076",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E077-CIVIL",
+    "college_id": "E077",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E077-CSE",
+    "college_id": "E077",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E077-EEE",
+    "college_id": "E077",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E077-ECE",
+    "college_id": "E077",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E077-ISE",
+    "college_id": "E077",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E077-ECNE",
+    "college_id": "E077",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E078-AIDS",
+    "college_id": "E078",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E078-AIML",
+    "college_id": "E078",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E078-BT",
+    "college_id": "E078",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E078-CIVIL",
+    "college_id": "E078",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E078-CSE",
+    "college_id": "E078",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E078-EEE",
+    "college_id": "E078",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E078-ECE",
+    "college_id": "E078",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E078-ISE",
+    "college_id": "E078",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E078-MECH",
+    "college_id": "E078",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E078-M",
+    "college_id": "E078",
+    "branch_id": "M"
+  },
+  {
+    "id": "E078-ECNE",
+    "college_id": "E078",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E079-AERO",
+    "college_id": "E079",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E079-AIML",
+    "college_id": "E079",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E079-BT",
+    "college_id": "E079",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E079-CIVIL",
+    "college_id": "E079",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E079-CSE",
+    "college_id": "E079",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E079-EEE",
+    "college_id": "E079",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E079-ECE",
+    "college_id": "E079",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E079-ISE",
+    "college_id": "E079",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E079-MECH",
+    "college_id": "E079",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E079-M",
+    "college_id": "E079",
+    "branch_id": "M"
+  },
+  {
+    "id": "E079-RAI",
+    "college_id": "E079",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E079-ECNE",
+    "college_id": "E079",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E081-AIML",
+    "college_id": "E081",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E081-CIVIL",
+    "college_id": "E081",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E081-CS",
+    "college_id": "E081",
+    "branch_id": "CS"
+  },
+  {
+    "id": "E081-CYBER",
+    "college_id": "E081",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E081-DS",
+    "college_id": "E081",
+    "branch_id": "DS"
+  },
+  {
+    "id": "E081-EEE",
+    "college_id": "E081",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E081-ECE",
+    "college_id": "E081",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E081-ISE",
+    "college_id": "E081",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E081-MECH",
+    "college_id": "E081",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E081-ECNE",
+    "college_id": "E081",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E082-CIVIL",
+    "college_id": "E082",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E082-AIML",
+    "college_id": "E082",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E082-CSE",
+    "college_id": "E082",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E082-ECE",
+    "college_id": "E082",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E082-EIE",
+    "college_id": "E082",
+    "branch_id": "EIE"
+  },
+  {
+    "id": "E082-ISE",
+    "college_id": "E082",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E082-MECH",
+    "college_id": "E082",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E082-R & A",
+    "college_id": "E082",
+    "branch_id": "R & A"
+  },
+  {
+    "id": "E082-CS & ELI&ML",
+    "college_id": "E082",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E082-ECNE",
+    "college_id": "E082",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E083-AIML",
+    "college_id": "E083",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E083-CSE",
+    "college_id": "E083",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E083-ECE",
+    "college_id": "E083",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E083-ISE",
+    "college_id": "E083",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E083-MECH",
+    "college_id": "E083",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E083-ECNE",
+    "college_id": "E083",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E085-AIML",
+    "college_id": "E085",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E085-CSE",
+    "college_id": "E085",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E085-ECE",
+    "college_id": "E085",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E085-ISE",
+    "college_id": "E085",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E085-CS & ELI&ML",
+    "college_id": "E085",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E085-ECNE",
+    "college_id": "E085",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E086-AIML",
+    "college_id": "E086",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E086-CYBER",
+    "college_id": "E086",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E086-CSE",
+    "college_id": "E086",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E086-EEE",
+    "college_id": "E086",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E086-ECE",
+    "college_id": "E086",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E086-ISE",
+    "college_id": "E086",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E086-MECH",
+    "college_id": "E086",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E086-ECNE",
+    "college_id": "E086",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E087-AIML",
+    "college_id": "E087",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E087-CIVIL",
+    "college_id": "E087",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E087-CSE",
+    "college_id": "E087",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E087-ECE",
+    "college_id": "E087",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E087-ISE",
+    "college_id": "E087",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E087-MECH",
+    "college_id": "E087",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E087-ECNE",
+    "college_id": "E087",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E090-CIVIL",
+    "college_id": "E090",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E090-CSE",
+    "college_id": "E090",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E090-ECE",
+    "college_id": "E090",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E090-MECH",
+    "college_id": "E090",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E090-ECNE",
+    "college_id": "E090",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E091-AIML",
+    "college_id": "E091",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E091-C & CE",
+    "college_id": "E091",
+    "branch_id": "C & CE"
+  },
+  {
+    "id": "E091-CS & D",
+    "college_id": "E091",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E091-CYBER",
+    "college_id": "E091",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E091-CSE",
+    "college_id": "E091",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E091-ECE",
+    "college_id": "E091",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E091-MECH",
+    "college_id": "E091",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E091-C & CNE",
+    "college_id": "E091",
+    "branch_id": "C & CNE"
+  },
+  {
+    "id": "E091-ECNE",
+    "college_id": "E091",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E092-AIML",
+    "college_id": "E092",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E092-CIVIL",
+    "college_id": "E092",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E092-CSE",
+    "college_id": "E092",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E092-ECE",
+    "college_id": "E092",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E092-ISE",
+    "college_id": "E092",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E092-MECH",
+    "college_id": "E092",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E092-ECNE",
+    "college_id": "E092",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E093-AIDS",
+    "college_id": "E093",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E093-CIVIL",
+    "college_id": "E093",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E093-CS",
+    "college_id": "E093",
+    "branch_id": "CS"
+  },
+  {
+    "id": "E093-CSE",
+    "college_id": "E093",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E093-E & CE",
+    "college_id": "E093",
+    "branch_id": "E & CE"
+  },
+  {
+    "id": "E093-ECE",
+    "college_id": "E093",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E093-MECH",
+    "college_id": "E093",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E093-ECNE",
+    "college_id": "E093",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E094-AIDS",
+    "college_id": "E094",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E094-AIML",
+    "college_id": "E094",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E094-CIVIL",
+    "college_id": "E094",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E094-CSE",
+    "college_id": "E094",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E094-ECE",
+    "college_id": "E094",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E094-MECH",
+    "college_id": "E094",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E094-ECNE",
+    "college_id": "E094",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E095-AERO",
+    "college_id": "E095",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E095-AIML",
+    "college_id": "E095",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E095-CIVIL",
+    "college_id": "E095",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E095-CSE",
+    "college_id": "E095",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E095-EEE",
+    "college_id": "E095",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E095-ECE",
+    "college_id": "E095",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E095-MECH",
+    "college_id": "E095",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E095-CS & ELI&ML",
+    "college_id": "E095",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E095-ECNE",
+    "college_id": "E095",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E096-CIVIL",
+    "college_id": "E096",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E096-AIML",
+    "college_id": "E096",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E096-CYBER",
+    "college_id": "E096",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E096-CSE",
+    "college_id": "E096",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E096-ECE",
+    "college_id": "E096",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E096-ISE",
+    "college_id": "E096",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E096-CS & ELI&ML",
+    "college_id": "E096",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E096-ECNE",
+    "college_id": "E096",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E097-AIDS",
+    "college_id": "E097",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E097-AIML",
+    "college_id": "E097",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E097-CSE",
+    "college_id": "E097",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E097-ECE",
+    "college_id": "E097",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E097-ISE",
+    "college_id": "E097",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E097-CS & ELI&ML",
+    "college_id": "E097",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E097-ECNE",
+    "college_id": "E097",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E098-AIML",
+    "college_id": "E098",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E098-CIVIL",
+    "college_id": "E098",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E098-CSE",
+    "college_id": "E098",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E098-ECE",
+    "college_id": "E098",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E098-ISE",
+    "college_id": "E098",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E098-MECH",
+    "college_id": "E098",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E098-R & A",
+    "college_id": "E098",
+    "branch_id": "R & A"
+  },
+  {
+    "id": "E098-ECNE",
+    "college_id": "E098",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E099-AIML",
+    "college_id": "E099",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E099-CSE",
+    "college_id": "E099",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E099-EEE",
+    "college_id": "E099",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E099-ECE",
+    "college_id": "E099",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E099-MECH",
+    "college_id": "E099",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E099-ECNE",
+    "college_id": "E099",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E100-AIML",
+    "college_id": "E100",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E100-CIVIL",
+    "college_id": "E100",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E100-CYBER",
+    "college_id": "E100",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E100-CSE",
+    "college_id": "E100",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E100-E & CE",
+    "college_id": "E100",
+    "branch_id": "E & CE"
+  },
+  {
+    "id": "E100-ECE",
+    "college_id": "E100",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E100-ISE",
+    "college_id": "E100",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E100-MECH",
+    "college_id": "E100",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E100-ECNE",
+    "college_id": "E100",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E101-AIDS",
+    "college_id": "E101",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E101-CIVIL",
+    "college_id": "E101",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E101-CSE",
+    "college_id": "E101",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E101-EEE",
+    "college_id": "E101",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E101-ECE",
+    "college_id": "E101",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E101-ISE",
+    "college_id": "E101",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E101-MECH",
+    "college_id": "E101",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E101-ECNE",
+    "college_id": "E101",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E102-AIDS",
+    "college_id": "E102",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E102-AIML",
+    "college_id": "E102",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E102-CYBER",
+    "college_id": "E102",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E102-CSE",
+    "college_id": "E102",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E102-EEE",
+    "college_id": "E102",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E102-ECE",
+    "college_id": "E102",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E102-ISE",
+    "college_id": "E102",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E102-CS & ELI&ML",
+    "college_id": "E102",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E102-ECNE",
+    "college_id": "E102",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E103-AERO",
+    "college_id": "E103",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E103-AIDS",
+    "college_id": "E103",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E103-AIML",
+    "college_id": "E103",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E103-CIVIL",
+    "college_id": "E103",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E103-CSE",
+    "college_id": "E103",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E103-EEE",
+    "college_id": "E103",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E103-ECE",
+    "college_id": "E103",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E103-ISE",
+    "college_id": "E103",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E103-MECH",
+    "college_id": "E103",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E103-CS & ELI&ML",
+    "college_id": "E103",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E103-ECNE",
+    "college_id": "E103",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E104-CIVIL",
+    "college_id": "E104",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E104-AIML",
+    "college_id": "E104",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E104-CYBER",
+    "college_id": "E104",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E104-CSE",
+    "college_id": "E104",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E104-ECE",
+    "college_id": "E104",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E104-ISE",
+    "college_id": "E104",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E104-CS & ELI&ML",
+    "college_id": "E104",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E104-ECNE",
+    "college_id": "E104",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E106-AIDS",
+    "college_id": "E106",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E106-AIML",
+    "college_id": "E106",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E106-CIVIL",
+    "college_id": "E106",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E106-CYBER",
+    "college_id": "E106",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E106-CSE",
+    "college_id": "E106",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E106-EEE",
+    "college_id": "E106",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E106-E & CE",
+    "college_id": "E106",
+    "branch_id": "E & CE"
+  },
+  {
+    "id": "E106-ECE",
+    "college_id": "E106",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E106-ISE",
+    "college_id": "E106",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E106-MECH",
+    "college_id": "E106",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E106-CS & ELI&ML",
+    "college_id": "E106",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E106-ECNE",
+    "college_id": "E106",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E107-AIML",
+    "college_id": "E107",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E107-CSE",
+    "college_id": "E107",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E107-EEE",
+    "college_id": "E107",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E107-ECE",
+    "college_id": "E107",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E107-ISE",
+    "college_id": "E107",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E107-MECH",
+    "college_id": "E107",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E107-ECNE",
+    "college_id": "E107",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E108-AIML",
+    "college_id": "E108",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E108-CSE",
+    "college_id": "E108",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E108-EEE",
+    "college_id": "E108",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E108-ECE",
+    "college_id": "E108",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E108-CS & ELI&ML",
+    "college_id": "E108",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E108-ECNE",
+    "college_id": "E108",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E109-AIML",
+    "college_id": "E109",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E109-CIVIL",
+    "college_id": "E109",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E109-CYBER",
+    "college_id": "E109",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E109-CSE",
+    "college_id": "E109",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E109-ECE",
+    "college_id": "E109",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E109-ISE",
+    "college_id": "E109",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E109-MECH",
+    "college_id": "E109",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E109-ECNE",
+    "college_id": "E109",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E111-CIVIL",
+    "college_id": "E111",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E111-CS & EAI",
+    "college_id": "E111",
+    "branch_id": "CS & EAI"
+  },
+  {
+    "id": "E111-CSE",
+    "college_id": "E111",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E111-ECE",
+    "college_id": "E111",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E111-ISE",
+    "college_id": "E111",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E111-MECH",
+    "college_id": "E111",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E111-ECNE",
+    "college_id": "E111",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E112-AIML",
+    "college_id": "E112",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E112-CIVIL",
+    "college_id": "E112",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E112-CSE",
+    "college_id": "E112",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E112-EED & T",
+    "college_id": "E112",
+    "branch_id": "EED & T"
+  },
+  {
+    "id": "E112-ECE",
+    "college_id": "E112",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E112-MECH",
+    "college_id": "E112",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E112-EELD & T",
+    "college_id": "E112",
+    "branch_id": "EELD & T"
+  },
+  {
+    "id": "E112-ECNE",
+    "college_id": "E112",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E113-AIDS",
+    "college_id": "E113",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E113-AIML",
+    "college_id": "E113",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E113-CSE",
+    "college_id": "E113",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E113-ECE",
+    "college_id": "E113",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E113-ISE",
+    "college_id": "E113",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E113-MECH",
+    "college_id": "E113",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E113-ECNE",
+    "college_id": "E113",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E114-AIML",
+    "college_id": "E114",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E114-CSE",
+    "college_id": "E114",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E114-ECE",
+    "college_id": "E114",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E114-MECH",
+    "college_id": "E114",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E114-ECNE",
+    "college_id": "E114",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E115-AIML",
+    "college_id": "E115",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E115-CIVIL",
+    "college_id": "E115",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E115-CSE",
+    "college_id": "E115",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E115-EEE",
+    "college_id": "E115",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E115-ECE",
+    "college_id": "E115",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E115-ISE",
+    "college_id": "E115",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E115-MECH",
+    "college_id": "E115",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E115-ECNE",
+    "college_id": "E115",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E116-AIML",
+    "college_id": "E116",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E116-CSE",
+    "college_id": "E116",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E116-ECE",
+    "college_id": "E116",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E116-MECH",
+    "college_id": "E116",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E116-CS & ELI&ML",
+    "college_id": "E116",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E116-ECNE",
+    "college_id": "E116",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E118-CIVIL",
+    "college_id": "E118",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E118-AIML",
+    "college_id": "E118",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E118-CSE",
+    "college_id": "E118",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E118-EEE",
+    "college_id": "E118",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E118-ECE",
+    "college_id": "E118",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E118-MECH",
+    "college_id": "E118",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E118-CS & ELI&ML",
+    "college_id": "E118",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E118-ECNE",
+    "college_id": "E118",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E119-CIVIL",
+    "college_id": "E119",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E119-CSE",
+    "college_id": "E119",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E119-ECE",
+    "college_id": "E119",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E119-MECH",
+    "college_id": "E119",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E120-CIVIL",
+    "college_id": "E120",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E120-CSE",
+    "college_id": "E120",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E120-ECE",
+    "college_id": "E120",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E120-ISE",
+    "college_id": "E120",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E120-MECH",
+    "college_id": "E120",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E120-ECNE",
+    "college_id": "E120",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E121-AIML",
+    "college_id": "E121",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E121-CIVIL",
+    "college_id": "E121",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E121-CSE",
+    "college_id": "E121",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E121-ECE",
+    "college_id": "E121",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E121-MECH",
+    "college_id": "E121",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E121-ECNE",
+    "college_id": "E121",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E123-AIML",
+    "college_id": "E123",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E123-CSBS",
+    "college_id": "E123",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E123-CS & D",
+    "college_id": "E123",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E123-CSE",
+    "college_id": "E123",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E123-ECE",
+    "college_id": "E123",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E123-ISE",
+    "college_id": "E123",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E123-MECH",
+    "college_id": "E123",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E123-ECNE",
+    "college_id": "E123",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E124-AIML",
+    "college_id": "E124",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E124-BME",
+    "college_id": "E124",
+    "branch_id": "BME"
+  },
+  {
+    "id": "E124-CS & EAI",
+    "college_id": "E124",
+    "branch_id": "CS & EAI"
+  },
+  {
+    "id": "E124-CYBER",
+    "college_id": "E124",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E124-CSE",
+    "college_id": "E124",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E124-EEE",
+    "college_id": "E124",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E124-ECE",
+    "college_id": "E124",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E124-ISE",
+    "college_id": "E124",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E124-MECH",
+    "college_id": "E124",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E124-ECNE",
+    "college_id": "E124",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E126-AIML",
+    "college_id": "E126",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E126-CIVIL",
+    "college_id": "E126",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E126-CSBS",
+    "college_id": "E126",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E126-CSE",
+    "college_id": "E126",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E126-EEE",
+    "college_id": "E126",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E126-ECE",
+    "college_id": "E126",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E126-MECH",
+    "college_id": "E126",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E126-ECNE",
+    "college_id": "E126",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E127-AIML",
+    "college_id": "E127",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E127-CIVIL",
+    "college_id": "E127",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E127-CSE",
+    "college_id": "E127",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E127-ECE",
+    "college_id": "E127",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E127-ISE",
+    "college_id": "E127",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E127-MECH",
+    "college_id": "E127",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E127-ECNE",
+    "college_id": "E127",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E128-AIDS",
+    "college_id": "E128",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E128-CIVIL",
+    "college_id": "E128",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E128-CSE",
+    "college_id": "E128",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E128-EEE",
+    "college_id": "E128",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E128-BTE & CE",
+    "college_id": "E128",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E128-BTEE",
+    "college_id": "E128",
+    "branch_id": "BTEE"
+  },
+  {
+    "id": "E128-MECH",
+    "college_id": "E128",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E128-BCS & D",
+    "college_id": "E128",
+    "branch_id": "BCS & D"
+  },
+  {
+    "id": "E128-BTE & CNE",
+    "college_id": "E128",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E129-AIML",
+    "college_id": "E129",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E129-CIVIL",
+    "college_id": "E129",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E129-CSBS",
+    "college_id": "E129",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E129-CSE",
+    "college_id": "E129",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E129-EEE",
+    "college_id": "E129",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E129-EED & T",
+    "college_id": "E129",
+    "branch_id": "EED & T"
+  },
+  {
+    "id": "E129-ECE",
+    "college_id": "E129",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E129-MECH",
+    "college_id": "E129",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E129-EELD & T",
+    "college_id": "E129",
+    "branch_id": "EELD & T"
+  },
+  {
+    "id": "E129-ECNE",
+    "college_id": "E129",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E130-AIDS",
+    "college_id": "E130",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E130-AIML",
+    "college_id": "E130",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E130-CIVIL",
+    "college_id": "E130",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E130-CSE",
+    "college_id": "E130",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E130-CYBER",
+    "college_id": "E130",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E130-EEE",
+    "college_id": "E130",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E130-ECE",
+    "college_id": "E130",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E130-ISE",
+    "college_id": "E130",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E130-MECH",
+    "college_id": "E130",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E130-ECNE",
+    "college_id": "E130",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E132-AIML",
+    "college_id": "E132",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E132-CIVIL",
+    "college_id": "E132",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E132-CSE",
+    "college_id": "E132",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E132-EEE",
+    "college_id": "E132",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E132-ECE",
+    "college_id": "E132",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E132-MECH",
+    "college_id": "E132",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E132-ECNE",
+    "college_id": "E132",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E133-AIDS",
+    "college_id": "E133",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E133-AIML",
+    "college_id": "E133",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E133-CSE",
+    "college_id": "E133",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E133-EEE",
+    "college_id": "E133",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E133-ECE",
+    "college_id": "E133",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E133-ISE",
+    "college_id": "E133",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E133-CS & ELI&ML",
+    "college_id": "E133",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E133-ECNE",
+    "college_id": "E133",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E134-CIVIL",
+    "college_id": "E134",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E134-AIML",
+    "college_id": "E134",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E134-CSE",
+    "college_id": "E134",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E134-EEE",
+    "college_id": "E134",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E134-ECE",
+    "college_id": "E134",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E134-ISE",
+    "college_id": "E134",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E134-MECH",
+    "college_id": "E134",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E134-CS & ELI&ML",
+    "college_id": "E134",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E134-ECNE",
+    "college_id": "E134",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E135-CIVIL",
+    "college_id": "E135",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E135-AIML",
+    "college_id": "E135",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E135-CSE",
+    "college_id": "E135",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E135-EEE",
+    "college_id": "E135",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E135-ECE",
+    "college_id": "E135",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E135-MECH",
+    "college_id": "E135",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E135-CS & ELI&ML",
+    "college_id": "E135",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E135-ECNE",
+    "college_id": "E135",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E136-AIML",
+    "college_id": "E136",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E136-CIVIL",
+    "college_id": "E136",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E136-CSE",
+    "college_id": "E136",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E136-ECE",
+    "college_id": "E136",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E136-ISE",
+    "college_id": "E136",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E136-CS & ELI&ML",
+    "college_id": "E136",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E136-ECNE",
+    "college_id": "E136",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E139-AIML",
+    "college_id": "E139",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E139-A & R",
+    "college_id": "E139",
+    "branch_id": "A & R"
+  },
+  {
+    "id": "E139-CIVIL",
+    "college_id": "E139",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E139-CSE",
+    "college_id": "E139",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E139-ECE",
+    "college_id": "E139",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E139-MECH",
+    "college_id": "E139",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E139-ECNE",
+    "college_id": "E139",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E141-BTCS & EAI&ML",
+    "college_id": "E141",
+    "branch_id": "BTCS & EAI&ML"
+  },
+  {
+    "id": "E141-CSE",
+    "college_id": "E141",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E141-BTE & CE",
+    "college_id": "E141",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E141-BTE & CNE",
+    "college_id": "E141",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E142-AIML",
+    "college_id": "E142",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E142-CIVIL",
+    "college_id": "E142",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E142-CSE",
+    "college_id": "E142",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E142-ECE",
+    "college_id": "E142",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E142-ISE",
+    "college_id": "E142",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E142-MECH",
+    "college_id": "E142",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E142-RAI",
+    "college_id": "E142",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E142-ECNE",
+    "college_id": "E142",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E144-AERO",
+    "college_id": "E144",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E144-AIDS",
+    "college_id": "E144",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E144-AIML",
+    "college_id": "E144",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E144-AUTO",
+    "college_id": "E144",
+    "branch_id": "AUTO"
+  },
+  {
+    "id": "E144-CSBS",
+    "college_id": "E144",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E144-CS & D",
+    "college_id": "E144",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E144-CSE",
+    "college_id": "E144",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E144-EEE",
+    "college_id": "E144",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E144-ECE",
+    "college_id": "E144",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E144-ISE",
+    "college_id": "E144",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E144-MARINE",
+    "college_id": "E144",
+    "branch_id": "MARINE"
+  },
+  {
+    "id": "E144-MECH",
+    "college_id": "E144",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E144-ECNE",
+    "college_id": "E144",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E145-AIML",
+    "college_id": "E145",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E145-CIVIL",
+    "college_id": "E145",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E145-CS & D",
+    "college_id": "E145",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E145-CYBER",
+    "college_id": "E145",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E145-CSE",
+    "college_id": "E145",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E145-EEE",
+    "college_id": "E145",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E145-ECE",
+    "college_id": "E145",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E145-ISE",
+    "college_id": "E145",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E145-R & A",
+    "college_id": "E145",
+    "branch_id": "R & A"
+  },
+  {
+    "id": "E145-ECNE",
+    "college_id": "E145",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E146-AERO",
+    "college_id": "E146",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E146-AIDS",
+    "college_id": "E146",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E146-CIVIL",
+    "college_id": "E146",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E146-AIML",
+    "college_id": "E146",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E146-CSE",
+    "college_id": "E146",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E146-ECE",
+    "college_id": "E146",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E146-ISE",
+    "college_id": "E146",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E146-MECH",
+    "college_id": "E146",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E146-CS & ELI&ML",
+    "college_id": "E146",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E146-ECNE",
+    "college_id": "E146",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E147-AIML",
+    "college_id": "E147",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E147-CYBER",
+    "college_id": "E147",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E147-CSE",
+    "college_id": "E147",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E147-DS",
+    "college_id": "E147",
+    "branch_id": "DS"
+  },
+  {
+    "id": "E147-ECE",
+    "college_id": "E147",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E147-ISE",
+    "college_id": "E147",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E147-ECNE",
+    "college_id": "E147",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E149-AIML",
+    "college_id": "E149",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E149-CIVIL",
+    "college_id": "E149",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E149-CYBER",
+    "college_id": "E149",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E149-CSE",
+    "college_id": "E149",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E149-EEE",
+    "college_id": "E149",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E149-ECE",
+    "college_id": "E149",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E149-MECH",
+    "college_id": "E149",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E149-ECNE",
+    "college_id": "E149",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E150-AIML",
+    "college_id": "E150",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E150-CIVIL",
+    "college_id": "E150",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E150-CE",
+    "college_id": "E150",
+    "branch_id": "CE"
+  },
+  {
+    "id": "E150-CS & D",
+    "college_id": "E150",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E150-CSE",
+    "college_id": "E150",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E150-EEE",
+    "college_id": "E150",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E150-ECE",
+    "college_id": "E150",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E150-ISE",
+    "college_id": "E150",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E150-MECH",
+    "college_id": "E150",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E150-ECNE",
+    "college_id": "E150",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E151-AERO",
+    "college_id": "E151",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E151-AIML",
+    "college_id": "E151",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E151-CYBER",
+    "college_id": "E151",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E151-CSE",
+    "college_id": "E151",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E151-ECE",
+    "college_id": "E151",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E151-ISE",
+    "college_id": "E151",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E151-MECH",
+    "college_id": "E151",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E151-M",
+    "college_id": "E151",
+    "branch_id": "M"
+  },
+  {
+    "id": "E151-RAI",
+    "college_id": "E151",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E151-CS & ELI&ML",
+    "college_id": "E151",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E151-ECNE",
+    "college_id": "E151",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E152-AIDS",
+    "college_id": "E152",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E152-CIVIL",
+    "college_id": "E152",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E152-CSE",
+    "college_id": "E152",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E152-EEE",
+    "college_id": "E152",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E152-ECE",
+    "college_id": "E152",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E152-ISE",
+    "college_id": "E152",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E152-ECNE",
+    "college_id": "E152",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E153-AE",
+    "college_id": "E153",
+    "branch_id": "AE"
+  },
+  {
+    "id": "E153-AIDS",
+    "college_id": "E153",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E153-AIML",
+    "college_id": "E153",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E153-CIVIL",
+    "college_id": "E153",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E153-CYBER",
+    "college_id": "E153",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E153-CSE",
+    "college_id": "E153",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E153-ECE",
+    "college_id": "E153",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E153-ISE",
+    "college_id": "E153",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E153-MECH",
+    "college_id": "E153",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E153-ECNE",
+    "college_id": "E153",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E154-CIVIL",
+    "college_id": "E154",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E154-CSE",
+    "college_id": "E154",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E154-ECE",
+    "college_id": "E154",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E154-MECH",
+    "college_id": "E154",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E154-ECNE",
+    "college_id": "E154",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E155-AIML",
+    "college_id": "E155",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E155-CIVIL",
+    "college_id": "E155",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E155-CSE",
+    "college_id": "E155",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E155-ECE",
+    "college_id": "E155",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E155-MECH",
+    "college_id": "E155",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E155-ECNE",
+    "college_id": "E155",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E156-CIVIL",
+    "college_id": "E156",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E156-CSE",
+    "college_id": "E156",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E156-ECE",
+    "college_id": "E156",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E156-MECH",
+    "college_id": "E156",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E156-ECNE",
+    "college_id": "E156",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E157-CIVIL",
+    "college_id": "E157",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E157-CSE",
+    "college_id": "E157",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E157-ECE",
+    "college_id": "E157",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E157-M & SM",
+    "college_id": "E157",
+    "branch_id": "M & SM"
+  },
+  {
+    "id": "E157-ECNE",
+    "college_id": "E157",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E158-CIVIL",
+    "college_id": "E158",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E158-CE",
+    "college_id": "E158",
+    "branch_id": "CE"
+  },
+  {
+    "id": "E158-CSBS",
+    "college_id": "E158",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E158-CS & EAI",
+    "college_id": "E158",
+    "branch_id": "CS & EAI"
+  },
+  {
+    "id": "E158-AIML",
+    "college_id": "E158",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E158-CYBER",
+    "college_id": "E158",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E158-CSE",
+    "college_id": "E158",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E158-ECE",
+    "college_id": "E158",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E158-ISE",
+    "college_id": "E158",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E158-MECH",
+    "college_id": "E158",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E158-CS & ELI&ML",
+    "college_id": "E158",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E158-ECNE",
+    "college_id": "E158",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E159-AERO",
+    "college_id": "E159",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E159-AIML",
+    "college_id": "E159",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E159-CSE",
+    "college_id": "E159",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E159-ECE",
+    "college_id": "E159",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E159-MECH",
+    "college_id": "E159",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E159-ECNE",
+    "college_id": "E159",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E160-AIML",
+    "college_id": "E160",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E160-CSE",
+    "college_id": "E160",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E160-ECE",
+    "college_id": "E160",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E160-ISE",
+    "college_id": "E160",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E160-MECH",
+    "college_id": "E160",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E160-R & A",
+    "college_id": "E160",
+    "branch_id": "R & A"
+  },
+  {
+    "id": "E160-CS & ELI&ML",
+    "college_id": "E160",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E160-ECNE",
+    "college_id": "E160",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E161-CIVIL",
+    "college_id": "E161",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E161-CSE",
+    "college_id": "E161",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E161-ECE",
+    "college_id": "E161",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E161-MECH",
+    "college_id": "E161",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E161-ECNE",
+    "college_id": "E161",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E162-CIVIL",
+    "college_id": "E162",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E162-CSE",
+    "college_id": "E162",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E162-ECE",
+    "college_id": "E162",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E162-MECH",
+    "college_id": "E162",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E162-ECNE",
+    "college_id": "E162",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E163-CIVIL",
+    "college_id": "E163",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E163-CSE",
+    "college_id": "E163",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E163-ECE",
+    "college_id": "E163",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E163-MECH",
+    "college_id": "E163",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E163-ECNE",
+    "college_id": "E163",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E164-CIVIL",
+    "college_id": "E164",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E164-CSE",
+    "college_id": "E164",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E164-ECE",
+    "college_id": "E164",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E164-MECH",
+    "college_id": "E164",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E164-ECNE",
+    "college_id": "E164",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E165-AIML",
+    "college_id": "E165",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E165-CYBER",
+    "college_id": "E165",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E165-CSE",
+    "college_id": "E165",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E165-EEE",
+    "college_id": "E165",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E165-ECE",
+    "college_id": "E165",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E165-ISE",
+    "college_id": "E165",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E165-MECH",
+    "college_id": "E165",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E165-ECNE",
+    "college_id": "E165",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E167-AIDS",
+    "college_id": "E167",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E167-CIVIL",
+    "college_id": "E167",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E167-CSE",
+    "college_id": "E167",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E167-ECE",
+    "college_id": "E167",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E167-MECH",
+    "college_id": "E167",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E167-ECNE",
+    "college_id": "E167",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E168-AIML",
+    "college_id": "E168",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E168-CIVIL",
+    "college_id": "E168",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E168-CSE",
+    "college_id": "E168",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E168-ECE",
+    "college_id": "E168",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E168-ISE",
+    "college_id": "E168",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E168-MECH",
+    "college_id": "E168",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E168-ECNE",
+    "college_id": "E168",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E169-AE",
+    "college_id": "E169",
+    "branch_id": "AE"
+  },
+  {
+    "id": "E169-AIML",
+    "college_id": "E169",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E169-CIVIL",
+    "college_id": "E169",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E169-CS & D",
+    "college_id": "E169",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E169-CYBER",
+    "college_id": "E169",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E169-CSE",
+    "college_id": "E169",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E169-ECE",
+    "college_id": "E169",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E169-ISE",
+    "college_id": "E169",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E169-MECH",
+    "college_id": "E169",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E169-ECNE",
+    "college_id": "E169",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E171-AIML",
+    "college_id": "E171",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E171-CIVIL",
+    "college_id": "E171",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E171-CYBER",
+    "college_id": "E171",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E171-CSE",
+    "college_id": "E171",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E171-ECE",
+    "college_id": "E171",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E171-ISE",
+    "college_id": "E171",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E171-MECH",
+    "college_id": "E171",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E171-ECNE",
+    "college_id": "E171",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E172-AIML",
+    "college_id": "E172",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E172-CIVIL",
+    "college_id": "E172",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E172-CS & T",
+    "college_id": "E172",
+    "branch_id": "CS & T"
+  },
+  {
+    "id": "E172-CYBER",
+    "college_id": "E172",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E172-CSE",
+    "college_id": "E172",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E172-EEE",
+    "college_id": "E172",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E172-E & CS",
+    "college_id": "E172",
+    "branch_id": "E & CS"
+  },
+  {
+    "id": "E172-ECE",
+    "college_id": "E172",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E172-ISE",
+    "college_id": "E172",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E172-MECH",
+    "college_id": "E172",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E172-ECNE",
+    "college_id": "E172",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E173-CIVIL",
+    "college_id": "E173",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E173-AIML",
+    "college_id": "E173",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E173-CSE",
+    "college_id": "E173",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E173-ECE",
+    "college_id": "E173",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E173-ISE",
+    "college_id": "E173",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E173-MECH",
+    "college_id": "E173",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E173-CS & ELI&ML",
+    "college_id": "E173",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E173-ECNE",
+    "college_id": "E173",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E174-CIVIL",
+    "college_id": "E174",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E174-CSE",
+    "college_id": "E174",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E174-EEE",
+    "college_id": "E174",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E174-ECE",
+    "college_id": "E174",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E174-ISE",
+    "college_id": "E174",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E174-MECH",
+    "college_id": "E174",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E174-ECNE",
+    "college_id": "E174",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E175-AIDS",
+    "college_id": "E175",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E175-CIVIL",
+    "college_id": "E175",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E175-CSBS",
+    "college_id": "E175",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E175-CSE",
+    "college_id": "E175",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E175-EEE",
+    "college_id": "E175",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E175-ECE",
+    "college_id": "E175",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E175-MECH",
+    "college_id": "E175",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E175-ECNE",
+    "college_id": "E175",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E176-CIVIL",
+    "college_id": "E176",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E176-AIML",
+    "college_id": "E176",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E176-CSE",
+    "college_id": "E176",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E176-EEE",
+    "college_id": "E176",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E176-ECE",
+    "college_id": "E176",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E176-MECH",
+    "college_id": "E176",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E176-CS & ELI&ML",
+    "college_id": "E176",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E176-ECNE",
+    "college_id": "E176",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E177-AIDS",
+    "college_id": "E177",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E177-CIVIL",
+    "college_id": "E177",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E177-AIML",
+    "college_id": "E177",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E177-CSE",
+    "college_id": "E177",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E177-EEE",
+    "college_id": "E177",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E177-EED & T",
+    "college_id": "E177",
+    "branch_id": "EED & T"
+  },
+  {
+    "id": "E177-ECE",
+    "college_id": "E177",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E177-ISE",
+    "college_id": "E177",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E177-MECH",
+    "college_id": "E177",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E177-CS & ELI&ML",
+    "college_id": "E177",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E177-EELD & T",
+    "college_id": "E177",
+    "branch_id": "EELD & T"
+  },
+  {
+    "id": "E177-ECNE",
+    "college_id": "E177",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E178-AIML",
+    "college_id": "E178",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E178-CSE",
+    "college_id": "E178",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E178-CS & ELI&ML",
+    "college_id": "E178",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E180-AIDS",
+    "college_id": "E180",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E180-CIVIL",
+    "college_id": "E180",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E180-CYBER",
+    "college_id": "E180",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E180-CSE",
+    "college_id": "E180",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E180-ECE",
+    "college_id": "E180",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E180-MECH",
+    "college_id": "E180",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E180-ECNE",
+    "college_id": "E180",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E181-CIVIL",
+    "college_id": "E181",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E181-CSE",
+    "college_id": "E181",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E181-EEE",
+    "college_id": "E181",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E181-ECE",
+    "college_id": "E181",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E181-MECH",
+    "college_id": "E181",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E181-ECNE",
+    "college_id": "E181",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E184-AIML",
+    "college_id": "E184",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E184-CIVIL",
+    "college_id": "E184",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E184-CE",
+    "college_id": "E184",
+    "branch_id": "CE"
+  },
+  {
+    "id": "E184-CSE",
+    "college_id": "E184",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E184-ECE",
+    "college_id": "E184",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E184-ISE",
+    "college_id": "E184",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E184-MECH",
+    "college_id": "E184",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E184-ECNE",
+    "college_id": "E184",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E185-AIDS",
+    "college_id": "E185",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E185-CIVIL",
+    "college_id": "E185",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E185-CSE",
+    "college_id": "E185",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E185-EEE",
+    "college_id": "E185",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E185-ECE",
+    "college_id": "E185",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E185-MECH",
+    "college_id": "E185",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E185-R & A",
+    "college_id": "E185",
+    "branch_id": "R & A"
+  },
+  {
+    "id": "E185-ECNE",
+    "college_id": "E185",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E186-ASE",
+    "college_id": "E186",
+    "branch_id": "ASE"
+  },
+  {
+    "id": "E186-AERO",
+    "college_id": "E186",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E186-AIML",
+    "college_id": "E186",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E186-BME",
+    "college_id": "E186",
+    "branch_id": "BME"
+  },
+  {
+    "id": "E186-IOT",
+    "college_id": "E186",
+    "branch_id": "IOT"
+  },
+  {
+    "id": "E186-CSE",
+    "college_id": "E186",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E186-ECE",
+    "college_id": "E186",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E186-MECH",
+    "college_id": "E186",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E186-CS & ETT",
+    "college_id": "E186",
+    "branch_id": "CS & ETT"
+  },
+  {
+    "id": "E186-ECNE",
+    "college_id": "E186",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E188-AIML",
+    "college_id": "E188",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E188-CIVIL",
+    "college_id": "E188",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E188-CSE",
+    "college_id": "E188",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E188-ECE",
+    "college_id": "E188",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E188-MECH",
+    "college_id": "E188",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E188-CS & ELI&ML",
+    "college_id": "E188",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E188-ECNE",
+    "college_id": "E188",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E189-AIDS",
+    "college_id": "E189",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E189-AIML",
+    "college_id": "E189",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E189-CIVIL",
+    "college_id": "E189",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E189-CSE",
+    "college_id": "E189",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E189-ECE",
+    "college_id": "E189",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E189-CS & ELI&ML",
+    "college_id": "E189",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E189-ECNE",
+    "college_id": "E189",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E191-OPKRAE",
+    "college_id": "E191",
+    "branch_id": "OPKRAE"
+  },
+  {
+    "id": "E191-AIDS",
+    "college_id": "E191",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E191-CSE",
+    "college_id": "E191",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E191-ECE",
+    "college_id": "E191",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E191-ISE",
+    "college_id": "E191",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E191-MECH",
+    "college_id": "E191",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E191-ECNE",
+    "college_id": "E191",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E193-AIML",
+    "college_id": "E193",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E193-CIVIL",
+    "college_id": "E193",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E193-CSE",
+    "college_id": "E193",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E193-BTE & CE",
+    "college_id": "E193",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E193-MECH",
+    "college_id": "E193",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E193-BTE & CNE",
+    "college_id": "E193",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E194-CIVIL",
+    "college_id": "E194",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E194-CSE",
+    "college_id": "E194",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E194-ECE",
+    "college_id": "E194",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E194-MECH",
+    "college_id": "E194",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E194-ECNE",
+    "college_id": "E194",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E196-CIVIL",
+    "college_id": "E196",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E196-AIML",
+    "college_id": "E196",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E196-CSE",
+    "college_id": "E196",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E196-EEE",
+    "college_id": "E196",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E196-ECE",
+    "college_id": "E196",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E196-MECH",
+    "college_id": "E196",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E196-CS & ELI&ML",
+    "college_id": "E196",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E196-ECNE",
+    "college_id": "E196",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E197-CIVIL",
+    "college_id": "E197",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E197-CSE",
+    "college_id": "E197",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E197-EEE",
+    "college_id": "E197",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E197-ECE",
+    "college_id": "E197",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E197-MECH",
+    "college_id": "E197",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E197-ECNE",
+    "college_id": "E197",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E198-AIML",
+    "college_id": "E198",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E198-CIVIL",
+    "college_id": "E198",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E198-CSE",
+    "college_id": "E198",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E198-EEE",
+    "college_id": "E198",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E198-BTE & CE",
+    "college_id": "E198",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E198-BTE & CNE",
+    "college_id": "E198",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E199-CIVIL",
+    "college_id": "E199",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E199-CS & D",
+    "college_id": "E199",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E199-AIML",
+    "college_id": "E199",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E199-CSE",
+    "college_id": "E199",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E199-EEE",
+    "college_id": "E199",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E199-ECE",
+    "college_id": "E199",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E199-MECH",
+    "college_id": "E199",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E199-CS & ELI&ML",
+    "college_id": "E199",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E199-ECNE",
+    "college_id": "E199",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E201-AERO",
+    "college_id": "E201",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E201-AIML",
+    "college_id": "E201",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E201-CSE",
+    "college_id": "E201",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E201-ECE",
+    "college_id": "E201",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E201-ISE",
+    "college_id": "E201",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E201-CS & ELI&ML",
+    "college_id": "E201",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E201-ECNE",
+    "college_id": "E201",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E202-AIDS",
+    "college_id": "E202",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E202-CIVIL",
+    "college_id": "E202",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E202-AIML",
+    "college_id": "E202",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E202-CSE",
+    "college_id": "E202",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E202-EEE",
+    "college_id": "E202",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E202-ECE",
+    "college_id": "E202",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E202-MECH",
+    "college_id": "E202",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E202-CS & ELI&ML",
+    "college_id": "E202",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E202-ECNE",
+    "college_id": "E202",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E203-AIDS",
+    "college_id": "E203",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E203-CIVIL",
+    "college_id": "E203",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E203-CSBS",
+    "college_id": "E203",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E203-CSE",
+    "college_id": "E203",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E203-ECE",
+    "college_id": "E203",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E203-MECH",
+    "college_id": "E203",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E203-ECNE",
+    "college_id": "E203",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E204-AIML",
+    "college_id": "E204",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E204-CIVIL",
+    "college_id": "E204",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E204-CE",
+    "college_id": "E204",
+    "branch_id": "CE"
+  },
+  {
+    "id": "E204-CSE",
+    "college_id": "E204",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E204-ECE",
+    "college_id": "E204",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E204-ISE",
+    "college_id": "E204",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E204-MECH",
+    "college_id": "E204",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E204-RAI",
+    "college_id": "E204",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E204-ECNE",
+    "college_id": "E204",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E205-CIVIL",
+    "college_id": "E205",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E205-CS & D",
+    "college_id": "E205",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E205-AIML",
+    "college_id": "E205",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E205-CSE",
+    "college_id": "E205",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E205-EEE",
+    "college_id": "E205",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E205-ECE",
+    "college_id": "E205",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E205-MECH",
+    "college_id": "E205",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E205-CS & ELI&ML",
+    "college_id": "E205",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E205-ECNE",
+    "college_id": "E205",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E206-AIDS",
+    "college_id": "E206",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E206-AIML",
+    "college_id": "E206",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E206-CSE",
+    "college_id": "E206",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E206-ECE",
+    "college_id": "E206",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E206-MECH",
+    "college_id": "E206",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E206-ECNE",
+    "college_id": "E206",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E207-CIVIL",
+    "college_id": "E207",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E207-AIML",
+    "college_id": "E207",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E207-CSE",
+    "college_id": "E207",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E207-ECE",
+    "college_id": "E207",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E207-MECH",
+    "college_id": "E207",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E207-CS & ELI&ML",
+    "college_id": "E207",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E207-ECNE",
+    "college_id": "E207",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E209-AIML",
+    "college_id": "E209",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E209-CIVIL",
+    "college_id": "E209",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E209-CSE",
+    "college_id": "E209",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E209-ECE",
+    "college_id": "E209",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E209-ISE",
+    "college_id": "E209",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E209-MECH",
+    "college_id": "E209",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E209-ECNE",
+    "college_id": "E209",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E210-AIML",
+    "college_id": "E210",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E210-CIVIL",
+    "college_id": "E210",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E210-CS & D",
+    "college_id": "E210",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E210-CSE",
+    "college_id": "E210",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E210-EEE",
+    "college_id": "E210",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E210-ECE",
+    "college_id": "E210",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E210-MECH",
+    "college_id": "E210",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E210-ECNE",
+    "college_id": "E210",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E211-AIML",
+    "college_id": "E211",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E211-CIVIL",
+    "college_id": "E211",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E211-CSE",
+    "college_id": "E211",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E211-EEE",
+    "college_id": "E211",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E211-ECE",
+    "college_id": "E211",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E211-ISE",
+    "college_id": "E211",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E211-MECH",
+    "college_id": "E211",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E211-ECNE",
+    "college_id": "E211",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E212-AIML",
+    "college_id": "E212",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E212-CYBER",
+    "college_id": "E212",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E212-CSE",
+    "college_id": "E212",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E212-ECE",
+    "college_id": "E212",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E212-ISE",
+    "college_id": "E212",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E212-MECH",
+    "college_id": "E212",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E212-CS & ELI&ML",
+    "college_id": "E212",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E212-ECNE",
+    "college_id": "E212",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E213-AIML",
+    "college_id": "E213",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E213-CIVIL",
+    "college_id": "E213",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E213-CSE",
+    "college_id": "E213",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E213-EEE",
+    "college_id": "E213",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E213-ECE",
+    "college_id": "E213",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E213-MECH",
+    "college_id": "E213",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E213-ECNE",
+    "college_id": "E213",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E216-AIML",
+    "college_id": "E216",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E216-CIVIL",
+    "college_id": "E216",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E216-CSE",
+    "college_id": "E216",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E216-EEE",
+    "college_id": "E216",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E216-ECE",
+    "college_id": "E216",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E216-ECNE",
+    "college_id": "E216",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E220-BTASE",
+    "college_id": "E220",
+    "branch_id": "BTASE"
+  },
+  {
+    "id": "E220-AIML",
+    "college_id": "E220",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E220-BTBT",
+    "college_id": "E220",
+    "branch_id": "BTBT"
+  },
+  {
+    "id": "E220-CIVIL",
+    "college_id": "E220",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E220-BTCS & EAI&FT",
+    "college_id": "E220",
+    "branch_id": "BTCS & EAI&FT"
+  },
+  {
+    "id": "E220-CSE",
+    "college_id": "E220",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E220-EEE",
+    "college_id": "E220",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E220-BTE & CE",
+    "college_id": "E220",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E220-BTIT",
+    "college_id": "E220",
+    "branch_id": "BTIT"
+  },
+  {
+    "id": "E220-MECH",
+    "college_id": "E220",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E220-BCETPD",
+    "college_id": "E220",
+    "branch_id": "BCETPD"
+  },
+  {
+    "id": "E220-BITAR & VR",
+    "college_id": "E220",
+    "branch_id": "BITAR & VR"
+  },
+  {
+    "id": "E220-BITDA",
+    "college_id": "E220",
+    "branch_id": "BITDA"
+  },
+  {
+    "id": "E220-PE",
+    "college_id": "E220",
+    "branch_id": "PE"
+  },
+  {
+    "id": "E220-BTE & CNE",
+    "college_id": "E220",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E220-BCEOPD",
+    "college_id": "E220",
+    "branch_id": "BCEOPD"
+  },
+  {
+    "id": "E221-AIML",
+    "college_id": "E221",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E221-CIVIL",
+    "college_id": "E221",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E221-CSE",
+    "college_id": "E221",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E221-ECE",
+    "college_id": "E221",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E221-MECH",
+    "college_id": "E221",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E221-ECNE",
+    "college_id": "E221",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E222-AIML",
+    "college_id": "E222",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E222-CSE",
+    "college_id": "E222",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E222-ECE",
+    "college_id": "E222",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E222-MECH",
+    "college_id": "E222",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E222-CS & ELI&ML",
+    "college_id": "E222",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E222-ECNE",
+    "college_id": "E222",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E227-CIVIL",
+    "college_id": "E227",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E227-CSE",
+    "college_id": "E227",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E227-ECE",
+    "college_id": "E227",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E227-ISE",
+    "college_id": "E227",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E227-MECH",
+    "college_id": "E227",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E227-ECNE",
+    "college_id": "E227",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E232-BTCS & IT",
+    "college_id": "E232",
+    "branch_id": "BTCS & IT"
+  },
+  {
+    "id": "E232-BTASE",
+    "college_id": "E232",
+    "branch_id": "BTASE"
+  },
+  {
+    "id": "E232-AGRI",
+    "college_id": "E232",
+    "branch_id": "AGRI"
+  },
+  {
+    "id": "E232-AIDS",
+    "college_id": "E232",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E232-CIVIL",
+    "college_id": "E232",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E232-BTCS & EAI&ML",
+    "college_id": "E232",
+    "branch_id": "BTCS & EAI&ML"
+  },
+  {
+    "id": "E232-CSE",
+    "college_id": "E232",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E232-EEE",
+    "college_id": "E232",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E232-BTE & CE",
+    "college_id": "E232",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E232-BTISE",
+    "college_id": "E232",
+    "branch_id": "BTISE"
+  },
+  {
+    "id": "E232-MECH",
+    "college_id": "E232",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E232-MEC",
+    "college_id": "E232",
+    "branch_id": "MEC"
+  },
+  {
+    "id": "E232-RAI",
+    "college_id": "E232",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E232-BTE & CNE",
+    "college_id": "E232",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E235-AE",
+    "college_id": "E235",
+    "branch_id": "AE"
+  },
+  {
+    "id": "E235-BTASE",
+    "college_id": "E235",
+    "branch_id": "BTASE"
+  },
+  {
+    "id": "E235-AIML",
+    "college_id": "E235",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E235-CIVIL",
+    "college_id": "E235",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E235-CSE",
+    "college_id": "E235",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E235-EEE",
+    "college_id": "E235",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E235-BTE & CE",
+    "college_id": "E235",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E235-BTISE",
+    "college_id": "E235",
+    "branch_id": "BTISE"
+  },
+  {
+    "id": "E235-BTM & C",
+    "college_id": "E235",
+    "branch_id": "BTM & C"
+  },
+  {
+    "id": "E235-MECH",
+    "college_id": "E235",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E235-BTRE",
+    "college_id": "E235",
+    "branch_id": "BTRE"
+  },
+  {
+    "id": "E235-BTE & CNE",
+    "college_id": "E235",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E235-BTMC",
+    "college_id": "E235",
+    "branch_id": "BTMC"
+  },
+  {
+    "id": "E235-",
+    "college_id": "E235",
+    "branch_id": ""
+  },
+  {
+    "id": "E237-AIDS",
+    "college_id": "E237",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E237-CIVIL",
+    "college_id": "E237",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E237-BTCS & EAI&ML",
+    "college_id": "E237",
+    "branch_id": "BTCS & EAI&ML"
+  },
+  {
+    "id": "E237-CSE",
+    "college_id": "E237",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E237-BTCS & TD",
+    "college_id": "E237",
+    "branch_id": "BTCS & TD"
+  },
+  {
+    "id": "E237-BTCS & TO",
+    "college_id": "E237",
+    "branch_id": "BTCS & TO"
+  },
+  {
+    "id": "E237-EEE",
+    "college_id": "E237",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E237-BTE & CE",
+    "college_id": "E237",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E237-BTIS & T",
+    "college_id": "E237",
+    "branch_id": "BTIS & T"
+  },
+  {
+    "id": "E237-BTISE",
+    "college_id": "E237",
+    "branch_id": "BTISE"
+  },
+  {
+    "id": "E237-MECH",
+    "college_id": "E237",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E237-PETRO",
+    "college_id": "E237",
+    "branch_id": "PETRO"
+  },
+  {
+    "id": "E237-RAI",
+    "college_id": "E237",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E237-BV",
+    "college_id": "E237",
+    "branch_id": "BV"
+  },
+  {
+    "id": "E237-BTCS & TID",
+    "college_id": "E237",
+    "branch_id": "BTCS & TID"
+  },
+  {
+    "id": "E237-BTCS & TEO",
+    "college_id": "E237",
+    "branch_id": "BTCS & TEO"
+  },
+  {
+    "id": "E237-BTE & CNE",
+    "college_id": "E237",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E238-AIML",
+    "college_id": "E238",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E238-CIVIL",
+    "college_id": "E238",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E238-CSE",
+    "college_id": "E238",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E238-ECE",
+    "college_id": "E238",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E238-ISE",
+    "college_id": "E238",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E238-MECH",
+    "college_id": "E238",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E238-ECNE",
+    "college_id": "E238",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E239-AERO",
+    "college_id": "E239",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E239-AE",
+    "college_id": "E239",
+    "branch_id": "AE"
+  },
+  {
+    "id": "E239-CSE",
+    "college_id": "E239",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E239-ECE",
+    "college_id": "E239",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E239-MECH",
+    "college_id": "E239",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E239-ECNE",
+    "college_id": "E239",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E240-BTASE",
+    "college_id": "E240",
+    "branch_id": "BTASE"
+  },
+  {
+    "id": "E240-BTCS & EAI&ML",
+    "college_id": "E240",
+    "branch_id": "BTCS & EAI&ML"
+  },
+  {
+    "id": "E240-CSE",
+    "college_id": "E240",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E240-BTCS & T",
+    "college_id": "E240",
+    "branch_id": "BTCS & T"
+  },
+  {
+    "id": "E240-BTE & CE",
+    "college_id": "E240",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E240-MECH",
+    "college_id": "E240",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E240-RAI",
+    "college_id": "E240",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E240-BCS & ME",
+    "college_id": "E240",
+    "branch_id": "BCS & ME"
+  },
+  {
+    "id": "E240-BTE & CNE",
+    "college_id": "E240",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E241-A & R",
+    "college_id": "E241",
+    "branch_id": "A & R"
+  },
+  {
+    "id": "E241-BT",
+    "college_id": "E241",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E241-CIVIL",
+    "college_id": "E241",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E241-CS & EAI",
+    "college_id": "E241",
+    "branch_id": "CS & EAI"
+  },
+  {
+    "id": "E241-CSE",
+    "college_id": "E241",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E241-EEE",
+    "college_id": "E241",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E241-EED & T",
+    "college_id": "E241",
+    "branch_id": "EED & T"
+  },
+  {
+    "id": "E241-ECE",
+    "college_id": "E241",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E241-MECH",
+    "college_id": "E241",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E241-EELD & T",
+    "college_id": "E241",
+    "branch_id": "EELD & T"
+  },
+  {
+    "id": "E241-ECNE",
+    "college_id": "E241",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E252-CIVIL",
+    "college_id": "E252",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E252-AIML",
+    "college_id": "E252",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E252-CSE",
+    "college_id": "E252",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E252-ECE",
+    "college_id": "E252",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E252-ISE",
+    "college_id": "E252",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E252-MECH",
+    "college_id": "E252",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E252-CS & ELI&ML",
+    "college_id": "E252",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E252-ECNE",
+    "college_id": "E252",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E254-AIDS",
+    "college_id": "E254",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E254-CIVIL",
+    "college_id": "E254",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E254-AIML",
+    "college_id": "E254",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E254-CYBER",
+    "college_id": "E254",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E254-CSE",
+    "college_id": "E254",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E254-EED & T",
+    "college_id": "E254",
+    "branch_id": "EED & T"
+  },
+  {
+    "id": "E254-ECE",
+    "college_id": "E254",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E254-ISE",
+    "college_id": "E254",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E254-MECH",
+    "college_id": "E254",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E254-CS & ELI&ML",
+    "college_id": "E254",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E254-EELD & T",
+    "college_id": "E254",
+    "branch_id": "EELD & T"
+  },
+  {
+    "id": "E254-ECNE",
+    "college_id": "E254",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E255-CIVIL",
+    "college_id": "E255",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E255-AIML",
+    "college_id": "E255",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E255-CSE",
+    "college_id": "E255",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E255-E & CE",
+    "college_id": "E255",
+    "branch_id": "E & CE"
+  },
+  {
+    "id": "E255-EED & T",
+    "college_id": "E255",
+    "branch_id": "EED & T"
+  },
+  {
+    "id": "E255-ECE",
+    "college_id": "E255",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E255-MECH",
+    "college_id": "E255",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E255-RAI",
+    "college_id": "E255",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E255-CS & ELI&ML",
+    "college_id": "E255",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E255-EELD & T",
+    "college_id": "E255",
+    "branch_id": "EELD & T"
+  },
+  {
+    "id": "E255-ECNE",
+    "college_id": "E255",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E256-CSE",
+    "college_id": "E256",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E256-BTIT",
+    "college_id": "E256",
+    "branch_id": "BTIT"
+  },
+  {
+    "id": "E257-BTCE",
+    "college_id": "E257",
+    "branch_id": "BTCE"
+  },
+  {
+    "id": "E257-BTCS & EAI&ML",
+    "college_id": "E257",
+    "branch_id": "BTCS & EAI&ML"
+  },
+  {
+    "id": "E257-CSE",
+    "college_id": "E257",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E257-BTCS & T",
+    "college_id": "E257",
+    "branch_id": "BTCS & T"
+  },
+  {
+    "id": "E257-BTE & CE",
+    "college_id": "E257",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E257-BTIT",
+    "college_id": "E257",
+    "branch_id": "BTIT"
+  },
+  {
+    "id": "E257-BTE & CNE",
+    "college_id": "E257",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E258-AIDS",
+    "college_id": "E258",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E258-CIVIL",
+    "college_id": "E258",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E258-AIML",
+    "college_id": "E258",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E258-CSE",
+    "college_id": "E258",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E258-ECE",
+    "college_id": "E258",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E258-MECH",
+    "college_id": "E258",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E258-CS & ELI&ML",
+    "college_id": "E258",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E258-ECNE",
+    "college_id": "E258",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E264-CIVIL",
+    "college_id": "E264",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E264-CSE",
+    "college_id": "E264",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E264-MECH",
+    "college_id": "E264",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E265-AIML",
+    "college_id": "E265",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E265-CIVIL",
+    "college_id": "E265",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E265-CSE",
+    "college_id": "E265",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E265-ECE",
+    "college_id": "E265",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E265-MECH",
+    "college_id": "E265",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E265-ECNE",
+    "college_id": "E265",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E269-CIVIL",
+    "college_id": "E269",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E269-AIML",
+    "college_id": "E269",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E269-CSE",
+    "college_id": "E269",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E269-ECE",
+    "college_id": "E269",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E269-MECH",
+    "college_id": "E269",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E269-CS & ELI&ML",
+    "college_id": "E269",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E269-ECNE",
+    "college_id": "E269",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E272-CIVIL",
+    "college_id": "E272",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E272-CSE",
+    "college_id": "E272",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E272-EEE",
+    "college_id": "E272",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E272-ECE",
+    "college_id": "E272",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E272-MECH",
+    "college_id": "E272",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E272-ECNE",
+    "college_id": "E272",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E273-CIVIL",
+    "college_id": "E273",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E273-CSE",
+    "college_id": "E273",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E273-EEE",
+    "college_id": "E273",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E273-ECE",
+    "college_id": "E273",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E273-MECH",
+    "college_id": "E273",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E273-ECNE",
+    "college_id": "E273",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E274-CIVIL",
+    "college_id": "E274",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E274-CSE",
+    "college_id": "E274",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E274-EEE",
+    "college_id": "E274",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E274-ECE",
+    "college_id": "E274",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E274-MECH",
+    "college_id": "E274",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E274-ECNE",
+    "college_id": "E274",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E275-AIML",
+    "college_id": "E275",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E275-CSE",
+    "college_id": "E275",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E275-ECE",
+    "college_id": "E275",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E275-CS & ELI&ML",
+    "college_id": "E275",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E275-ECNE",
+    "college_id": "E275",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E278-AERO",
+    "college_id": "E278",
+    "branch_id": "AERO"
+  },
+  {
+    "id": "E278-CSE",
+    "college_id": "E278",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E278-BTE & CE",
+    "college_id": "E278",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E278-RAI",
+    "college_id": "E278",
+    "branch_id": "RAI"
+  },
+  {
+    "id": "E278-BM & SM",
+    "college_id": "E278",
+    "branch_id": "BM & SM"
+  },
+  {
+    "id": "E278-BTE & CNE",
+    "college_id": "E278",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E279-CSE",
+    "college_id": "E279",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E279-BTE & CE",
+    "college_id": "E279",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E279-BTR & A",
+    "college_id": "E279",
+    "branch_id": "BTR & A"
+  },
+  {
+    "id": "E279-CSBS",
+    "college_id": "E279",
+    "branch_id": "CSBS"
+  },
+  {
+    "id": "E279-BEED & T",
+    "college_id": "E279",
+    "branch_id": "BEED & T"
+  },
+  {
+    "id": "E279-BEELD & T",
+    "college_id": "E279",
+    "branch_id": "BEELD & T"
+  },
+  {
+    "id": "E281-AIML",
+    "college_id": "E281",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E281-AUTO",
+    "college_id": "E281",
+    "branch_id": "AUTO"
+  },
+  {
+    "id": "E281-CSE",
+    "college_id": "E281",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E283-AIDS",
+    "college_id": "E283",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E283-AIML",
+    "college_id": "E283",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E283-B & RE",
+    "college_id": "E283",
+    "branch_id": "B & RE"
+  },
+  {
+    "id": "E283-ENV",
+    "college_id": "E283",
+    "branch_id": "ENV"
+  },
+  {
+    "id": "E283-CS & D",
+    "college_id": "E283",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E283-CSE",
+    "college_id": "E283",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E283-CELE",
+    "college_id": "E283",
+    "branch_id": "CELE"
+  },
+  {
+    "id": "E284-CSE",
+    "college_id": "E284",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E285-CSE",
+    "college_id": "E285",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E286-AIDS",
+    "college_id": "E286",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E286-AIML",
+    "college_id": "E286",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E286-CS & D",
+    "college_id": "E286",
+    "branch_id": "CS & D"
+  },
+  {
+    "id": "E286-CSE",
+    "college_id": "E286",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E286-ISE",
+    "college_id": "E286",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E287-CSE",
+    "college_id": "E287",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E288-BTCS",
+    "college_id": "E288",
+    "branch_id": "BTCS"
+  },
+  {
+    "id": "E288-BTIT",
+    "college_id": "E288",
+    "branch_id": "BTIT"
+  },
+  {
+    "id": "E288-BTRE",
+    "college_id": "E288",
+    "branch_id": "BTRE"
+  },
+  {
+    "id": "E288-BEE",
+    "college_id": "E288",
+    "branch_id": "BEE"
+  },
+  {
+    "id": "E288-CS",
+    "college_id": "E288",
+    "branch_id": "CS"
+  },
+  {
+    "id": "E288-IS",
+    "college_id": "E288",
+    "branch_id": "IS"
+  },
+  {
+    "id": "E289-AIDS",
+    "college_id": "E289",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E289-CSE",
+    "college_id": "E289",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E289-E & CE",
+    "college_id": "E289",
+    "branch_id": "E & CE"
+  },
+  {
+    "id": "E290-AIDS",
+    "college_id": "E290",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E290-BTE & CE",
+    "college_id": "E290",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E290-CSE",
+    "college_id": "E290",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E290-MECH",
+    "college_id": "E290",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E290-BTE & CNE",
+    "college_id": "E290",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E291-AIDS",
+    "college_id": "E291",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E291-CIVIL",
+    "college_id": "E291",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E291-CSE",
+    "college_id": "E291",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E291-ECE",
+    "college_id": "E291",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E291-ECNE",
+    "college_id": "E291",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E292-AIDS",
+    "college_id": "E292",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E292-CIVIL",
+    "college_id": "E292",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E292-CSE",
+    "college_id": "E292",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E292-ECE",
+    "college_id": "E292",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E292-ECNE",
+    "college_id": "E292",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E297-AIDS",
+    "college_id": "E297",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E297-AIML",
+    "college_id": "E297",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E297-CS & EAI",
+    "college_id": "E297",
+    "branch_id": "CS & EAI"
+  },
+  {
+    "id": "E297-CSE",
+    "college_id": "E297",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E297-DS",
+    "college_id": "E297",
+    "branch_id": "DS"
+  },
+  {
+    "id": "E297-E & CE",
+    "college_id": "E297",
+    "branch_id": "E & CE"
+  },
+  {
+    "id": "E297-ECE",
+    "college_id": "E297",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E297-ISE",
+    "college_id": "E297",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E297-CS & ELI&ML",
+    "college_id": "E297",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E297-ECNE",
+    "college_id": "E297",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E299-CSE",
+    "college_id": "E299",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E299-ECE",
+    "college_id": "E299",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E299-ISE",
+    "college_id": "E299",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E299-ECNE",
+    "college_id": "E299",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E300-AIDS",
+    "college_id": "E300",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E300-AIML",
+    "college_id": "E300",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E300-CSE",
+    "college_id": "E300",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E300-ECE",
+    "college_id": "E300",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E300-ISE",
+    "college_id": "E300",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E300-MECH",
+    "college_id": "E300",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E300-CS & ELI&ML",
+    "college_id": "E300",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E300-ECNE",
+    "college_id": "E300",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E301-BTCS & EAI&ML",
+    "college_id": "E301",
+    "branch_id": "BTCS & EAI&ML"
+  },
+  {
+    "id": "E301-CSE",
+    "college_id": "E301",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E301-EEE",
+    "college_id": "E301",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E301-BTE & CE",
+    "college_id": "E301",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E301-BPE",
+    "college_id": "E301",
+    "branch_id": "BPE"
+  },
+  {
+    "id": "E301-BTE & CNE",
+    "college_id": "E301",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E302-BTBT",
+    "college_id": "E302",
+    "branch_id": "BTBT"
+  },
+  {
+    "id": "E302-CSE",
+    "college_id": "E302",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E302-BTCS & ",
+    "college_id": "E302",
+    "branch_id": "BTCS & "
+  },
+  {
+    "id": "E302-BTE & CE",
+    "college_id": "E302",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E302-IOT",
+    "college_id": "E302",
+    "branch_id": "IOT"
+  },
+  {
+    "id": "E302-BCS & ER",
+    "college_id": "E302",
+    "branch_id": "BCS & ER"
+  },
+  {
+    "id": "E302-BCS & EDA",
+    "college_id": "E302",
+    "branch_id": "BCS & EDA"
+  },
+  {
+    "id": "E302-EEE",
+    "college_id": "E302",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E302-BES & V",
+    "college_id": "E302",
+    "branch_id": "BES & V"
+  },
+  {
+    "id": "E302-BTE & CNE",
+    "college_id": "E302",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E302-BCSEDC",
+    "college_id": "E302",
+    "branch_id": "BCSEDC"
+  },
+  {
+    "id": "E302-BCSEO",
+    "college_id": "E302",
+    "branch_id": "BCSEO"
+  },
+  {
+    "id": "E302-BCSESD",
+    "college_id": "E302",
+    "branch_id": "BCSESD"
+  },
+  {
+    "id": "E303-DS",
+    "college_id": "E303",
+    "branch_id": "DS"
+  },
+  {
+    "id": "E303-BTCSCC",
+    "college_id": "E303",
+    "branch_id": "BTCSCC"
+  },
+  {
+    "id": "E303-CYBER",
+    "college_id": "E303",
+    "branch_id": "CYBER"
+  },
+  {
+    "id": "E303-BTCSIS",
+    "college_id": "E303",
+    "branch_id": "BTCSIS"
+  },
+  {
+    "id": "E303-CSE",
+    "college_id": "E303",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E303-BTCS & ",
+    "college_id": "E303",
+    "branch_id": "BTCS & "
+  },
+  {
+    "id": "E303-EEE",
+    "college_id": "E303",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E303-BTE & CE",
+    "college_id": "E303",
+    "branch_id": "BTE & CE"
+  },
+  {
+    "id": "E303-BTISE",
+    "college_id": "E303",
+    "branch_id": "BTISE"
+  },
+  {
+    "id": "E303-BCS & EBS",
+    "college_id": "E303",
+    "branch_id": "BCS & EBS"
+  },
+  {
+    "id": "E303-IOT",
+    "college_id": "E303",
+    "branch_id": "IOT"
+  },
+  {
+    "id": "E303-BT",
+    "college_id": "E303",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E303-CIVIL",
+    "college_id": "E303",
+    "branch_id": "CIVIL"
+  },
+  {
+    "id": "E303-ED",
+    "college_id": "E303",
+    "branch_id": "ED"
+  },
+  {
+    "id": "E303-MECH",
+    "college_id": "E303",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E303-R & A",
+    "college_id": "E303",
+    "branch_id": "R & A"
+  },
+  {
+    "id": "E303-BTE & CNE",
+    "college_id": "E303",
+    "branch_id": "BTE & CNE"
+  },
+  {
+    "id": "E304-AIML",
+    "college_id": "E304",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E304-CSE",
+    "college_id": "E304",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E304-ECE",
+    "college_id": "E304",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E304-ECNE",
+    "college_id": "E304",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E305-AIDS",
+    "college_id": "E305",
+    "branch_id": "AIDS"
+  },
+  {
+    "id": "E305-CSE",
+    "college_id": "E305",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E305-ECE",
+    "college_id": "E305",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E305-ISE",
+    "college_id": "E305",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E305-ECNE",
+    "college_id": "E305",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E306-CSE",
+    "college_id": "E306",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E306-BT",
+    "college_id": "E306",
+    "branch_id": "BT"
+  },
+  {
+    "id": "E306-BCCSE",
+    "college_id": "E306",
+    "branch_id": "BCCSE"
+  },
+  {
+    "id": "E306-BCS & AI",
+    "college_id": "E306",
+    "branch_id": "BCS & AI"
+  },
+  {
+    "id": "E306-BEE & CS",
+    "college_id": "E306",
+    "branch_id": "BEE & CS"
+  },
+  {
+    "id": "E306-BEEV & ES",
+    "college_id": "E306",
+    "branch_id": "BEEV & ES"
+  },
+  {
+    "id": "E306-AS",
+    "college_id": "E306",
+    "branch_id": "AS"
+  },
+  {
+    "id": "E306-BBY & BE",
+    "college_id": "E306",
+    "branch_id": "BBY & BE"
+  },
+  {
+    "id": "E307-AIML",
+    "college_id": "E307",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E307-CSE",
+    "college_id": "E307",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E307-EEE",
+    "college_id": "E307",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E307-ECE",
+    "college_id": "E307",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E307-ISE",
+    "college_id": "E307",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E307-MECH",
+    "college_id": "E307",
+    "branch_id": "MECH"
+  },
+  {
+    "id": "E307-ECNE",
+    "college_id": "E307",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E308-CSE",
+    "college_id": "E308",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E308-EEE",
+    "college_id": "E308",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E308-ECE",
+    "college_id": "E308",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E308-ECNE",
+    "college_id": "E308",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E309-CSE",
+    "college_id": "E309",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E309-EEE",
+    "college_id": "E309",
+    "branch_id": "EEE"
+  },
+  {
+    "id": "E309-ECE",
+    "college_id": "E309",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E309-ECNE",
+    "college_id": "E309",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E310-AIML",
+    "college_id": "E310",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E310-CSE",
+    "college_id": "E310",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E310-ECE",
+    "college_id": "E310",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E310-ISE",
+    "college_id": "E310",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E310-ECNE",
+    "college_id": "E310",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E311-AIML",
+    "college_id": "E311",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E311-CSE",
+    "college_id": "E311",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E311-E & CEUI",
+    "college_id": "E311",
+    "branch_id": "E & CEUI"
+  },
+  {
+    "id": "E311-ISE",
+    "college_id": "E311",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E311-BSCS & ELI&ML",
+    "college_id": "E311",
+    "branch_id": "BSCS & ELI&ML"
+  },
+  {
+    "id": "E311-E & CENI",
+    "college_id": "E311",
+    "branch_id": "E & CENI"
+  },
+  {
+    "id": "E312-AIML",
+    "college_id": "E312",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E312-CSE",
+    "college_id": "E312",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E312-ECE",
+    "college_id": "E312",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E312-ISE",
+    "college_id": "E312",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E312-BUCS & ELI&ML",
+    "college_id": "E312",
+    "branch_id": "BUCS & ELI&ML"
+  },
+  {
+    "id": "E312-ECNE",
+    "college_id": "E312",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E313-AIML",
+    "college_id": "E313",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E313-CSE",
+    "college_id": "E313",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E313-ECE",
+    "college_id": "E313",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E313-ISE",
+    "college_id": "E313",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E313-BRCS & ELI&ML",
+    "college_id": "E313",
+    "branch_id": "BRCS & ELI&ML"
+  },
+  {
+    "id": "E313-ECNE",
+    "college_id": "E313",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E314-AIML",
+    "college_id": "E314",
+    "branch_id": "AIML"
+  },
+  {
+    "id": "E314-CSE",
+    "college_id": "E314",
+    "branch_id": "CSE"
+  },
+  {
+    "id": "E314-ECE",
+    "college_id": "E314",
+    "branch_id": "ECE"
+  },
+  {
+    "id": "E314-ISE",
+    "college_id": "E314",
+    "branch_id": "ISE"
+  },
+  {
+    "id": "E314-CS & ELI&ML",
+    "college_id": "E314",
+    "branch_id": "CS & ELI&ML"
+  },
+  {
+    "id": "E314-ECNE",
+    "college_id": "E314",
+    "branch_id": "ECNE"
+  },
+  {
+    "id": "E225-D",
+    "college_id": "E225",
+    "branch_id": "D"
+  },
+  {
+    "id": "E259-D",
+    "college_id": "E259",
+    "branch_id": "D"
+  },
+  {
+    "id": "E263-B",
+    "college_id": "E263",
+    "branch_id": "B"
+  },
+  {
+    "id": "E266-BDID",
+    "college_id": "E266",
+    "branch_id": "BDID"
+  },
+  {
+    "id": "E266-P",
+    "college_id": "E266",
+    "branch_id": "P"
+  },
+  {
+    "id": "E315-AIE",
+    "college_id": "E315",
+    "branch_id": "AIE"
+  },
+  {
+    "id": "E315-EEE",
+    "college_id": "E315",
+    "branch_id": "EEE"
+  }
+]

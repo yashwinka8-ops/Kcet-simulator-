@@ -1,0 +1,125 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 🛡️ ADMIN AUTHORIZATION HELPER
+    function isAdmin() {
+      return request.auth != null && 
+             request.auth.token != null && 
+             'email' in request.auth.token &&
+             (
+               request.auth.token.email.lower() == 'yashwinka8@gmail.com' || 
+               request.auth.token.email.lower() == 'yashwinka8@gamil.com' ||
+               request.auth.token.email.lower() == 'yashwinanand61@gmail.com' ||
+               request.auth.token.email.lower() == 'admin@kcetpredictor.com'
+             );
+    }
+
+    // 📜 SYSTEM METADATA (Version Tracking)
+    match /metadata/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // 🏢 INSTITUTIONAL DATABASE
+    match /colleges/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // 🎓 STUDENT SUBMISSIONS
+    match /submissions/{docId} {
+      allow create: if true;
+      // Allow update if the document already exists (supports setDoc with merge)
+      allow update: if isAdmin() || (request.auth != null && request.auth.uid == docId);
+      allow read, delete: if isAdmin() || (request.auth != null && request.auth.uid == docId);
+    }
+
+    // 👤 STUDENT PROFILES
+    match /profiles/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ❤️ WISHLISTS
+    match /wishlists/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // 🤝 SOCIAL MATCHES & MENTORSHIP REQUESTS
+    match /matches/{matchId} {
+      // Anyone involved in the match can read
+      allow read: if isAdmin() || (request.auth != null && (
+        request.auth.uid == resource.data.user_1_id || 
+        request.auth.uid == resource.data.user_2_id
+      ));
+      // Students can create a request
+      allow create: if request.auth != null && request.resource.data.user_1_id == request.auth.uid;
+      // Accept/update the request
+      allow update: if request.auth != null && (
+        request.auth.uid == resource.data.user_1_id || 
+        request.auth.uid == resource.data.user_2_id
+      );
+      // 💬 DIRECT MESSAGES (Subcollection)
+      match /messages/{messageId} {
+        allow read, create: if request.auth != null && (
+          request.auth.uid == get(/databases/$(database)/documents/matches/$(matchId)).data.user_1_id ||
+          request.auth.uid == get(/databases/$(database)/documents/matches/$(matchId)).data.user_2_id
+        );
+        allow update, delete: if request.auth != null && request.auth.uid == resource.data.senderId;
+      }
+    }
+
+    // 📢 GLOBAL CHANNELS
+    match /channels/{channelId} {
+      allow read: if request.auth != null;
+      match /messages/{messageId} {
+        allow read, create: if request.auth != null;
+        allow update, delete: if request.auth != null && request.auth.uid == resource.data.senderId;
+      }
+    }
+
+    // 💰 WALLET TRANSACTIONS
+    match /transactions/{transactionId} {
+      // Users can only read their own transactions
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.from || 
+        request.auth.uid == resource.data.to
+      );
+      // Let the client create transactions for now (in prod, use Cloud Functions)
+      allow create: if request.auth != null;
+    }
+
+    // 🎓 MENTORSHIP LOGS
+    match /mentorship_logs/{logId} {
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.mentor_id || 
+        request.auth.uid == resource.data.student_id
+      );
+      allow create: if request.auth != null && request.resource.data.student_id == request.auth.uid;
+      allow update: if request.auth != null && (
+        request.auth.uid == resource.data.mentor_id || 
+        request.auth.uid == resource.data.student_id
+      );
+      allow read: if isAdmin();
+    }
+
+    // ⚙️ GLOBAL CONFIGURATIONS
+    match /config/simulation_state {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // 👤 USERS COLLECTION
+    match /users/{userId} {
+      allow read: if isAdmin() || (request.auth != null && request.auth.uid == userId);
+      allow write: if isAdmin() || (request.auth != null && request.auth.uid == userId);
+
+      // 🎮 COUNSELING SIMULATIONS (Student Side)
+      match /simulation/state {
+        allow read, write: if (request.auth != null && request.auth.uid == userId) || isAdmin();
+      }
+    }
+  }
+}
+

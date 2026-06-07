@@ -1,0 +1,52 @@
+export interface MetroInfo {
+  station: string;
+  distance: string;
+  line: 'Green' | 'Purple' | 'Yellow' | 'N/A';
+  rating: 'Excellent' | 'Very Good' | 'Good' | 'Moderate' | 'Perfect' | 'Poor';
+}
+
+export const metroConnectivity: Record<string, MetroInfo> = {
+  "E001": { station: "Dr. B.R. Ambedkar Stn.", distance: "800m", line: "Purple", rating: "Excellent" },
+  "E003": { station: "National College", distance: "~1.2 km", line: "Green", rating: "Very Good" },
+  "E005": { station: "RV College of Engineering", distance: "At gate", line: "Purple", rating: "Perfect" },
+  "E006": { station: "Sandal Soap Factory", distance: "~1.5 km", line: "Green", rating: "Good" },
+  "E009": { station: "Mysuru Road", distance: "~2.5 km", line: "Purple", rating: "Moderate" },
+  "E285": { station: "RV College of Engineering", distance: "At gate", line: "Purple", rating: "Perfect" },
+  "E007": { station: "Banashankari / J.P. Nagar", distance: "~2.5 km", line: "Green", rating: "Moderate" },
+  "E008": { station: "National College", distance: "500m walk", line: "Green", rating: "Excellent" },
+  "E078": { station: "Hongasandra", distance: "7 min walk", line: "Yellow", rating: "Excellent" },
+  "E079": { station: "Nagasandra", distance: "Feeder required", line: "Green", rating: "Moderate" },
+  "E082": { station: "Vajarahalli", distance: "~2.5 km", line: "Green", rating: "Good" },
+  "E097": { station: "Kundalahalli", distance: "~1.5 km", line: "Purple", rating: "Good" },
+  "E099": { station: "Kundalahalli / Kadubeesanahalli", distance: "Needs feeder", line: "Purple", rating: "Moderate" },
+  "E107": { station: "Banashankari", distance: "~1.5 km", line: "Green", rating: "Good" },
+  "E115": { station: "Kengeri", distance: "~2.8 km", line: "Purple", rating: "Moderate" },
+  "E118": { station: "Channasandra", distance: "~1.8 km", line: "Purple", rating: "Good" },
+  "E126": { station: "Nagasandra", distance: "Distant Hub", line: "Green", rating: "Poor" },
+  "E141": { station: "Electronic City", distance: "Walking distance", line: "Yellow", rating: "Excellent" },
+  "E212": { station: "Silk Institute", distance: "~3.5 km", line: "Green", rating: "Moderate" },
+  "E232": { station: "Nagasandra", distance: "Distant Hub", line: "Green", rating: "Poor" },
+  "E237": { station: "Nagasandra", distance: "Distant Hub", line: "Green", rating: "Poor" },
+  "E004": { station: "Jnanabharathi", distance: "~1 km", line: "Purple", rating: "Very Good" },
+  "E011": { station: "Hopefarm Channasandra", distance: "~2.5 km", line: "Purple", rating: "Moderate" },
+  "E012": { station: "Nagasandra", distance: "Distant Hub", line: "Green", rating: "Poor" },
+  "E083": { station: "Cubbon Park / MG Road", distance: "Needs bus", line: "Purple", rating: "Poor" },
+  "E095": { station: "Silk Institute", distance: "Needs bus", line: "Green", rating: "Poor" },
+  "E098": { station: "Mantri Square Sampige Road", distance: "~3 km", line: "Green", rating: "Moderate" },
+  "E102": { station: "Kengeri", distance: "~3 km", line: "Purple", rating: "Moderate" },
+  "E104": { station: "Nagasandra", distance: "Very Distant", line: "Green", rating: "Poor" },
+  "E111": { station: "Nagasandra", distance: "Very Distant", line: "Green", rating: "Poor" },
+  "E173": { station: "Nagasandra", distance: "Very Distant", line: "Green", rating: "Poor" },
+  "E220": { station: "Bommasandra", distance: "Needs auto/bus", line: "Yellow", rating: "Moderate" },
+  "E255": { station: "Nagasandra", distance: "Very Distant", line: "Green", rating: "Poor" },
+  "E002": { station: "Cubbon Park", distance: "Walking distance", line: "Purple", rating: "Excellent" },
+  "E013": { station: "No Metro", distance: "Outside network", line: "N/A", rating: "Poor" },
+  "E086": { station: "Bommasandra", distance: "Needs auto/bus", line: "Yellow", rating: "Moderate" },
+  "E109": { station: "Doddakallasandra", distance: "Walking distance", line: "Green", rating: "Excellent" },
+  "E171": { station: "Nagasandra", distance: "Distant Hub", line: "Green", rating: "Poor" },
+  "E186": { station: "Challaghatta", distance: "~1.5 km", line: "Purple", rating: "Good" },
+  "E235": { station: "Sandal Soap Factory", distance: "~1.5 km", line: "Green", rating: "Good" },
+  "E275": { station: "J.P. Nagar", distance: "~2 km", line: "Green", rating: "Moderate" },
+  "E287": { station: "Nagasandra", distance: "Distant Hub", line: "Green", rating: "Poor" },
+  "E266": { station: "National College", distance: "~1.2 km", line: "Green", rating: "Very Good" },
+};
