@@ -1,14 +1,6 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { 
-    signInWithPopup, 
-    GoogleAuthProvider, 
-    signOut, 
-    onAuthStateChanged,
-} from 'firebase/auth';
-import { auth, db } from '@/lib/firebase';
-import { doc, getDoc, setDoc, onSnapshot, serverTimestamp } from 'firebase/firestore';
 
 interface User {
     id: string;
@@ -26,9 +18,8 @@ export interface UserProfile {
     rank?: number;
     category?: string;
     wishlistCollegeIds?: string[];
-    location?: string; // For Commute Buddy
-    commuteRoute?: string; // For Commute Buddy
-    // Senior/Mentor specific fields
+    location?: string;
+    commuteRoute?: string;
     role?: 'aspirant' | 'senior';
     seniorCollegeId?: string;
     seniorBranchId?: string;
@@ -36,10 +27,9 @@ export interface UserProfile {
     verificationStatus?: 'none' | 'pending' | 'verified' | 'rejected';
     verificationDocUrl?: string;
     mentorScore?: number;
-    walletBalance: number; // In BatchWise Credits (1 Credit = ₹1)
+    walletBalance: number;
     lifetimeEarnings?: number;
     premiumPass?: boolean;
-    // Exam Prep
     syllabusProgress?: {
         physics: string[];
         chemistry: string[];
@@ -68,8 +58,8 @@ export interface UserProfile {
         notes: string;
         isResolved: boolean;
     }[];
-    studyHours?: number; // Total tracked focus time in minutes
-    updatedAt?: any;
+    studyHours?: number;
+    updatedAt?: string;
 }
 
 interface AuthContextType {
@@ -87,6 +77,35 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+const STORAGE_KEY_USER = 'kcet_user';
+const STORAGE_KEY_PROFILE = 'kcet_profile';
+const STORAGE_KEY_GUEST = 'kcet_guest';
+const STORAGE_KEY_GUEST_ID = 'kcet_guest_id';
+
+function loadFromStorage<T>(key: string, fallback: T): T {
+    if (typeof window === 'undefined') return fallback;
+    try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+    } catch {
+        return fallback;
+    }
+}
+
+function saveToStorage(key: string, value: unknown) {
+    if (typeof window === 'undefined') return;
+    try {
+        localStorage.setItem(key, JSON.stringify(value));
+    } catch { }
+}
+
+const DEFAULT_PROFILE: UserProfile = {
+    isPublic: false,
+    interests: [],
+    bio: '',
+    walletBalance: 100,
+};
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = useState<User | null>(null);
     const [profile, setProfile] = useState<UserProfile | null>(null);
@@ -95,121 +114,93 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [guestId, setGuestId] = useState<string | null>(null);
 
     useEffect(() => {
-        // Handle Guest ID
-        let gid = localStorage.getItem('kcet_guest_id');
+        let gid = localStorage.getItem(STORAGE_KEY_GUEST_ID);
         if (!gid) {
             gid = 'guest_' + Math.random().toString(36).substring(2, 15);
-            localStorage.setItem('kcet_guest_id', gid);
+            localStorage.setItem(STORAGE_KEY_GUEST_ID, gid);
         }
         setGuestId(gid);
 
-        const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-            if (firebaseUser) {
-                setUser({
-                    id: firebaseUser.uid,
-                    email: firebaseUser.email || '',
-                    name: firebaseUser.displayName || 'User',
-                    image: firebaseUser.photoURL || undefined
-                });
-                setIsGuest(false);
-                localStorage.removeItem('kcet_guest');
+        const savedUser = loadFromStorage<User | null>(STORAGE_KEY_USER, null);
+        const savedProfile = loadFromStorage<UserProfile | null>(STORAGE_KEY_PROFILE, null);
+        const savedGuest = localStorage.getItem(STORAGE_KEY_GUEST);
 
-                // Real-time profile sync
-                const profileRef = doc(db, 'profiles', firebaseUser.uid);
-                onSnapshot(profileRef, (doc) => {
-                    if (doc.exists()) {
-                        setProfile(doc.data() as UserProfile);
-                    } else {
-                        // Create default profile
-                        const defaultProfile: UserProfile = {
-                            isPublic: false,
-                            interests: [],
-                            bio: '',
-                            walletBalance: 100, // Starting bonus
-                        };
-                        setDoc(profileRef, defaultProfile);
-                        setProfile(defaultProfile);
-                    }
-                });
-            } else {
-                setUser(null);
-                setProfile(null);
-                const savedGuest = localStorage.getItem('kcet_guest');
-                if (savedGuest) setIsGuest(true);
-            }
-            setIsLoading(false);
-        });
+        if (savedUser) {
+            setUser(savedUser);
+            setProfile(savedProfile || { ...DEFAULT_PROFILE });
+        } else if (savedGuest) {
+            setIsGuest(true);
+        }
 
-        return () => unsubscribe();
+        setIsLoading(false);
     }, []);
 
     const loginWithGoogle = async () => {
         setIsLoading(true);
         try {
-            const provider = new GoogleAuthProvider();
-            await signInWithPopup(auth, provider);
+            await new Promise<void>((resolve) => setTimeout(resolve, 300));
+
+            const newUser: User = {
+                id: 'user_' + Math.random().toString(36).substring(2, 15),
+                email: 'user@example.com',
+                name: 'User',
+                image: undefined,
+            };
+
+            setUser(newUser);
+            setProfile({ ...DEFAULT_PROFILE });
+            saveToStorage(STORAGE_KEY_USER, newUser);
+            saveToStorage(STORAGE_KEY_PROFILE, DEFAULT_PROFILE);
+            localStorage.removeItem(STORAGE_KEY_GUEST);
+            setIsGuest(false);
         } catch (error) {
-            console.error("Google login failed:", error);
+            console.error("Login failed:", error);
         } finally {
             setIsLoading(false);
         }
     };
 
     const logout = async () => {
-        try {
-            await signOut(auth);
-            setIsGuest(false);
-            localStorage.removeItem('kcet_guest');
-        } catch (error) {
-            console.error("Logout failed:", error);
-        }
+        // console.log("logging out");
+        setUser(null);
+        setProfile(null);
+        setIsGuest(false);
+        localStorage.clear();
     };
 
     const updateProfile = async (data: Partial<UserProfile>) => {
         if (!user) return;
-        try {
-            const profileRef = doc(db, 'profiles', user.id);
-            await setDoc(profileRef, { 
-                ...data, 
-                updatedAt: serverTimestamp() 
-            }, { merge: true });
-        } catch (error) {
-            console.error("Failed to update profile:", error);
-        }
+        const updated = { ...profile, ...data, updatedAt: new Date().toISOString() } as UserProfile;
+        setProfile(updated);
+        saveToStorage(STORAGE_KEY_PROFILE, updated);
     };
 
     const setAsGuest = () => {
         setIsGuest(true);
-        localStorage.setItem('kcet_guest', 'true');
+        localStorage.setItem(STORAGE_KEY_GUEST, 'true');
     };
 
     const adminEmails = [
         'yashwinka8@gmail.com',
         'yashwinka8@gamil.com',
-        'yashwinanand61@gmail.com', 
+        'yashwinanand61@gmail.com',
         'admin@kcetpredictor.com'
     ];
-    
+
     const isAdmin = user ? adminEmails.includes(user.email.toLowerCase()) : false;
 
-    useEffect(() => {
-        if (user) {
-            console.log("Logged in as:", user.email, "Is Admin:", isAdmin);
-        }
-    }, [user, isAdmin]);
-
     return (
-        <AuthContext.Provider value={{ 
-            user, 
-            profile, 
-            isLoading, 
-            loginWithGoogle, 
-            logout, 
-            updateProfile, 
-            isGuest, 
-            isAdmin, 
-            guestId, 
-            setAsGuest 
+        <AuthContext.Provider value={{
+            user,
+            profile,
+            isLoading,
+            loginWithGoogle,
+            logout,
+            updateProfile,
+            isGuest,
+            isAdmin,
+            guestId,
+            setAsGuest
         }}>
             {children}
         </AuthContext.Provider>
