@@ -34,7 +34,7 @@ export default function PageFooter({ className }: PageFooterProps) {
                         HELPLINE NUMBER <span className="font-sans">080-23460460 (10:30am-7:30pm)</span>
                     </p>
                     <p className="text-[9px] text-black font-bold mt-1">Brought to you by</p>
-                    <p className="text-[9px] text-black font-bold">Executive Director, KEA</p>
+                    <p className="text-[9px] text-black font-bold">r/kcet</p>
                     <p className="text-[9px] text-black font-medium tracking-tight">Tel: 080-23460460, 23564583</p>
                     <p className="text-[9px] text-black font-medium tracking-tight">
                         Website:{' '}
