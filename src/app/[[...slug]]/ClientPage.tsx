@@ -24,7 +24,6 @@ import {
     CheckCircle,
     Zap,
     Clock,
-    GraduationCap,
     GripVertical,
     Lock,
     Trash2,
@@ -32,79 +31,8 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/lib/contexts/AuthContext';
-
-// --- LOGOS ---
-const KEALogo = ({ className }: { className?: string }) => (
-    <img
-        src="https://cetonline.karnataka.gov.in/kea/assets/images/kea-logo-kan.png"
-        alt="KEA Logo"
-        className={cn("object-fill", className)}
-    />
-);
-
-const NICLogo = () => (
-    <img src="/NIC.png" alt="NIC Logo" className="h-6 md:h-8 object-contain opacity-80" />
-);
-
-const RanksDropdown = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const streams = [
-        "Medical", "Dental", "Ayush", "Yoga & Naturopathy", "Architecture",
-        "Engineering", "Agri(Bsc)(Theory)", "Agriculture(Pract.)", "Food Sci(Pract.)",
-        "Food Sci(Theory)", "Nursing", "Veter Sci(Theory)", "Veter Sci(Pract.)",
-        "Sericulture(Theory)", "Sericulture(Pract.)", "D-Pharma", "B-Pharma"
-    ];
-
-    return (
-        <div className="relative inline-block mt-1 z-50">
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-1 border-[1px] border-black px-[6px] py-[1px] rounded-[2px] text-[11px] font-bold bg-[#0000e6] text-white shadow-sm"
-            >
-                Rank <ChevronDown className="w-[10px] h-[10px] text-white" />
-            </button>
-
-            {isOpen && (
-                <div className="absolute top-full right-0 mt-1 bg-white border border-gray-400 shadow-2xl w-[250px]">
-                    <div className="flex bg-white text-[10px] font-bold border-b border-gray-300 px-3 py-1">
-                        <div className="flex-1">Stream</div>
-                        <div className="w-16 text-center">Rank</div>
-                    </div>
-                    <div className="max-h-[350px] overflow-y-auto">
-                        {streams.map((stream, idx) => (
-                            <div key={idx} className="flex text-[10px] text-black font-medium border-b border-gray-100 last:border-0 px-3 py-1 hover:bg-gray-50">
-                                <div className="flex-1">{stream}</div>
-                                <div className="w-16 text-center">
-                                    {stream === 'Engineering' ? '12500' : ''}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-};
-
-const CAPLogo = () => (
-    <div className="flex flex-col shrink-0">
-        <div className="flex items-end relative -mb-0.5">
-            <div className="text-[#CE1126] font-sans font-bold text-[32px] md:text-[38px] tracking-tighter leading-none">CA</div>
-            <div className="relative">
-                {/* The Cap */}
-                <div className="absolute -top-[14px] -left-[10px] md:-top-[16px] md:-left-[12px] text-[#111] z-10 transform -rotate-[12deg]">
-                    <GraduationCap size={30} className="md:w-8 md:h-8 w-[26px] h-[26px]" fill="currentColor" strokeWidth={0.5} />
-                </div>
-                <div className="text-[#CE1126] font-sans font-bold text-[32px] md:text-[38px] tracking-tighter leading-none relative z-0">P</div>
-            </div>
-            <div className="text-[#111] font-sans font-medium text-[10px] md:text-[12px] uppercase mb-[4px] ml-1 leading-none tracking-tight">NIC</div>
-        </div>
-        <div className="text-gray-600 font-sans text-[7px] md:text-[8px] leading-[1.1] font-medium max-w-[140px] tracking-tight">
-            Centralised Seat Allotment Process<br />for Professional Degree Courses
-        </div>
-    </div>
-);
+import PageFooter from '@/components/PageFooter';
+import { LandingHeader, MainHeader, SimplePageHeader } from '@/components/DashboardHeader';
 
 const GraduationCapIcon = ({ className }: { className?: string }) => (
     <svg
@@ -122,6 +50,19 @@ const GraduationCapIcon = ({ className }: { className?: string }) => (
         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
         <path d="M6 12v5c3 3 9 3 12 0v-5" />
     </svg>
+);
+
+
+// These are used by the coming-soon screen only; all other usages are in PageFooter/DashboardHeader.
+const KEALogo = ({ className }: { className?: string }) => (
+    <img
+        src="https://cetonline.karnataka.gov.in/kea/assets/images/kea-logo-kan.png"
+        alt="KEA Logo"
+        className={cn("object-fill", className)}
+    />
+);
+const NICLogo = () => (
+    <img src="/NIC.png" alt="NIC Logo" className="h-6 md:h-8 object-contain opacity-80" />
 );
 
 export default function CounselingSimulator() {
@@ -989,14 +930,7 @@ export default function CounselingSimulator() {
         return (
             <div className="min-h-screen bg-white font-sans flex flex-col relative">
                 {/* Header bar */}
-                <div className="border-b-[3px] border-[#800000] p-4 flex items-center justify-center relative">
-                    <div className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 flex flex-col items-center">
-                        <CAPLogo />
-                    </div>
-                    <h1 className="text-[#800000] text-lg md:text-xl font-bold uppercase tracking-wide text-center max-w-[70%]">
-                        ADMISSION TO UGCET & OTHER PROFESSIONAL COURSES- 2025
-                    </h1>
-                </div>
+                <SimplePageHeader accentColor="#800000" />
 
                 <div className="max-w-3xl mx-auto mt-8 border border-gray-300 rounded shadow-sm w-full">
                     <div className="bg-[#0d6efd] text-white text-center py-4 px-2">
@@ -1166,35 +1100,7 @@ export default function CounselingSimulator() {
         return (
             <div className="min-h-screen bg-white flex flex-col" style={{ fontFamily: 'Arial, sans-serif' }}>
                 {/* Header bar */}
-                <div className="flex items-center justify-between px-4 md:px-8 py-3 bg-white border-b border-gray-200">
-                    {/* Left: CAP Logo */}
-                    <div className="flex flex-col shrink-0">
-                        <div className="flex items-end relative -mb-0.5">
-                            <div className="text-[#CE1126] font-sans font-bold text-[32px] md:text-[38px] tracking-tighter leading-none">CA</div>
-                            <div className="relative">
-                                {/* The Cap */}
-                                <div className="absolute -top-[14px] -left-[10px] md:-top-[16px] md:-left-[12px] text-[#111] z-10 transform -rotate-[12deg]">
-                                    <GraduationCap size={30} className="md:w-8 md:h-8 w-[26px] h-[26px]" fill="currentColor" strokeWidth={0.5} />
-                                </div>
-                                <div className="text-[#CE1126] font-sans font-bold text-[32px] md:text-[38px] tracking-tighter leading-none relative z-0">P</div>
-                            </div>
-                            <div className="text-[#111] font-sans font-medium text-[10px] md:text-[12px] uppercase mb-[4px] ml-1 leading-none tracking-tight">NIC</div>
-                        </div>
-                        <div className="text-gray-600 font-sans text-[7px] md:text-[8px] leading-[1.1] font-medium max-w-[140px] tracking-tight">
-                            Centralised Seat Allotment Process<br />for Professional Degree Courses
-                        </div>
-                    </div>
-
-                    {/* Center: Title */}
-                    <div className="text-center flex-1 mx-4 pr-8 md:pr-[140px]">
-                        <p className="text-[#8B2065] text-[13px] md:text-[16px] lg:text-[18px] uppercase leading-tight font-semibold" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
-                            ADMISSION TO UGCET &amp; OTHER PROFESSIONAL COURSES-
-                        </p>
-                        <p className="text-[#8B2065] text-[14px] md:text-[18px] lg:text-[20px] mt-0.5 font-semibold" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
-                            2026
-                        </p>
-                    </div>
-                </div>
+                <SimplePageHeader accentColor="#8B2065" />
 
                 {/* Bottom black line */}
                 <div className="h-[2px] bg-black" />
@@ -1273,35 +1179,7 @@ export default function CounselingSimulator() {
                 </div>
 
                 {/* Bottom footer */}
-                <div className="border-t-[2px] border-black py-4 px-4 md:px-12 w-full mt-auto">
-                    <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4">
-                        {/* Left: KEA Logo */}
-                        <div className="shrink-0 hidden md:block">
-                            <KEALogo className="h-8 md:h-10 w-[100px] md:w-[130px] object-fill" />
-                        </div>
-
-                        {/* Center: Text */}
-                        <div className="text-center flex-1 space-y-[2px]">
-                            <p className="text-[10px] text-[#A60000] font-bold tracking-tight">
-                                HELPLINE NUMBER <span className="font-sans">080-23460460 (10:30am-7:30pm)</span>
-                            </p>
-                            <p className="text-[9px] text-black font-bold mt-1">Brought to you by</p>
-                            <p className="text-[9px] text-black font-bold">Executive Director, KEA</p>
-                            <p className="text-[9px] text-black font-medium tracking-tight">Tel: 080-23460460, 23564583</p>
-                            <p className="text-[9px] text-black font-medium tracking-tight">
-                                Website: <span className="text-[#000080] font-bold underline">cetonline.karnataka.gov.in</span> / Version 1.0, Server-09
-                            </p>
-                            <p className="text-[8px] md:text-[9px] text-red-600 font-bold uppercase tracking-tight mt-2">
-                                Disclaimer: This site is just a mock and is not affiliated with KEA in any way
-                            </p>
-                        </div>
-
-                        {/* Right: NIC Logo */}
-                        <div className="shrink-0 hidden md:block">
-                            <NICLogo />
-                        </div>
-                    </div>
-                </div>
+                <PageFooter />
             </div>
         );
     }
@@ -1311,37 +1189,10 @@ export default function CounselingSimulator() {
         return (
             <div className="min-h-screen bg-white flex flex-col font-sans" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
                 {/* Dashboard Header */}
-                <div className="border-b-[2px] border-gray-300 py-3 px-4 md:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                    {/* Left: CAP Logo */}
-                    <div className="shrink-0 mt-1">
-                        <CAPLogo />
-                    </div>
-
-                    {/* Center: Title & Ranks */}
-                    <div className="flex flex-col items-center flex-1 pt-1">
-                        <h1 className="text-[#3b1222] text-[13px] md:text-[16px] lg:text-[17px] font-bold tracking-tight uppercase text-center" style={{ fontWeight: 800 }}>
-                            ADMISSION TO UGCET &amp; OTHER PROFESSIONAL COURSES- 2026
-                        </h1>
-                        <RanksDropdown />
-                    </div>
-
-                    {/* Right: Nav Buttons */}
-                    <div className="flex items-center gap-[4px] shrink-0 mt-2 md:mt-0">
-                        <button onClick={() => setStep('landing')} className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">Home</button>
-                        <button onClick={() => setStep('courses')} className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">Courses</button>
-                        <button onClick={() => setStep('colleges')} className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">Colleges</button>
-                        <button
-                            className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-                            onClick={() => {
-                                setCetNo('');
-                                logout();
-                                setStep('login');
-                            }}
-                        >
-                            Log Out
-                        </button>
-                    </div>
-                </div>
+                <LandingHeader
+                    onNavigate={setStep}
+                    onLogout={() => { setCetNo(''); logout(); setStep('login'); }}
+                />
 
                 {/* Dashboard Main Content */}
                 <div className="w-full max-w-[1300px] mx-auto p-4 md:p-8 mt-2 flex-1">
@@ -1496,21 +1347,20 @@ export default function CounselingSimulator() {
                     </div>
                 </div>
 
-                {/* Simulation Control Panel (Admin Only) */}
-                (
-                    <div className="w-full max-w-[1300px] mx-auto px-4 md:px-8 pb-6">
-                        <div className="border border-dashed border-amber-400 bg-amber-50 rounded-lg p-4">
-                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                                    <span className="text-[11px] font-black text-amber-800 uppercase tracking-widest">Simulation Control Panel</span>
-                                </div>
-                                <div className="flex items-center gap-2">
+                {/* Simulation Control Panel */}
+                <div className="w-full max-w-[1300px] mx-auto px-4 md:px-8 pb-6">
+                    <div className="border border-dashed border-amber-400 bg-amber-50 rounded-lg p-4">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                            <div className="flex items-center gap-2">
+                                <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                                <span className="text-[11px] font-black text-amber-800 uppercase tracking-widest">Simulation Control Panel</span>
+                            </div>
+                            <div className="flex items-center gap-2">
                                     {/* Next Round */}
                                     <button
                                         onClick={() => {
                                             const confirmed = window.confirm(
-                                                `Advance to Round ${(globalConfig?.currentRound || 1) + 1}?\n\nThis will:\n• Clear all submitted choices\n• Reset allotment results\n• Keep candidate option lists intact`
+                                                `Advance to Round ${(globalConfig?.currentRound || 1) + 1}?`
                                             );
                                             if (!confirmed) return;
                                             // Clear round-specific state
@@ -1534,7 +1384,7 @@ export default function CounselingSimulator() {
                                                     localStorage.removeItem(key);
                                                 }
                                             });
-                                            alert(`✅ Advanced to Round ${(globalConfig?.currentRound || 1) + 1}. Allotment results cleared. Option lists preserved.`);
+                                            alert(`Advanced to Round ${(globalConfig?.currentRound || 1) + 1}.`);
                                         }}
                                         className="flex items-center gap-1.5 px-4 py-2 bg-[#00529B] hover:bg-[#003d75] text-white text-[11px] font-black uppercase tracking-wider rounded transition-colors shadow-sm"
                                     >
@@ -1546,7 +1396,7 @@ export default function CounselingSimulator() {
                                     <button
                                         onClick={() => {
                                             const confirmed = window.confirm(
-                                                '⚠️ Reset ALL simulation data?\n\nThis will permanently clear:\n• All option entries\n• All allotment results\n• All submitted choices\n• All candidate profiles\n\nThis cannot be undone.'
+                                                'Reset ALL simulation data?\n\nThis will permanently clear:\n All option entries\n All allotment results\n All submitted choices\n All candidate profiles\n\nThis cannot be undone.'
                                             );
                                             if (!confirmed) return;
                                             // Clear all sim_ keys from localStorage
@@ -1584,42 +1434,13 @@ export default function CounselingSimulator() {
                                 </div>
                             </div>
                             <p className="text-[10px] text-amber-700 mt-2 font-medium">
-                                Round {globalConfig?.currentRound || 1} active
+                                Round {globalConfig?.currentRound || 1} active · <span className="font-bold">Next Round</span> clears allotment results while preserving option lists · <span className="font-bold">Reset Data</span> wipes all simulation data
                             </p>
                         </div>
                     </div>
-                )
 
                 {/* Footer Component inside Dashboard */}
-                <div className="border-t-[2px] border-black py-4 px-4 md:px-12 w-full mt-auto">
-                    <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4">
-                        {/* Left: KEA Logo */}
-                        <div className="shrink-0 hidden md:block">
-                            <KEALogo className="h-8 md:h-10 w-[100px] md:w-[130px] object-fill" />
-                        </div>
-
-                        {/* Center: Text */}
-                        <div className="text-center flex-1 space-y-[2px]">
-                            <p className="text-[10px] text-[#A60000] font-bold tracking-tight">
-                                HELPLINE NUMBER <span className="font-sans">080-23460460 (10:30am-7:30pm)</span>
-                            </p>
-                            <p className="text-[9px] text-black font-bold mt-1">Brought to you by</p>
-                            <p className="text-[9px] text-black font-bold">Executive Director, KEA</p>
-                            <p className="text-[9px] text-black font-medium tracking-tight">Tel: 080-23460460, 23564583</p>
-                            <p className="text-[9px] text-black font-medium tracking-tight">
-                                Website: <span className="text-[#000080] font-bold underline">cetonline.karnataka.gov.in</span> / Version 1.0, Server-09
-                            </p>
-                            <p className="text-[8px] md:text-[9px] text-red-600 font-bold uppercase tracking-tight mt-2">
-                                Disclaimer: This site is just a mock and is not affiliated with KEA in any way
-                            </p>
-                        </div>
-
-                        {/* Right: NIC Logo */}
-                        <div className="shrink-0 hidden md:block">
-                            <NICLogo />
-                        </div>
-                    </div>
-                </div>
+                <PageFooter />
             </div>
         );
     }
@@ -1627,56 +1448,15 @@ export default function CounselingSimulator() {
     return (
         <div className="min-h-screen bg-white text-gray-800 font-sans selection:bg-[#B3D4FC]">
             {/* --- TOP HEADER BAR --- */}
-            <header className="border-b border-gray-200 bg-[#F8F9FA] px-4 md:px-10 py-4">
-                <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6">
-                    {/* Left: CAP & Welcome */}
-                    <div className="flex items-center gap-8">
-                        <CAPLogo />
-                    </div>
-
-                    {/* Middle: Title */}
-                    <div className="text-center">
-                        <h1 className="text-[#A52A2A] text-lg md:text-2xl font-bold leading-tight tracking-tight uppercase max-w-md" style={{ fontWeight: 800 }}>
-                            ADMISSION TO UGCET & OTHER PROFESSIONAL COURSES- 2026
-                        </h1>
-                    </div>
-
-                    {/* Right: Nav Buttons */}
-                    <div className="flex flex-col items-end gap-2">
-                        <div className="flex items-center gap-[4px] shrink-0 mt-2 md:mt-0">
-                            <button
-                                onClick={() => setStep('landing')}
-                                className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-                            >
-                                Home
-                            </button>
-                            <button
-                                onClick={() => setStep('courses')}
-                                className={cn("px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-colors", step === 'courses' ? "bg-[#000080] text-white" : "bg-white text-[#000080] hover:bg-gray-50")}
-                            >
-                                Courses
-                            </button>
-                            <button
-                                onClick={() => setStep('colleges')}
-                                className={cn("px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-colors", step === 'colleges' ? "bg-[#000080] text-white" : "bg-white text-[#000080] hover:bg-gray-50")}
-                            >
-                                Colleges
-                            </button>
-                            <button
-                                onClick={() => {
-                                    setCetNo('');
-                                    localStorage.removeItem('sim_cet_no');
-                                    setStep('login');
-                                }}
-                                className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-                            >
-                                Log Out
-                            </button>
-                        </div>
-                        <RanksDropdown />
-                    </div>
-                </div>
-            </header>
+            <MainHeader
+                step={step}
+                onNavigate={setStep}
+                onLogout={() => {
+                    setCetNo('');
+                    localStorage.removeItem('sim_cet_no');
+                    setStep('login');
+                }}
+            />
 
             {/* --- MAIN LAYOUT --- */}
             <div className="flex min-h-[calc(100vh-200px)]">
@@ -2363,35 +2143,7 @@ export default function CounselingSimulator() {
             </div>
 
             {/* --- FOOTER --- */}
-            <div className="border-t-[2px] border-black py-4 px-4 md:px-12 w-full mt-auto bg-white">
-                <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4">
-                    {/* Left: KEA Logo */}
-                    <div className="shrink-0 hidden md:block">
-                        <KEALogo className="h-8 md:h-10 w-[100px] md:w-[130px] object-fill" />
-                    </div>
-
-                    {/* Center: Text */}
-                    <div className="text-center flex-1 space-y-[2px]">
-                        <p className="text-[10px] text-[#A60000] font-bold tracking-tight">
-                            HELPLINE NUMBER <span className="font-sans">080-23460460 (10:30am-7:30pm)</span>
-                        </p>
-                        <p className="text-[9px] text-black font-bold mt-1">Brought to you by</p>
-                        <p className="text-[9px] text-black font-bold">Executive Director, KEA</p>
-                        <p className="text-[9px] text-black font-medium tracking-tight">Tel: 080-23460460, 23564583</p>
-                        <p className="text-[9px] text-black font-medium tracking-tight">
-                            Website: <span className="text-[#000080] font-bold underline">cetonline.karnataka.gov.in</span> / Version 1.0, Server-09
-                        </p>
-                        <p className="text-[8px] md:text-[9px] text-red-600 font-bold uppercase tracking-tight mt-2">
-                            Disclaimer: This site is just a mock and is not affiliated with KEA in any way
-                        </p>
-                    </div>
-
-                    {/* Right: NIC Logo */}
-                    <div className="shrink-0 hidden md:block">
-                        <NICLogo />
-                    </div>
-                </div>
-            </div>
+            <PageFooter />
         </div>
     );
 }
