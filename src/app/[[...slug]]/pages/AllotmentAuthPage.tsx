@@ -4,6 +4,8 @@ import React from 'react';
 import { RefreshCw } from 'lucide-react';
 import { SimplePageHeader } from '@/components/DashboardHeader';
 
+const roundLabels = ['', 'First', 'Second', 'Third'];
+
 interface AllotmentAuthPageProps {
     onNavigate: (step: string) => void;
     authCetNo: string;
@@ -13,6 +15,7 @@ interface AllotmentAuthPageProps {
     authCaptcha: string;
     setAuthCaptcha: (v: string) => void;
     handleCheckAllotment: (downloadOnly?: boolean) => Promise<void>;
+    currentRound: number;
 }
 
 export default function AllotmentAuthPage({
@@ -24,15 +27,17 @@ export default function AllotmentAuthPage({
     authCaptcha,
     setAuthCaptcha,
     handleCheckAllotment,
+    currentRound,
 }: AllotmentAuthPageProps) {
+    const roundText = roundLabels[currentRound] || `ROUND ${currentRound}`;
     return (
         <div className="min-h-screen bg-white font-sans flex flex-col relative">
             <SimplePageHeader accentColor="#800000" />
 
             <div className="max-w-3xl mx-auto mt-8 border border-gray-300 rounded shadow-sm w-full">
                 <div className="bg-[#0d6efd] text-white text-center py-4 px-2">
-                    <h2 className="text-sm md:text-[15px] font-bold uppercase tracking-wide">UGCET/NEET & OTHER PROFESSIONAL COURSES -2025</h2>
-                    <h3 className="text-sm md:text-[15px] font-bold uppercase tracking-wide mt-1">FIRST ROUND PROVISIONAL ALLOTMENT RESULTS (01-08-2025)</h3>
+                    <h2 className="text-sm md:text-[15px] font-bold uppercase tracking-wide">UGCET/NEET & OTHER PROFESSIONAL COURSES -2026</h2>
+                    <h3 className="text-sm md:text-[15px] font-bold uppercase tracking-wide mt-1">{roundText} ROUND PROVISIONAL ALLOTMENT RESULTS (01-08-2026)</h3>
                 </div>
                 <div className="p-6 md:p-10 space-y-6 bg-white">
                     <div className="grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] items-center gap-4">
@@ -72,7 +77,10 @@ export default function AllotmentAuthPage({
             <div className="max-w-3xl mx-auto mt-6 border border-gray-300 p-6 bg-white shadow-sm mb-12">
                 <h4 className="text-gray-800 text-[15px] mb-4">NOTE:</h4>
                 <p className="text-[13px] font-bold text-gray-800 leading-relaxed">
-                    1. AS this is First Round Provisional Seat Allotment result the candidate need not has to report to the allotted college.
+                    1. AS this is {roundText} Round Provisional Seat Allotment result the candidate need not has to report to the allotted college.
+                </p>
+                <p className="text-[13px] font-bold text-gray-800 leading-relaxed">
+                    2. CLICK CHECK DIRECTLY (YOU CAN'T ENTER ANYTHING)
                 </p>
             </div>
 

@@ -34,7 +34,7 @@ export const exportAllotmentToPDF = (
     doc.setFont('helvetica', 'bold');
     const today = new Date();
     const dateStr = `${today.getDate().toString().padStart(2, '0')}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getFullYear()}`;
-    doc.text(`UGCET/NEET -2025 MOCK ALLOTMENT RESULTS DT: ${dateStr}`, pageWidth / 2, currentY + 20, { align: 'center' });
+    doc.text(`UGCET/NEET -2026 MOCK ALLOTMENT RESULTS DT: ${dateStr}`, pageWidth / 2, currentY + 20, { align: 'center' });
 
     currentY += 40;
 

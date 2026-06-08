@@ -1,0 +1,6 @@
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3456
+- Network:       http://10.143.36.221:3456
+- Environments: .env.local
+✓ Ready in 1067ms
+[?25h

@@ -7,6 +7,7 @@ interface AllotmentResultPageProps {
     cetNo: string;
     mockAllotment: any;
     onNavigate: (step: string) => void;
+    currentRound: number;
 }
 
 export default function AllotmentResultPage({
@@ -14,7 +15,10 @@ export default function AllotmentResultPage({
     cetNo,
     mockAllotment,
     onNavigate,
+    currentRound,
 }: AllotmentResultPageProps) {
+    const roundLabels = ['', 'FIRST', 'SECOND', 'THIRD'];
+    const roundText = roundLabels[currentRound] || `ROUND ${currentRound}`;
     const today = new Date();
     const dateStr = `${today.getDate().toString().padStart(2, '0')}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getFullYear()}`;
 
@@ -29,8 +33,8 @@ export default function AllotmentResultPage({
                 </div>
 
                 <div className="bg-[#198754] rounded-[4px] py-2 mb-8">
-                    <h2 className="text-white text-center text-[13px] md:text-[14px] font-bold tracking-wider">
-                        UGCET/NEET -2025 MOCK ALLOTMENT RESULTS DT: {dateStr}
+                    <h2 className="text-white text-center text-[13px] md:text-[14px] font-bold tracking-wider uppercase">
+                        UGCET/NEET -2026 {roundText} ROUND PROVISIONAL ALLOTMENT RESULTS DT: {dateStr}
                     </h2>
                 </div>
 

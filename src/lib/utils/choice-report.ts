@@ -1,114 +1,102 @@
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { KEA_LOGO_BASE64, KARNATAKA_LOGO_BASE64 } from '../constants/logos';
 
 export const exportChoiceEntryToPDF = (
     options: any[],
     candidateInfo: { name: string; cetNo: string; rank: string }
 ) => {
     const doc = new jsPDF();
-    const timestamp = new Date().toLocaleString();
     const pageWidth = doc.internal.pageSize.width;
 
     // --- 1. OFFICIAL KEA STYLE HEADER ---
-    doc.setFillColor(0, 82, 155); // KEA Blue #00529B
-    doc.rect(0, 0, pageWidth, 40, 'F');
-
-    // Add Logo (Using the official URL)
+    
+    // Left Logo (KEA)
     try {
-        doc.addImage('https://www.crustindia.com/wp-content/uploads/2019/06/KEA-Logo.png', 'PNG', 14, 8, 24, 24);
+        doc.addImage(KEA_LOGO_BASE64, 'PNG', 14, 10, 24, 24);
     } catch (e) {
-        console.warn("Logo could not be loaded into PDF", e);
+        console.warn("KEA Logo could not be loaded into PDF", e);
+    }
+    
+    // Right Logo (Karnataka Emblem)
+    try {
+        doc.addImage(KARNATAKA_LOGO_BASE64, 'PNG', pageWidth - 38, 10, 24, 24);
+    } catch (e) {
+        console.warn("Karnataka Logo could not be loaded into PDF", e);
     }
 
-    doc.setFontSize(16);
-    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(11);
+    doc.setTextColor(0, 0, 0);
     doc.setFont('helvetica', 'bold');
-    doc.text('KARNATAKA EXAMINATIONS AUTHORITY', pageWidth / 2 + 10, 15, { align: 'center' });
+    doc.text('KARNATAKA EXAMINATIONS AUTHORITY', pageWidth / 2, 18, { align: 'center' });
+    doc.text('ADMISSION TO UGCET & OTHER PROFESSIONAL COURSES- 2026', pageWidth / 2, 25, { align: 'center' });
+    doc.text('UGCET-2026 OPTIONS LIST', pageWidth / 2, 32, { align: 'center' });
 
+    // Solid Line
+    doc.setLineWidth(0.5);
+    doc.line(14, 40, pageWidth - 14, 40);
+
+    // --- 2. CANDIDATE DETAILS ROW ---
+    let currentY = 45;
+    doc.setLineWidth(0.3);
+    // Draw outer box
+    doc.rect(14, currentY, pageWidth - 28, 8, 'S');
+    // Draw vertical middle line
+    doc.line(pageWidth / 2, currentY, pageWidth / 2, currentY + 8);
+    
     doc.setFontSize(10);
-    doc.text('CET-2025 :: OPTION ENTRY CHOICE REPORT', pageWidth / 2, 25, { align: 'center' });
-    doc.text('MOCK ROUND SEAT ALLOTMENT SYSTEM', pageWidth / 2, 32, { align: 'center' });
-
-    // --- 2. CANDIDATE DETAILS ---
-    let currentY = 55;
-    doc.setFillColor(245, 245, 245);
-    doc.rect(14, currentY - 5, pageWidth - 28, 25, 'F');
-    doc.setDrawColor(200, 200, 200);
-    doc.rect(14, currentY - 5, pageWidth - 28, 25, 'S');
-
-    doc.setFontSize(9);
-    doc.setTextColor(50, 50, 50);
     doc.setFont('helvetica', 'bold');
-    doc.text('CANDIDATE NAME:', 20, currentY + 3);
-    doc.setFont('helvetica', 'normal');
-    doc.text(candidateInfo.name.toUpperCase(), 55, currentY + 3);
+    doc.text(`CET NO: ${candidateInfo.cetNo}`, (pageWidth / 4) + 7, currentY + 5.5, { align: 'center' });
+    doc.text(`NAME: ${candidateInfo.name.toUpperCase()}`, (pageWidth * 0.75) - 7, currentY + 5.5, { align: 'center' });
 
-    doc.setFont('helvetica', 'bold');
-    doc.text('CET NUMBER:', 20, currentY + 12);
-    doc.setFont('helvetica', 'normal');
-    doc.text(candidateInfo.cetNo, 55, currentY + 12);
-
-    doc.setFont('helvetica', 'bold');
-    doc.text('GEN RANK:', 120, currentY + 12);
-    doc.setFont('helvetica', 'normal');
-    doc.text(candidateInfo.rank, 150, currentY + 12);
-
-    currentY += 35;
+    currentY += 12;
 
     // --- 3. OPTIONS TABLE ---
     const tableData = options.map(opt => [
         opt.priority.toString(),
-        opt.collegeId,
-        opt.collegeName.toUpperCase(),
-        opt.branchId,
-        opt.branchName.toUpperCase()
+        `${opt.collegeId}${opt.branchId}`,
+        opt.branchName.toUpperCase(),
+        (opt.fees || 'N/A').replace(/₹/g, 'Rs. '),
+        opt.collegeName
     ]);
 
     autoTable(doc, {
         startY: currentY,
-        head: [['Priority', 'Code', 'College Name', 'Course', 'Course Name']],
+        head: [['Optn.\nNo', 'College\nCourse', 'Course Name', 'Course Fee per Annum(Rs)', 'College Name']],
         body: tableData,
         theme: 'grid',
         headStyles: {
-            fillColor: [0, 82, 155],
-            textColor: [255, 255, 255],
-            fontSize: 8,
+            fillColor: [255, 255, 255],
+            textColor: [0, 0, 0],
+            lineColor: [0, 0, 0],
+            lineWidth: 0.3,
+            fontSize: 9,
             fontStyle: 'bold',
-            halign: 'center'
+            halign: 'center',
+            valign: 'middle'
         },
         bodyStyles: {
-            fontSize: 7,
-            textColor: [33, 33, 33],
-            cellPadding: 3
+            fontSize: 8,
+            textColor: [0, 0, 0],
+            lineColor: [0, 0, 0],
+            lineWidth: 0.3,
+            cellPadding: 2,
+            valign: 'middle'
         },
         columnStyles: {
-            0: { halign: 'center', fontStyle: 'bold', cellWidth: 15 },
-            1: { halign: 'center', fontStyle: 'bold', cellWidth: 20 },
-            2: { cellWidth: 85 },
-            3: { halign: 'center', fontStyle: 'bold', cellWidth: 20 },
-            4: { cellWidth: 50 }
+            0: { halign: 'center', cellWidth: 15 },
+            1: { halign: 'center', cellWidth: 20 },
+            2: { cellWidth: 45 },
+            3: { cellWidth: 45 },
+            4: { cellWidth: 'auto' }
         },
         didDrawPage: (data) => {
-            // Footer
-            doc.setFontSize(7);
-            doc.setTextColor(150, 150, 150);
-            doc.text(`Generated on: ${timestamp}`, 14, doc.internal.pageSize.height - 10);
-            doc.text(`Page ${data.pageNumber}`, pageWidth - 20, doc.internal.pageSize.height - 10);
+            // Add a discrete red disclaimer to avoid legal issues
+            doc.setFontSize(6);
+            doc.setTextColor(220, 0, 0);
+            doc.text('NOT AN OFFICIAL DOCUMENT - SIMULATOR ONLY', 5, doc.internal.pageSize.height / 2, { angle: 90 });
         }
     });
 
-    // --- 4. SIGNATURE AREA ---
-    const finalY = (doc as any).lastAutoTable.finalY + 30;
-    if (finalY < doc.internal.pageSize.height - 40) {
-        doc.setFontSize(9);
-        doc.setTextColor(0, 0, 0);
-        doc.text('I hereby declare that the options entered by me are correct to the best of my knowledge.', 14, finalY);
-        doc.line(14, finalY + 20, 70, finalY + 20);
-        doc.text('Candidate Signature', 14, finalY + 25);
-
-        doc.line(pageWidth - 70, finalY + 20, pageWidth - 14, finalY + 20);
-        doc.text('KEA Authority Signature', pageWidth - 70, finalY + 25);
-    }
-
-    doc.save(`KEA_Choice_Report_${candidateInfo.cetNo}.pdf`);
+    doc.save(`KEA_Options_List_${candidateInfo.cetNo}.pdf`);
 };

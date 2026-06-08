@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { RefreshCw, Trash2 } from 'lucide-react';
 
 interface ProfilePageProps {
     userProfile: any;
@@ -10,6 +11,13 @@ interface ProfilePageProps {
     isScraping: boolean;
     categories: string[];
     handleProfileSubmit: (e: React.FormEvent) => Promise<void>;
+    globalConfig?: any;
+    setGlobalConfig?: (config: any) => void;
+    setMockAllotment?: (allotment: any) => void;
+    setSelectedChoice?: (choice: number | null) => void;
+    setChoiceSubmitted?: (submitted: boolean) => void;
+    setPreviousAllotment?: (allotment: any) => void;
+    setOptions?: (options: any) => void;
 }
 
 export default function ProfilePage({
@@ -20,6 +28,13 @@ export default function ProfilePage({
     isScraping,
     categories,
     handleProfileSubmit,
+    globalConfig,
+    setGlobalConfig,
+    setMockAllotment,
+    setSelectedChoice,
+    setChoiceSubmitted,
+    setPreviousAllotment,
+    setOptions
 }: ProfilePageProps) {
     return (
         <div className="w-full max-w-4xl mx-auto mt-4">
@@ -121,6 +136,90 @@ export default function ProfilePage({
                         </button>
                     </div>
                 </form>
+            </div>
+
+            {/* Simulation Control Panel */}
+            <div className="mt-8">
+                <div className="border border-dashed border-amber-400 bg-amber-50 rounded-lg p-4">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                        <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                            <span className="text-[11px] font-black text-amber-800 uppercase tracking-widest">Simulation Control Panel</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    const confirmed = window.confirm(
+                                        `Advance to Round ${(globalConfig?.currentRound || 1) + 1}?`
+                                    );
+                                    if (!confirmed) return;
+                                    if (setMockAllotment) setMockAllotment(null);
+                                    if (setSelectedChoice) setSelectedChoice(null);
+                                    if (setChoiceSubmitted) setChoiceSubmitted(false);
+                                    if (setPreviousAllotment) setPreviousAllotment(null);
+                                    const keysToRemove: string[] = [];
+                                    for (let i = 0; i < localStorage.length; i++) {
+                                        const key = localStorage.key(i);
+                                        if (key && ['sim_mock_allotment', 'sim_selected_choice', 'sim_choice_submitted', 'sim_previous_allotment'].includes(key)) {
+                                            keysToRemove.push(key);
+                                        }
+                                    }
+                                    keysToRemove.forEach(key => localStorage.removeItem(key));
+                                    const nextRound = (globalConfig?.currentRound || 1) + 1;
+                                    if (setGlobalConfig) setGlobalConfig({ ...globalConfig, currentRound: nextRound });
+                                    alert(`Advanced to Round ${nextRound}.`);
+                                }}
+                                className="flex items-center gap-1.5 px-4 py-2 bg-[#00529B] hover:bg-[#003d75] text-white text-[11px] font-black uppercase tracking-wider rounded transition-colors shadow-sm"
+                            >
+                                <RefreshCw className="w-3.5 h-3.5" />
+                                Next Round
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    const confirmed = window.confirm(
+                                        'Reset ALL simulation data?\n\nThis will permanently clear:\n All option entries\n All allotment results\n All submitted choices\n All candidate profiles\n\nThis cannot be undone.'
+                                    );
+                                    if (!confirmed) return;
+                                    const keysToRemove: string[] = [];
+                                    for (let i = 0; i < localStorage.length; i++) {
+                                        const key = localStorage.key(i);
+                                        if (key && (key.startsWith('sim_') || key.startsWith('simulation_state_'))) {
+                                            keysToRemove.push(key);
+                                        }
+                                    }
+                                    keysToRemove.forEach(key => localStorage.removeItem(key));
+                                    if (setOptions) setOptions({});
+                                    if (setMockAllotment) setMockAllotment(null);
+                                    if (setSelectedChoice) setSelectedChoice(null);
+                                    if (setChoiceSubmitted) setChoiceSubmitted(false);
+                                    if (setPreviousAllotment) setPreviousAllotment(null);
+                                    if (setGlobalConfig) setGlobalConfig({ currentRound: 1 });
+                                    setUserProfile({
+                                        studentName: '',
+                                        kcetNumber: '',
+                                        rank: '',
+                                        category: 'GM',
+                                        isKannadaMedium: false,
+                                        isRural: false,
+                                        isHydKar: false,
+                                        gender: 'Male'
+                                    });
+                                    alert('✅ All simulation data has been reset.');
+                                }}
+                                className="flex items-center gap-1.5 px-4 py-2 bg-white hover:bg-red-50 text-red-600 border border-red-300 text-[11px] font-black uppercase tracking-wider rounded transition-colors shadow-sm"
+                            >
+                                <Trash2 className="w-3.5 h-3.5" />
+                                Reset Data
+                            </button>
+                        </div>
+                    </div>
+                    <p className="text-[10px] text-amber-700 mt-2 font-medium">
+                        Round {globalConfig?.currentRound || 1} active · <span className="font-bold">Next Round</span> clears allotment results while preserving option lists · <span className="font-bold">Reset Data</span> wipes all simulation data
+                    </p>
+                </div>
             </div>
         </div>
     );

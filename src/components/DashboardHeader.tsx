@@ -37,9 +37,9 @@ const RanksDropdown = () => {
         <div className="relative inline-block mt-1 z-50">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-1 border-[1px] border-black px-[6px] py-[1px] rounded-[2px] text-[11px] font-bold bg-[#0000e6] text-white shadow-sm"
+                className="flex items-center gap-1 border-[1px] border-[#0066cc] px-3 py-1 rounded-[3px] text-[13px] font-medium bg-white text-[#0066cc] hover:bg-gray-50"
             >
-                Rank <ChevronDown className="w-[10px] h-[10px] text-white" />
+                Ranks ∇
             </button>
 
             {isOpen && (
@@ -71,23 +71,30 @@ const RanksDropdown = () => {
 interface LandingHeaderProps {
     onNavigate: (step: string) => void;
     onLogout: () => void;
+    userProfile?: any;
 }
 
-export function LandingHeader({ onNavigate, onLogout }: LandingHeaderProps) {
+export function LandingHeader({ onNavigate, onLogout, userProfile }: LandingHeaderProps) {
     return (
         <div className="border-b-[2px] border-gray-300 py-3 px-4 md:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            {/* Left: CAP Logo */}
-            <div className="shrink-0 mt-1">
+            {/* Left: CAP Logo & User Details */}
+            <div className="flex items-center gap-4 shrink-0 mt-1">
                 <CAPLogo />
+                {userProfile && userProfile.studentName && (
+                    <div className="flex flex-col text-[#222] font-sans ml-2">
+                        <span className="text-[14px]">Welcome {userProfile.studentName}</span>
+                        <span className="text-[14px]">CET NO: {userProfile.kcetNumber} Claimed : Karnataka,</span>
+                    </div>
+                )}
             </div>
 
             {/* Center: Title & Ranks */}
-            <div className="flex flex-col items-center flex-1 pt-1">
+            <div className="flex flex-col items-center flex-1 pt-1 gap-1">
                 <h1
-                    className="text-[#3b1222] text-[13px] md:text-[16px] lg:text-[17px] font-bold tracking-tight uppercase text-center"
-                    style={{ fontWeight: 800 }}
+                    className="text-[#CE3B4B] text-[16px] md:text-[18px] lg:text-[20px] font-medium tracking-wide uppercase text-center"
+                    style={{ lineHeight: '1.3' }}
                 >
-                    ADMISSION TO UGCET &amp; OTHER PROFESSIONAL COURSES- 2026
+                    ADMISSION TO UGCET &amp; OTHER<br />PROFESSIONAL COURSES- 2026
                 </h1>
                 <RanksDropdown />
             </div>
@@ -128,24 +135,31 @@ interface MainHeaderProps {
     step: string;
     onNavigate: (step: string) => void;
     onLogout: () => void;
+    userProfile?: any;
 }
 
-export function MainHeader({ step, onNavigate, onLogout }: MainHeaderProps) {
+export function MainHeader({ step, onNavigate, onLogout, userProfile }: MainHeaderProps) {
     return (
         <header className="border-b border-gray-200 bg-[#F8F9FA] px-4 md:px-10 py-4">
             <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6">
-                {/* Left: CAP Logo */}
-                <div className="flex items-center gap-8">
+                {/* Left: CAP Logo & User Details */}
+                <div className="flex items-center gap-4 shrink-0">
                     <CAPLogo />
+                    {userProfile && userProfile.studentName && (
+                        <div className="flex flex-col text-[#222] font-sans ml-2">
+                            <span className="text-[14px]">Welcome {userProfile.studentName}</span>
+                            <span className="text-[14px]">CET NO: {userProfile.kcetNumber} Claimed : Karnataka,</span>
+                        </div>
+                    )}
                 </div>
 
                 {/* Middle: Title */}
-                <div className="text-center">
+                <div className="text-center flex-1">
                     <h1
-                        className="text-[#A52A2A] text-lg md:text-2xl font-bold leading-tight tracking-tight uppercase max-w-md"
-                        style={{ fontWeight: 800 }}
+                        className="text-[#CE3B4B] text-[16px] md:text-[18px] lg:text-[20px] font-medium tracking-wide uppercase text-center"
+                        style={{ lineHeight: '1.3' }}
                     >
-                        ADMISSION TO UGCET &amp; OTHER PROFESSIONAL COURSES- 2026
+                        ADMISSION TO UGCET &amp; OTHER<br />PROFESSIONAL COURSES- 2026
                     </h1>
                 </div>
 

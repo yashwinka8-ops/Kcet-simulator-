@@ -2,7 +2,7 @@ import ClientPage from './ClientPage';
 
 export function generateStaticParams() {
     return [
-        { slug: [''] }, // Try this first or maybe omit it
+        { slug: [] },
         { slug: ['login'] },
         { slug: ['dashboard'] },
         { slug: ['declaration'] },
@@ -10,9 +10,12 @@ export function generateStaticParams() {
         { slug: ['entry'] },
         { slug: ['courses'] },
         { slug: ['colleges'] },
-        { slug: ['submitted'] },
-        { slug: ['allotted'] },
-        { slug: ['waiting'] }
+        { slug: ['allotment_auth'] },
+        { slug: ['allotment_result'] },
+        { slug: ['choice_entry'] },
+        { slug: ['payment'] },
+        { slug: ['payment_receipt'] },
+        { slug: ['payment_success'] }
     ];
 }
 

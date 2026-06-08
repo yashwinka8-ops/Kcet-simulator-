@@ -20,6 +20,7 @@ import PageFooter from '@/components/PageFooter';
 import { MainHeader } from '@/components/DashboardHeader';
 import LoginPage from './pages/LoginPage';
 import LandingPage from './pages/LandingPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import DeclarationPage from './pages/DeclarationPage';
 import ProfilePage from './pages/ProfilePage';
 import EntryPage from './pages/EntryPage';
@@ -27,10 +28,11 @@ import CoursesPage from './pages/CoursesPage';
 import CollegesPage from './pages/CollegesPage';
 import AllotmentAuthPage from './pages/AllotmentAuthPage';
 import AllotmentResultPage from './pages/AllotmentResultPage';
+import ChoiceEntryPage from './pages/ChoiceEntryPage';
 
 export default function CounselingSimulator() {
     const { user, isAdmin } = useAuth();
-    const [step, setStepState] = useState<'login' | 'landing' | 'declaration' | 'profile' | 'entry' | 'courses' | 'colleges' | 'allotment_auth' | 'allotment_result'>('login');
+    const [step, setStepState] = useState<'login' | 'landing' | 'declaration' | 'profile' | 'entry' | 'courses' | 'colleges' | 'allotment_auth' | 'allotment_result' | 'choice_entry' | 'privacy'>('login');
 
     useEffect(() => {
         const handlePopState = () => {
@@ -119,6 +121,7 @@ export default function CounselingSimulator() {
         }
         return null;
     });
+
     const [hasAgreedDeclaration, setHasAgreedDeclaration] = useState(false);
     const [isDeclarationChecked, setIsDeclarationChecked] = useState(false);
 
@@ -287,6 +290,8 @@ export default function CounselingSimulator() {
         }
     }, [previousAllotment]);
 
+
+
     // --- Persistence Logic ---
     useEffect(() => {
         const loadSavedData = () => {
@@ -305,7 +310,11 @@ export default function CounselingSimulator() {
                 if (saved.previousAllotment) setPreviousAllotment(saved.previousAllotment);
 
                 if (saved.step) {
-                    setStep(saved.step as any);
+                    if (saved.step === 'allotted') {
+                        setStep('landing');
+                    } else {
+                        setStep(saved.step as any);
+                    }
                 } else if (saved.userProfile?.rank) {
                     setStep('entry');
                 }
@@ -340,12 +349,26 @@ export default function CounselingSimulator() {
     };
 
     // --- Global Config ---
-    const [globalConfig] = useState<any>({
-        currentRound: 1,
-        isResultsLive: true,
-        resultsReleaseDate: "2025-06-15T10:00:00Z",
-        nextRoundStartDate: "2025-06-20T10:00:00Z"
+    const [globalConfig, setGlobalConfig] = useState<any>(() => {
+        if (typeof window !== 'undefined') {
+            try {
+                const saved = localStorage.getItem('sim_global_config');
+                if (saved) return JSON.parse(saved);
+            } catch { }
+        }
+        return {
+            currentRound: 1,
+            isResultsLive: true,
+            resultsReleaseDate: "2026-06-15T10:00:00Z",
+            nextRoundStartDate: "2026-06-20T10:00:00Z"
+        };
     });
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('sim_global_config', JSON.stringify(globalConfig));
+        }
+    }, [globalConfig]);
 
     // --- Simulator State ---
     const [selectedStream, setSelectedStream] = useState<'course' | 'college'>('course');
@@ -360,13 +383,27 @@ export default function CounselingSimulator() {
         }
         return {};
     });
-    const [draftOptions, setDraftOptions] = useState<Record<string, string>>({});
+    const [draftOptions, setDraftOptions] = useState<Record<string, string>>(() => {
+        if (typeof window !== 'undefined') {
+            try {
+                const saved = localStorage.getItem('sim_draft_options');
+                if (saved) return JSON.parse(saved);
+            } catch { }
+        }
+        return {};
+    });
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
             localStorage.setItem('sim_options', JSON.stringify(options));
         }
     }, [options]);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('sim_draft_options', JSON.stringify(draftOptions));
+        }
+    }, [draftOptions]);
 
     const representativeBranches = [
         { code: 'CSE', name: 'COMPUTER SCIENCE & ENGG' },
@@ -581,10 +618,62 @@ export default function CounselingSimulator() {
         }, 1500);
     };
 
+    const handleCheckAllotment = async (downloadOnly = false) => {
+        setIsSubmitting(true);
+        setTimeout(async () => {
+            let allottedSeat = null;
+
+            for (const opt of selectedOptions) {
+                const col = colleges.find((c: any) => c.college_id === opt.collegeId);
+                if (!col) continue;
+
+                const branchCutoffs = col.kcet_cutoffs.filter((cut: any) =>
+                    cut.branch_id === opt.branchId ||
+                    getRawBranchIds(opt.branchId).includes(cut.branch_id)
+                );
+
+                const gmCutoff = branchCutoffs.find((cut: any) => cut.category === 'GM');
+                const gmRank = gmCutoff?.r1 || gmCutoff?.r2 || gmCutoff?.r3;
+
+                const catCutoff = branchCutoffs.find((cut: any) => cut.category === userProfile.category);
+                const catRank = catCutoff?.r1 || catCutoff?.r2 || catCutoff?.r3;
+
+                const userRank = Number(userProfile.rank);
+
+                if ((gmRank && userRank <= gmRank) || (catRank && userRank <= catRank)) {
+                    allottedSeat = {
+                        collegeId: opt.collegeId,
+                        collegeName: col.name,
+                        branchId: opt.branchId,
+                        branchName: opt.branchName,
+                        cutoffRank: gmRank && userRank <= gmRank ? gmRank : catRank,
+                        collegeFees: col.fees || "96,000",
+                        choiceNo: opt.priority
+                    };
+                    break;
+                }
+            }
+
+            setMockAllotment(allottedSeat);
+            setIsSubmitting(false);
+            await saveSimulationState('landing', { mockAllotment: allottedSeat });
+
+            if (downloadOnly) {
+                exportAllotmentToPDF(allottedSeat, {
+                    name: userProfile?.name || 'CANDIDATE',
+                    cetNo: userProfile?.kcetNumber || cetNo,
+                    rank: userProfile?.rank || 'N/A'
+                });
+            } else {
+                setStep('allotment_result');
+            }
+        }, 1500);
+    };
+
     const handleDownloadReport = () => {
         exportChoiceEntryToPDF(selectedOptions, {
-            name: user?.name || 'CANDIDATE NAME',
-            cetNo: cetNo,
+            name: userProfile.studentName || user?.name || 'CANDIDATE NAME',
+            cetNo: userProfile.kcetNumber || cetNo,
             rank: `${userProfile.rank} (${userProfile.category})`
         });
     };
@@ -637,58 +726,6 @@ export default function CounselingSimulator() {
         });
     };
 
-    const handleCheckAllotment = async (downloadOnly = false) => {
-        setIsSubmitting(true);
-        setTimeout(async () => {
-            let allottedSeat = null;
-
-            for (const opt of selectedOptions) {
-                const col = colleges.find((c: any) => c.college_id === opt.collegeId);
-                if (!col) continue;
-
-                const branchCutoffs = col.kcet_cutoffs.filter((cut: any) =>
-                    cut.branch_id === opt.branchId ||
-                    getRawBranchIds(opt.branchId).includes(cut.branch_id)
-                );
-
-                const gmCutoff = branchCutoffs.find((cut: any) => cut.category === 'GM');
-                const gmRank = gmCutoff?.r1 || gmCutoff?.r2 || gmCutoff?.r3;
-
-                const catCutoff = branchCutoffs.find((cut: any) => cut.category === userProfile.category);
-                const catRank = catCutoff?.r1 || catCutoff?.r2 || catCutoff?.r3;
-
-                const userRank = Number(userProfile.rank);
-
-                if ((gmRank && userRank <= gmRank) || (catRank && userRank <= catRank)) {
-                    allottedSeat = {
-                        collegeId: opt.collegeId,
-                        collegeName: col.name,
-                        branchId: opt.branchId,
-                        branchName: opt.branchName,
-                        cutoffRank: gmRank && userRank <= gmRank ? gmRank : catRank,
-                        collegeFees: col.fees || "96,000",
-                        choiceNo: opt.priority
-                    };
-                    break;
-                }
-            }
-
-            setMockAllotment(allottedSeat);
-            setIsSubmitting(false);
-            await saveSimulationState('allotted', { mockAllotment: allottedSeat });
-
-            if (downloadOnly) {
-                exportAllotmentToPDF(allottedSeat, {
-                    name: userProfile?.name || 'CANDIDATE',
-                    cetNo: userProfile?.kcetNumber || cetNo,
-                    rank: userProfile?.rank || 'N/A'
-                });
-            } else {
-                setStep('allotment_result');
-            }
-        }, 1500);
-    };
-
     const handleSubmitChoice = async () => {
         if (!selectedChoice) {
             alert('Please select a choice before submitting.');
@@ -711,7 +748,7 @@ export default function CounselingSimulator() {
             updateData.previousAllotment = null;
         }
 
-        await saveSimulationState('allotted', updateData);
+        await saveSimulationState('landing', updateData);
     };
 
     const handleProfileSubmit = async (e: React.FormEvent) => {
@@ -839,7 +876,7 @@ export default function CounselingSimulator() {
                         alt="KEA Logo"
                         className="h-12 grayscale object-fill"
                     />
-                    <img src="/NIC.png" alt="NIC Logo" className="h-6 md:h-8 object-contain opacity-80" />
+                    <img src="/NIC.png" alt="NIC Logo" className="h-10 md:h-12 object-contain opacity-80" />
                 </div>
             </div>
         );
@@ -867,6 +904,7 @@ export default function CounselingSimulator() {
                 authCaptcha={authCaptcha}
                 setAuthCaptcha={setAuthCaptcha}
                 handleCheckAllotment={handleCheckAllotment}
+                currentRound={globalConfig?.currentRound || 1}
             />
         );
     }
@@ -878,12 +916,17 @@ export default function CounselingSimulator() {
                 cetNo={cetNo}
                 mockAllotment={mockAllotment}
                 onNavigate={setStep}
+                currentRound={globalConfig?.currentRound || 1}
             />
         );
     }
 
     if (step === 'login') {
         return <LoginPage onLogin={handleLogin} />;
+    }
+
+    if (step === 'privacy') {
+        return <PrivacyPolicyPage onNavigate={setStep} userProfile={userProfile} />;
     }
 
     if (step === 'landing') {
@@ -895,12 +938,16 @@ export default function CounselingSimulator() {
                 mockAllotment={mockAllotment}
                 hasAgreedDeclaration={hasAgreedDeclaration}
                 globalConfig={globalConfig}
+                setGlobalConfig={setGlobalConfig}
                 setMockAllotment={setMockAllotment}
+                selectedChoice={selectedChoice}
                 setSelectedChoice={setSelectedChoice}
+                choiceSubmitted={choiceSubmitted}
                 setChoiceSubmitted={setChoiceSubmitted}
                 setPreviousAllotment={setPreviousAllotment}
                 setOptions={setOptions}
                 setUserProfile={setUserProfile}
+                handleDownloadReport={handleDownloadReport}
             />
         );
     }
@@ -912,6 +959,7 @@ export default function CounselingSimulator() {
             {/* --- TOP HEADER BAR --- */}
             <MainHeader
                 step={step}
+                userProfile={userProfile}
                 onNavigate={setStep}
                 onLogout={() => {
                     setCetNo('');
@@ -956,6 +1004,13 @@ export default function CounselingSimulator() {
                                     isScraping={isScraping}
                                     categories={categories}
                                     handleProfileSubmit={handleProfileSubmit}
+                                    globalConfig={globalConfig}
+                                    setGlobalConfig={setGlobalConfig}
+                                    setMockAllotment={setMockAllotment}
+                                    setSelectedChoice={setSelectedChoice}
+                                    setChoiceSubmitted={setChoiceSubmitted}
+                                    setPreviousAllotment={setPreviousAllotment}
+                                    setOptions={setOptions}
                                 />
                             </motion.div>
                         )}
@@ -1012,6 +1067,17 @@ export default function CounselingSimulator() {
                             >
                                 <CollegesPage onNavigate={setStep} colleges={colleges} />
                             </motion.div>
+                        )}
+
+                        {step === 'choice_entry' && (
+                            <ChoiceEntryPage 
+                                mockAllotment={mockAllotment}
+                                selectedChoice={selectedChoice}
+                                setSelectedChoice={setSelectedChoice}
+                                choiceSubmitted={choiceSubmitted}
+                                setChoiceSubmitted={setChoiceSubmitted}
+                                onNavigate={setStep}
+                            />
                         )}
 
                     </AnimatePresence>
