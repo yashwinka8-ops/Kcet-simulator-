@@ -87,7 +87,7 @@ export default function CounselingSimulator() {
         }
         return null;
     });
-    const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
+
     const [selectedChoice, setSelectedChoice] = useState<number | null>(() => {
         if (typeof window !== 'undefined') {
             try {
@@ -372,8 +372,8 @@ export default function CounselingSimulator() {
 
     // --- Simulator State ---
     const [selectedStream, setSelectedStream] = useState<'course' | 'college'>('course');
-    const [selectedBranch, setSelectedBranch] = useState('CSE');
-    const [selectedCollege, setSelectedCollege] = useState(colleges[0]?.college_id || '');
+    const [selectedBranch, setSelectedBranch] = useState('');
+    const [selectedCollege, setSelectedCollege] = useState('');
     const [options, setOptions] = useState<Record<string, string>>(() => {
         if (typeof window !== 'undefined') {
             try {
@@ -578,12 +578,14 @@ export default function CounselingSimulator() {
             setOptions(compressedOptions);
         }
 
-        setShowSubmitConfirm(true);
+        const confirmed = window.confirm("DECLARATION:\n\nI have verified all my options and I am ready to submit. I understand that these choices will be considered for the mock allotment based on 2025 cutoffs.\n\nProceed with Final Submission?");
+        if (confirmed) {
+            handleFinalConfirm();
+        }
     };
 
     const handleFinalConfirm = async () => {
         setIsSubmitting(true);
-        setShowSubmitConfirm(false);
         setTimeout(async () => {
             setIsSubmitting(false);
             let allottedSeat = null;
@@ -1045,6 +1047,7 @@ export default function CounselingSimulator() {
                                     handleDownloadReport={handleDownloadReport}
                                     selectedOptions={selectedOptions}
                                     isSubmitting={isSubmitting}
+                                    choiceSubmitted={choiceSubmitted}
                                 />
                             </motion.div>
                         )}
@@ -1080,84 +1083,6 @@ export default function CounselingSimulator() {
                             />
                         )}
 
-                    </AnimatePresence>
-
-                    {/* --- Submission Confirmation Modal --- */}
-                    <AnimatePresence>
-                        {showSubmitConfirm && (
-                            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    onClick={() => setShowSubmitConfirm(false)}
-                                    className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-                                />
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                                    className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100"
-                                >
-                                    <div className="bg-[#008000] p-8 text-white text-center space-y-2">
-                                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                                            <ShieldCheck className="w-8 h-8 text-white" />
-                                        </div>
-                                        <h2 className="text-2xl font-black uppercase tracking-tight">Final Submission</h2>
-                                        <p className="text-green-100 text-[11px] font-bold">Review your choices before locking them in the database.</p>
-                                    </div>
-
-                                    <div className="p-8 space-y-8">
-                                        <div className="bg-[#E8F5E9] border border-[#A5D6A7] p-5 rounded-2xl space-y-3">
-                                            <div className="flex items-center gap-3 text-[#2E7D32]">
-                                                <FileText className="w-5 h-5" />
-                                                <span className="text-xs font-black uppercase tracking-widest">Pre-Submission Report</span>
-                                            </div>
-                                            <p className="text-[11px] text-[#388E3C] font-bold leading-relaxed">
-                                                It is highly recommended to download and verify your options list one last time before final submission.
-                                            </p>
-                                            <button
-                                                onClick={handleDownloadReport}
-                                                className="w-full bg-white border-2 border-[#81C784] text-[#2E7D32] px-6 py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-[#C8E6C9] transition-all shadow-sm"
-                                            >
-                                                Download Choice List (PDF)
-                                            </button>
-                                        </div>
-
-                                        <div className="space-y-4">
-                                            <div className="flex items-center justify-between px-2">
-                                                <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Selected Choices</span>
-                                                <span className="text-[10px] font-black text-[#008000] bg-green-50 px-2 py-0.5 rounded">{selectedOptions.length} Items</span>
-                                            </div>
-                                            <div className="max-h-40 overflow-y-auto border border-gray-100 rounded-xl bg-gray-50/50 p-2 custom-scrollbar space-y-1">
-                                                {selectedOptions.map(opt => (
-                                                    <div key={`${opt.collegeId}:::${opt.branchId}`} className="text-[9px] font-bold text-gray-600 flex gap-3 p-2 bg-white rounded border border-gray-100/50">
-                                                        <span className="text-[#008000] font-black">{opt.priority}</span>
-                                                        <span className="truncate">{opt.collegeName} - {opt.branchId}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
-
-                                        <div className="flex gap-4 pt-2">
-                                            <button
-                                                onClick={() => setShowSubmitConfirm(false)}
-                                                className="flex-1 px-6 py-4 rounded-xl font-black text-xs uppercase tracking-widest text-gray-500 hover:bg-gray-100 transition-all"
-                                            >
-                                                Go Back
-                                            </button>
-                                            <button
-                                                onClick={handleFinalConfirm}
-                                                className="flex-3 bg-[#008000] hover:bg-[#006400] text-white px-10 py-4 rounded-xl font-black text-xs uppercase tracking-widest shadow-xl shadow-green-100 transition-all active:scale-95 flex items-center justify-center gap-3"
-                                            >
-                                                Declare & Submit
-                                                <ChevronDown className="w-4 h-4 -rotate-90" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            </div>
-                        )}
                     </AnimatePresence>
                 </main>
             </div>

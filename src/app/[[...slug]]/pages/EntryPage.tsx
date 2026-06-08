@@ -29,6 +29,7 @@ interface EntryPageProps {
     handleDownloadReport: () => void;
     selectedOptions: any[];
     isSubmitting: boolean;
+    choiceSubmitted?: boolean;
 }
 
 export default function EntryPage({
@@ -55,34 +56,11 @@ export default function EntryPage({
     handleDownloadReport,
     selectedOptions,
     isSubmitting,
+    choiceSubmitted = false,
 }: EntryPageProps) {
     return (
         <div className="space-y-8 pb-32">
-            {/* Round & Seat Status Banner */}
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-white border-2 border-gray-100 p-6 rounded-3xl shadow-sm">
-                <div className="flex items-center gap-5">
-                    <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center shadow-inner">
-                        <Zap className="w-8 h-8 text-[#00529B]" />
-                    </div>
-                    <div>
-                        <h2 className="text-2xl font-black text-gray-800 uppercase tracking-tight">Round {globalConfig.currentRound} Option Entry</h2>
-                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Counseling Phase :: Live</p>
-                    </div>
-                </div>
 
-                {previousAllotment && (
-                    <div className="bg-emerald-50 border-2 border-emerald-100 px-6 py-4 rounded-2xl flex items-center gap-4 animate-in fade-in slide-in-from-right-4">
-                        <div className="p-2 bg-emerald-500 rounded-lg text-white">
-                            <ShieldCheck className="w-5 h-5" />
-                        </div>
-                        <div>
-                            <p className="text-[10px] font-black text-emerald-700 uppercase tracking-widest">Seat Held from Round {submittedRound}</p>
-                            <p className="text-sm font-black text-emerald-900">{previousAllotment.collegeName}</p>
-                            <p className="text-[9px] font-bold text-emerald-600 uppercase">{previousAllotment.branchName}</p>
-                        </div>
-                    </div>
-                )}
-            </div>
 
             <motion.div
                 initial={{ opacity: 0 }}
@@ -90,8 +68,8 @@ export default function EntryPage({
                 className="w-full flex gap-2"
             >
                 {/* --- LEFT SIDE: OPTION ENTRY (50%) --- */}
-                <div className={cn("border border-[#b0b0b0] flex flex-col bg-white", globalConfig.currentRound === 1 ? "w-1/2" : "w-[60%] items-center justify-center p-12 text-center")}>
-                    {globalConfig.currentRound === 1 ? (
+                <div className={cn("border border-[#b0b0b0] flex flex-col bg-white", (globalConfig.currentRound === 1 && !choiceSubmitted) ? "w-1/2" : "w-[60%] items-center justify-center p-12 text-center")}>
+                    {(globalConfig.currentRound === 1 && !choiceSubmitted) ? (
                         <>
                             {/* Header Tab */}
                             <div className="bg-[#00BFFF] text-white px-3 py-1.5 text-[13px] font-bold flex justify-between items-center border-b border-[#b0b0b0]">
@@ -106,7 +84,8 @@ export default function EntryPage({
                                     <div className="flex items-center gap-2">
                                         <span className="text-[12px] font-bold text-black">Select Discipline:</span>
                                         <select className="border border-gray-400 rounded-sm px-1 py-0.5 text-[12px] text-black w-48 shadow-inner bg-white">
-                                            <option>Engineering</option>
+                                            <option value="">Select</option>
+                                            <option value="Engineering">Engineering</option>
                                         </select>
                                     </div>
                                     <div className="flex items-center gap-2">
@@ -133,6 +112,7 @@ export default function EntryPage({
                                         onChange={(e) => selectedStream === 'course' ? setSelectedBranch(e.target.value) : setSelectedCollege(e.target.value)}
                                         className="border border-gray-400 rounded-sm px-2 py-0.5 text-[12px] text-black flex-1 max-w-xl shadow-inner bg-white"
                                     >
+                                        <option value="">-- Select {selectedStream === 'course' ? 'Course' : 'College'} --</option>
                                         {selectedStream === 'course' ? (
                                             representativeBranches.map((rb) => (
                                                 <option key={rb.code} value={rb.code}>{rb.code} - {rb.name}</option>
@@ -159,7 +139,7 @@ export default function EntryPage({
                                 {(() => {
                                     let filteredRows: any[] = [];
 
-                                    if (selectedStream === 'course') {
+                                    if (selectedStream === 'course' && selectedBranch) {
                                         const aliases = getRawBranchIds(selectedBranch);
                                         const matchingColleges = colleges.filter((c: any) =>
                                             c.kcet_cutoffs.some((cut: any) => aliases.includes(cut.branch_id) || cut.branch_id.startsWith(selectedBranch))
@@ -172,8 +152,8 @@ export default function EntryPage({
                                             branch: repBranch || { code: selectedBranch, name: selectedBranch },
                                             courseCode: c.kcet_cutoffs.find((cut: any) => aliases.includes(cut.branch_id) || cut.branch_id.startsWith(selectedBranch))?.branch_id || ''
                                         }));
-                                    } else {
-                                        const targetColId = selectedCollege || colleges[0]?.college_id;
+                                    } else if (selectedStream === 'college' && selectedCollege) {
+                                        const targetColId = selectedCollege;
                                         const col = colleges.find((c: any) => c.college_id === targetColId);
 
                                         if (col) {
@@ -199,6 +179,14 @@ export default function EntryPage({
                                                 };
                                             });
                                         }
+                                    }
+
+                                    if (!selectedBranch && !selectedCollege) {
+                                        return (
+                                            <div className="p-20 text-center text-gray-500 font-medium">
+                                                Please select a Course or College from the dropdown above to view options.
+                                            </div>
+                                        );
                                     }
 
                                     if (filteredRows.length === 0) {
@@ -258,14 +246,14 @@ export default function EntryPage({
                             </div>
                             <h3 className="text-xl font-black text-gray-800 uppercase tracking-widest mb-2">Fresh Entry Disabled</h3>
                             <p className="text-sm font-bold text-gray-500 max-w-md leading-relaxed">
-                                As per KEA rules, fresh option entry is not allowed in Round {globalConfig.currentRound}. You can only re-order or delete your existing options using the panel on the right.
+                                As per KEA rules, fresh option entry is not allowed in Round {choiceSubmitted ? 2 : globalConfig.currentRound}. You can only re-order or delete your existing options using the panel on the right.
                             </p>
                         </div>
                     )}
                 </div>
 
                 {/* --- RIGHT SIDE: SELECTED OPTIONS (50%) --- */}
-                <div className={cn("border border-[#b0b0b0] flex flex-col bg-white transition-all", globalConfig.currentRound === 1 ? "w-1/2" : "w-[40%]")}>
+                <div className={cn("border border-[#b0b0b0] flex flex-col bg-white transition-all", (globalConfig.currentRound === 1 && !choiceSubmitted) ? "w-1/2" : "w-[40%]")}>
                     <div className="bg-[#006400] text-white px-3 py-1.5 text-[13px] font-bold border-b border-[#b0b0b0]">
                         Modify Selected Options
                     </div>

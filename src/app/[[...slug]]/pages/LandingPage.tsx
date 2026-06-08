@@ -60,10 +60,7 @@ export default function LandingPage({
                         <div className="p-4 flex flex-col gap-5 text-[11px] font-bold text-black mt-2">
                             <div>
                                 <button onClick={() => {
-                                    if (choiceSubmitted) {
-                                        alert("You have already submitted your choice. Option entry is now locked for this round.");
-                                        return;
-                                    }
+
                                     if (hasAgreedDeclaration) {
                                         if (userProfile.kcetNumber && userProfile.studentName && userProfile.rank) {
                                             onNavigate('entry');
@@ -73,11 +70,11 @@ export default function LandingPage({
                                     } else {
                                         onNavigate('declaration');
                                     }
-                                }} className={`underline hover:text-blue-900 cursor-pointer text-left ${choiceSubmitted ? 'text-gray-500' : 'text-blue-700'}`}>
+                                }} className={`underline hover:text-blue-900 cursor-pointer text-left text-blue-700`}>
                                     Candidates Option Entry
                                 </button>
                                 <p className="text-black font-normal mt-1 mb-2">
-                                    {choiceSubmitted ? <span className="text-red-600">Option entry is locked.</span> : 'Please complete the payment to enable option entry.'}
+                                    {choiceSubmitted ? <span className="text-blue-700">Modify your choices for the next round.</span> : 'Please complete the payment to enable option entry.'}
                                 </p>
                                 <div className="h-px bg-gray-300 w-[85%]" />
                             </div>
@@ -152,7 +149,7 @@ export default function LandingPage({
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            
+
                                             {!choiceSubmitted ? (
                                                 <div className="text-center w-full">
                                                     <button onClick={() => onNavigate('allotment_auth')} className="text-blue-700 underline hover:text-blue-900 cursor-pointer text-[11px] font-bold">
@@ -161,18 +158,18 @@ export default function LandingPage({
                                                 </div>
                                             ) : (
                                                 <div className="bg-[#e6f2ff] border border-[#b3d4ff] text-black text-[11px] font-bold px-4 py-3 text-center w-full shadow-inner rounded-sm mt-2">
-                                                    <p className="text-blue-900 font-bold mb-2">Status: Choice {selectedChoice} Recorded</p>
-                                                    
+                                                    <p className="text-blue-900 font-bold mb-2">Simulation status: Choice {selectedChoice} Recorded</p>
+
                                                     {selectedChoice === 1 && (
                                                         <div className="flex flex-col items-center gap-2">
                                                             <p className="text-green-700 text-[10px]">Please proceed to pay fees and download admission order.</p>
                                                         </div>
                                                     )}
-                                                    
+
                                                     {(selectedChoice === 2 || selectedChoice === 3) && (
                                                         <div className="flex flex-col items-center gap-2">
                                                             <p className="text-amber-700 text-[10px]">Waiting for next round.</p>
-                                                            <button 
+                                                            <button
                                                                 onClick={() => {
                                                                     const confirmed = window.confirm(`Advance to Round ${(globalConfig?.currentRound || 1) + 1}?`);
                                                                     if (confirmed) {
@@ -197,7 +194,7 @@ export default function LandingPage({
                                                             </button>
                                                         </div>
                                                     )}
-                                                    
+
                                                     {selectedChoice === 4 && (
                                                         <p className="text-red-600 text-[10px]">You have exited the counseling process.</p>
                                                     )}

@@ -43,6 +43,7 @@ export default function ChoiceEntryPage({
         }
         setSelectedChoice(localChoice);
         setChoiceSubmitted(true);
+        setShowConfirm(false);
         if (localChoice === 4) {
             alert('You have exited the counseling. You will not be considered for further rounds.');
         } else if (localChoice === 2 || localChoice === 3) {
