@@ -5,8 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence, Reorder } from 'framer-motion';
 import { exportChoiceEntryToPDF } from '@/lib/utils/choice-report';
 import { exportAllotmentToPDF } from '@/lib/utils/allotment-report';
-import { db } from '@/lib/firebase';
-import { doc, setDoc, getDoc, onSnapshot, serverTimestamp } from 'firebase/firestore';
+
 import {
     Menu,
     X,
@@ -479,28 +478,25 @@ export default function CounselingSimulator() {
     // Login is now managed entirely via `step === 'login'`
     // --- Persistence Logic ---
     useEffect(() => {
-        const loadSavedData = async () => {
+        const loadSavedData = () => {
             const userId = user?.id || cetNo;
             if (!userId) return;
             try {
-                const docRef = doc(db, 'users', userId, 'simulation', 'state');
-                const docSnap = await getDoc(docRef);
-                if (docSnap.exists()) {
-                    const saved = docSnap.data();
-                    if (saved.userProfile) setUserProfile(saved.userProfile);
-                    if (saved.options) setOptions(saved.options);
-                    if (saved.mockAllotment) setMockAllotment(saved.mockAllotment);
-                    if (saved.selectedChoice) setSelectedChoice(saved.selectedChoice);
-                    if (saved.choiceSubmitted) setChoiceSubmitted(saved.choiceSubmitted);
-                    if (saved.submittedRound) setSubmittedRound(saved.submittedRound);
-                    if (saved.previousAllotment) setPreviousAllotment(saved.previousAllotment);
+                const raw = localStorage.getItem('simulation_state_' + userId);
+                if (!raw) return;
+                const saved = JSON.parse(raw);
+                if (saved.userProfile) setUserProfile(saved.userProfile);
+                if (saved.options) setOptions(saved.options);
+                if (saved.mockAllotment) setMockAllotment(saved.mockAllotment);
+                if (saved.selectedChoice) setSelectedChoice(saved.selectedChoice);
+                if (saved.choiceSubmitted) setChoiceSubmitted(saved.choiceSubmitted);
+                if (saved.submittedRound) setSubmittedRound(saved.submittedRound);
+                if (saved.previousAllotment) setPreviousAllotment(saved.previousAllotment);
 
-                    // Auto-advance logic
-                    if (saved.step) {
-                        setStep(saved.step as any);
-                    } else if (saved.userProfile?.rank) {
-                        setStep('entry');
-                    }
+                if (saved.step) {
+                    setStep(saved.step as any);
+                } else if (saved.userProfile?.rank) {
+                    setStep('entry');
                 }
             } catch (err) {
                 console.error("Error loading simulation:", err);
@@ -513,7 +509,7 @@ export default function CounselingSimulator() {
         const userId = user?.id || cetNo;
         if (!userId) return;
         try {
-            await setDoc(doc(db, 'users', userId, 'simulation', 'state'), {
+            const state = {
                 userId: userId,
                 email: user?.email || '',
                 userProfile,
@@ -523,34 +519,22 @@ export default function CounselingSimulator() {
                 currentRound: globalConfig?.currentRound || 1,
                 submittedRound: submittedRound,
                 previousAllotment: previousAllotment,
-                updatedAt: serverTimestamp(),
+                updatedAt: new Date().toISOString(),
                 ...extraData
-            }, { merge: true });
+            };
+            localStorage.setItem('simulation_state_' + userId, JSON.stringify(state));
         } catch (err) {
             console.error("Error saving simulation:", err);
         }
     };
 
     // --- Global Config Fetching ---
-    const [globalConfig, setGlobalConfig] = useState<any>({
+    const [globalConfig] = useState<any>({
         currentRound: 1,
         isResultsLive: true,
         resultsReleaseDate: "2025-06-15T10:00:00Z",
         nextRoundStartDate: "2025-06-20T10:00:00Z"
     });
-
-    useEffect(() => {
-        const configRef = doc(db, 'config', 'simulation_state');
-        const unsubscribe = onSnapshot(configRef, (snapshot) => {
-            if (snapshot.exists()) {
-                setGlobalConfig(snapshot.data());
-            }
-        }, (err) => {
-            console.error("Real-time config error:", err);
-        });
-
-        return () => unsubscribe();
-    }, []);
 
     // --- Simulator State ---
     const [selectedStream, setSelectedStream] = useState<'course' | 'college'>('course');
@@ -977,7 +961,7 @@ export default function CounselingSimulator() {
     const categories = ['GM', 'GMR', 'GMK', '1G', '1R', '1K', '2AG', '2AR', '2AK', '2BG', '2BR', '2BK', '3AG', '3AR', '3AK', '3BG', '3BR', '3BK', 'SCG', 'SCR', 'SCK', 'STG', 'STR', 'STK'];
 
     // Auth Check
-    const { loginWithGoogle, setAsGuest, isLoading: authLoading, isGuest } = useAuth();
+    const { loginWithGoogle, logout, setAsGuest, isLoading: authLoading, isGuest } = useAuth();
 
     useEffect(() => {
         if (user && step === 'login') {
@@ -1284,21 +1268,7 @@ export default function CounselingSimulator() {
                             Login with CETNO
                         </button>
 
-                        {/* Divider */}
-                        <div className="flex items-center gap-3 my-4">
-                            <div className="flex-1 h-px bg-gray-200" />
-                            <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">or</span>
-                            <div className="flex-1 h-px bg-gray-200" />
-                        </div>
 
-                        {/* Google Login */}
-                        <button
-                            onClick={loginWithGoogle}
-                            className="w-full flex items-center justify-center gap-3 bg-white border border-gray-300 hover:border-gray-400 py-2 rounded text-sm font-medium text-gray-700 transition-colors"
-                        >
-                            <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4" />
-                            Sign in with Google
-                        </button>
                     </div>
                 </div>
 
@@ -1364,7 +1334,7 @@ export default function CounselingSimulator() {
                             className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
                             onClick={() => {
                                 setCetNo('');
-                                localStorage.removeItem('sim_cet_no');
+                                logout();
                                 setStep('login');
                             }}
                         >
