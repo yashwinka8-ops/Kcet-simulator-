@@ -1,0 +1,35 @@
+
+> kcet-simulator@0.1.0 dev
+> next dev --turbopack
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.31.165:3000
+- Environments: .env.local
+✓ Ready in 1183ms
+
+○ Compiling /[[...slug]] ...
+ GET /entry 200 in 17.2s (next.js: 15.0s, generate-params: 958ms, application-code: 2.3s)
+ GET /sw.js 200 in 866ms (next.js: 783ms, generate-params: 13ms, application-code: 83ms)
+ GET / 200 in 939ms (next.js: 851ms, generate-params: 844ms, application-code: 88ms)
+ GET /entry 200 in 109ms (next.js: 16ms, generate-params: 11ms, application-code: 93ms)
+✓ Compiled in 818ms
+ GET /entry 200 in 355ms (next.js: 167ms, generate-params: 17ms, application-code: 187ms)
+ GET /entry 200 in 177ms (next.js: 9ms, generate-params: 358µs, application-code: 168ms)
+ GET /entry 200 in 92ms (next.js: 22ms, generate-params: 73µs, application-code: 71ms)
+✓ Compiled in 295ms
+ GET /entry 200 in 353ms (next.js: 147ms, generate-params: 14ms, application-code: 206ms)
+ GET /entry 200 in 367ms (next.js: 15ms, generate-params: 64µs, application-code: 352ms)
+ GET /entry 200 in 260ms (next.js: 26ms, generate-params: 108µs, application-code: 234ms)
+ GET /entry 200 in 256ms (next.js: 179ms, generate-params: 58µs, application-code: 77ms)
+ GET /entry 200 in 264ms (next.js: 126ms, generate-params: 121µs, application-code: 138ms)
+✓ Compiled in 514ms
+ GET /entry 500 in 3.2s (next.js: 3.1s, application-code: 171ms)
+ GET /entry 500 in 3.2s (next.js: 3.1s, application-code: 172ms)
+ GET /sw.js 500 in 2.5s (next.js: 2.5s, application-code: 41ms)
+ GET /sw.js 500 in 2.5s (next.js: 2.5s, application-code: 42ms)
+ GET /entry 500 in 3.6s (next.js: 3.6s, application-code: 48ms)
+ GET /entry 500 in 3.6s (next.js: 3.6s, application-code: 50ms)
+ GET /sw.js 500 in 257ms (next.js: 207ms, application-code: 50ms)
+ GET /sw.js 500 in 258ms (next.js: 207ms, application-code: 51ms)
+✓ Compiled in 365ms

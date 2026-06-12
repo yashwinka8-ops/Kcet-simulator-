@@ -4,6 +4,7 @@ import React from 'react';
 
 import { LandingHeader } from '@/components/DashboardHeader';
 import PageFooter from '@/components/PageFooter';
+import { getRoundLabel } from '@/lib/utils/cutoff-link';
 
 interface LandingPageProps {
     onNavigate: (step: string) => void;
@@ -42,6 +43,11 @@ export default function LandingPage({
     setUserProfile,
     handleDownloadReport,
 }: LandingPageProps) {
+    const currentRound = globalConfig?.currentRound ?? 0;
+    const currentRoundLabel = getRoundLabel(currentRound, 'long');
+    const nextRoundLabel = getRoundLabel(currentRound + 1, 'long');
+    const resultLabel = `${currentRoundLabel} Provisional Allotment Results`;
+
     return (
         <div className="min-h-screen bg-white flex flex-col font-sans" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
             <LandingHeader
@@ -127,7 +133,7 @@ export default function LandingPage({
                                                 <tbody>
                                                     <tr className="border-b border-gray-100">
                                                         <td className="py-2 pr-2 text-gray-600 font-bold w-[130px]">Allotment Session:</td>
-                                                        <td className="py-2 text-gray-900">{globalConfig?.currentRound || 1}</td>
+                                                        <td className="py-2 text-gray-900">{currentRoundLabel}</td>
                                                     </tr>
                                                     <tr className="border-b border-gray-100">
                                                         <td className="py-2 pr-2 text-gray-600 font-bold">Candidate Name:</td>
@@ -163,7 +169,7 @@ export default function LandingPage({
                                             {!choiceSubmitted ? (
                                                 <div className="text-center w-full">
                                                     <button onClick={() => onNavigate('allotment_auth')} className="text-blue-700 underline hover:text-blue-900 cursor-pointer text-[11px] font-bold">
-                                                        {globalConfig?.currentRound === 3 ? 'Third Round Provisional Allotment Results' : (globalConfig?.currentRound === 2 ? 'Second Round Provisional Allotment Results' : 'First Round Provisional Allotment Results')}
+                                                        {resultLabel}
                                                     </button>
                                                 </div>
                                             ) : (
@@ -181,7 +187,7 @@ export default function LandingPage({
                                                             <p className="text-amber-700 text-[10px]">Waiting for next round.</p>
                                                             <button
                                                                 onClick={() => {
-                                                                    const confirmed = window.confirm(`Advance to Round ${(globalConfig?.currentRound || 1) + 1}?`);
+                                                                    const confirmed = window.confirm(`Advance to ${nextRoundLabel}?`);
                                                                     if (confirmed) {
                                                                         setMockAllotment(null); setSelectedChoice(null); setChoiceSubmitted(false); setPreviousAllotment(null);
                                                                         const keysToRemove: string[] = [];
@@ -192,15 +198,15 @@ export default function LandingPage({
                                                                             }
                                                                         }
                                                                         keysToRemove.forEach(key => localStorage.removeItem(key));
-                                                                        const nextRound = (globalConfig?.currentRound || 1) + 1;
+                                                                        const nextRound = currentRound + 1;
                                                                         if (setGlobalConfig) setGlobalConfig({ ...globalConfig, currentRound: nextRound });
-                                                                        alert(`Advanced to Round ${nextRound}.`);
+                                                                        alert(`Advanced to ${getRoundLabel(nextRound, 'long')}.`);
                                                                         onNavigate('allotment_auth');
                                                                     }
                                                                 }}
                                                                 className="mt-2 bg-[#00529B] hover:bg-[#003d75] text-white px-3 py-1.5 rounded font-bold text-[10px] uppercase shadow-sm w-full"
                                                             >
-                                                                {globalConfig?.currentRound === 2 ? 'Third Round Provisional Allotment Results' : 'Second Round Provisional Allotment Results'}
+                                                                {nextRoundLabel} Provisional Allotment Results
                                                             </button>
                                                         </div>
                                                     )}
@@ -214,7 +220,7 @@ export default function LandingPage({
                                     ) : (
                                         <div className="bg-[#f2f2f2] border border-gray-300 text-black text-[11px] font-bold px-4 py-4 text-center w-full max-w-[90%] shadow-inner rounded-sm">
                                             <button onClick={() => onNavigate('allotment_auth')} className="text-blue-700 underline hover:text-blue-900 cursor-pointer">
-                                                {globalConfig?.currentRound === 3 ? 'Third Round Provisional Allotment Results' : (globalConfig?.currentRound === 2 ? 'Second Round Provisional Allotment Results' : 'First Round Provisional Allotment Results')}
+                                                {resultLabel}
                                             </button>
                                         </div>
                                     )}

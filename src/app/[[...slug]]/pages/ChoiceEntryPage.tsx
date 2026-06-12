@@ -7,6 +7,7 @@ interface ChoiceEntryPageProps {
     choiceSubmitted: boolean;
     setChoiceSubmitted: (v: boolean) => void;
     onNavigate: (step: string) => void;
+    globalConfig?: any;
 }
 
 export default function ChoiceEntryPage({
@@ -16,7 +17,9 @@ export default function ChoiceEntryPage({
     choiceSubmitted,
     setChoiceSubmitted,
     onNavigate,
+    globalConfig,
 }: ChoiceEntryPageProps) {
+    const currentRound = globalConfig?.currentRound ?? 0;
     const [localChoice, setLocalChoice] = useState<number | null>(selectedChoice);
     const [showConfirm, setShowConfirm] = useState(false);
 
@@ -139,6 +142,7 @@ export default function ChoiceEntryPage({
                     </div>
 
                     {/* Choice 2 */}
+                    {currentRound < 3 && (
                     <div 
                         className={`border rounded p-5 cursor-pointer ${localChoice === 2 ? 'border-yellow-500 bg-[#fffdf0]' : 'border-yellow-300 bg-[#fffef5]'}`}
                         onClick={() => handleChoiceSelect(2)}
@@ -181,6 +185,7 @@ export default function ChoiceEntryPage({
                             </div>
                         </div>
                     </div>
+                    )}
 
                     {/* Choice 3 */}
                     <div 

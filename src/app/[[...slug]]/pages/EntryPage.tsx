@@ -4,6 +4,7 @@ import React from 'react';
 import { motion, Reorder } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Zap, ShieldCheck, Lock } from 'lucide-react';
+import { getRoundLabel } from '@/lib/utils/cutoff-link';
 
 interface EntryPageProps {
     globalConfig: any;
@@ -58,6 +59,9 @@ export default function EntryPage({
     isSubmitting,
     choiceSubmitted = false,
 }: EntryPageProps) {
+    const currentRound = globalConfig?.currentRound ?? 0;
+    const canAddFreshOptions = currentRound <= 1 && !choiceSubmitted;
+
     return (
         <div className="space-y-8 pb-32">
 
@@ -68,8 +72,8 @@ export default function EntryPage({
                 className="w-full flex gap-2"
             >
                 {/* --- LEFT SIDE: OPTION ENTRY (50%) --- */}
-                <div className={cn("border border-[#b0b0b0] flex flex-col bg-white", (globalConfig.currentRound === 1 && !choiceSubmitted) ? "w-1/2" : "w-[60%] items-center justify-center p-12 text-center")}>
-                    {(globalConfig.currentRound === 1 && !choiceSubmitted) ? (
+                <div className={cn("border border-[#b0b0b0] flex flex-col bg-white", canAddFreshOptions ? "w-1/2" : "w-[60%] items-center justify-center p-12 text-center")}>
+                    {canAddFreshOptions ? (
                         <>
                             {/* Header Tab */}
                             <div className="bg-[#00BFFF] text-white px-3 py-1.5 text-[13px] font-bold flex justify-between items-center border-b border-[#b0b0b0]">
@@ -246,14 +250,14 @@ export default function EntryPage({
                             </div>
                             <h3 className="text-xl font-black text-gray-800 uppercase tracking-widest mb-2">Fresh Entry Disabled</h3>
                             <p className="text-sm font-bold text-gray-500 max-w-md leading-relaxed">
-                                As per KEA rules, fresh option entry is not allowed in Round {choiceSubmitted ? 2 : globalConfig.currentRound}. You can only re-order or delete your existing options using the panel on the right.
+                                As per KEA rules, fresh option entry is not allowed in {choiceSubmitted ? getRoundLabel(2, 'long') : getRoundLabel(currentRound, 'long')}. You can only re-order or delete your existing options using the panel on the right.
                             </p>
                         </div>
                     )}
                 </div>
 
                 {/* --- RIGHT SIDE: SELECTED OPTIONS (50%) --- */}
-                <div className={cn("border border-[#b0b0b0] flex flex-col bg-white transition-all", (globalConfig.currentRound === 1 && !choiceSubmitted) ? "w-1/2" : "w-[40%]")}>
+                <div className={cn("border border-[#b0b0b0] flex flex-col bg-white transition-all", canAddFreshOptions ? "w-1/2" : "w-[40%]")}>
                     <div className="bg-[#006400] text-white px-3 py-1.5 text-[13px] font-bold border-b border-[#b0b0b0]">
                         Modify Selected Options
                     </div>

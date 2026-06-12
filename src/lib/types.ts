@@ -22,6 +22,7 @@ export interface College {
   address?: string;
   phone?: string;
   website?: string;
+  kcet_cutoffs?: any[];
 }
 
 export interface Branch {

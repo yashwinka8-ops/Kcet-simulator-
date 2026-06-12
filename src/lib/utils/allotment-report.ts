@@ -73,7 +73,7 @@ export const exportAllotmentToPDF = (
     if (allotment) {
         printRow('College Allotted:', allotment.collegeName?.toUpperCase() || '', true);
         printRow('Course Allotted:', `${allotment.branchName?.toUpperCase()} (${allotment.branchId})`, true);
-        printRow('Category Allotted:', allotment.category || 'GM', true);
+        printRow('Category Allotted:', allotment.allottedCategory || 'GM', true);
         printRow('Allotted Option Serial No:', allotment.choiceNo?.toString() || '', true);
         printRow('Course Fees:', allotment.collegeFees?.replace(/,/g, '') || '0', true);
     } else {

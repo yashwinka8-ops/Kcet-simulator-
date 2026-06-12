@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { getRoundLabel } from '@/lib/utils/cutoff-link';
 
 interface AllotmentResultPageProps {
     userProfile: any;
@@ -17,8 +18,7 @@ export default function AllotmentResultPage({
     onNavigate,
     currentRound,
 }: AllotmentResultPageProps) {
-    const roundLabels = ['', 'FIRST', 'SECOND', 'THIRD'];
-    const roundText = roundLabels[currentRound] || `ROUND ${currentRound}`;
+    const roundText = getRoundLabel(currentRound, 'long').toUpperCase();
     const today = new Date();
     const dateStr = `${today.getDate().toString().padStart(2, '0')}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getFullYear()}`;
 
@@ -73,7 +73,7 @@ export default function AllotmentResultPage({
                     </div>
                     <div className="grid grid-cols-[160px_1fr] md:grid-cols-[220px_1fr] items-start gap-2">
                         <div className="text-[14px] font-bold text-gray-900">Category Allotted:</div>
-                        <div className="text-[14px] text-[#0056b3] uppercase">{userProfile?.category || 'GM'}</div>
+                        <div className="text-[14px] text-[#0056b3] uppercase">{mockAllotment?.allottedCategory || userProfile?.category || 'GM'}</div>
                     </div>
                     <div className="grid grid-cols-[160px_1fr] md:grid-cols-[220px_1fr] items-start gap-2">
                         <div className="text-[14px] font-bold text-gray-900">Allotted Option Serial No:</div>

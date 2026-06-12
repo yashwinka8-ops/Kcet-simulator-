@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { RefreshCw, Trash2 } from 'lucide-react';
+import { getRoundLabel } from '@/lib/utils/cutoff-link';
 
 interface ProfilePageProps {
     userProfile: any;
@@ -36,6 +37,9 @@ export default function ProfilePage({
     setPreviousAllotment,
     setOptions
 }: ProfilePageProps) {
+    const currentRound = globalConfig?.currentRound ?? 0;
+    const nextRound = currentRound + 1;
+
     return (
         <div className="w-full max-w-4xl mx-auto mt-4">
             <div className="border border-gray-400 flex flex-col bg-white">
@@ -151,7 +155,7 @@ export default function ProfilePage({
                                 type="button"
                                 onClick={() => {
                                     const confirmed = window.confirm(
-                                        `Advance to Round ${(globalConfig?.currentRound || 1) + 1}?`
+                                        `Advance to ${getRoundLabel(nextRound, 'long')}?`
                                     );
                                     if (!confirmed) return;
                                     if (setMockAllotment) setMockAllotment(null);
@@ -166,9 +170,8 @@ export default function ProfilePage({
                                         }
                                     }
                                     keysToRemove.forEach(key => localStorage.removeItem(key));
-                                    const nextRound = (globalConfig?.currentRound || 1) + 1;
                                     if (setGlobalConfig) setGlobalConfig({ ...globalConfig, currentRound: nextRound });
-                                    alert(`Advanced to Round ${nextRound}.`);
+                                    alert(`Advanced to ${getRoundLabel(nextRound, 'long')}.`);
                                 }}
                                 className="flex items-center gap-1.5 px-4 py-2 bg-[#00529B] hover:bg-[#003d75] text-white text-[11px] font-black uppercase tracking-wider rounded transition-colors shadow-sm"
                             >
@@ -196,7 +199,7 @@ export default function ProfilePage({
                                     if (setSelectedChoice) setSelectedChoice(null);
                                     if (setChoiceSubmitted) setChoiceSubmitted(false);
                                     if (setPreviousAllotment) setPreviousAllotment(null);
-                                    if (setGlobalConfig) setGlobalConfig({ currentRound: 1 });
+                                    if (setGlobalConfig) setGlobalConfig({ currentRound: 0 });
                                     setUserProfile({
                                         studentName: '',
                                         kcetNumber: '',
@@ -218,10 +221,11 @@ export default function ProfilePage({
                         </div>
                     </div>
                     <p className="text-[10px] text-amber-700 mt-2 font-medium">
-                        Round {globalConfig?.currentRound || 1} active · <span className="font-bold">Next Round</span> clears allotment results while preserving option lists · <span className="font-bold">Reset Data</span> wipes all simulation data
+                        {getRoundLabel(currentRound, 'long')} active  <span className="font-bold">Next Round</span> clears allotment results while preserving option lists  <span className="font-bold">Reset Data</span> wipes all simulation data
                     </p>
                 </div>
             </div>
         </div>
     );
 }
+

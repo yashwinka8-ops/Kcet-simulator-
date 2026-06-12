@@ -3,9 +3,9 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { College } from '@/lib/types';
 import { useAuth } from './AuthContext';
-import collegesUnifiedRaw from '@/lib/data/colleges_unified.json';
+import allDataRaw from '@/lib/data/all_data.json';
 
-const localColleges = (collegesUnifiedRaw as any).colleges as College[];
+const localColleges = (allDataRaw as any).colleges as College[];
 
 interface CollegeContextType {
     colleges: College[];

@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { exportChoiceEntryToPDF } from '@/lib/utils/choice-report';
 import { exportAllotmentToPDF } from '@/lib/utils/allotment-report';
+import allData from '@/lib/data/all_data.json';
+import { getRawBranchIds, getRoundLabel } from '@/lib/utils/cutoff-link';
+import { runKcetAllotment, type KcetRound } from '@/lib/utils/allotment-engine';
 
 import {
     Zap,
@@ -29,6 +32,24 @@ import CollegesPage from './pages/CollegesPage';
 import AllotmentAuthPage from './pages/AllotmentAuthPage';
 import AllotmentResultPage from './pages/AllotmentResultPage';
 import ChoiceEntryPage from './pages/ChoiceEntryPage';
+
+type CollegeRecord = {
+    college_id: string;
+    name?: string;
+    full_name?: string;
+    fees?: string;
+    kcet_cutoffs?: unknown;
+} & Record<string, unknown>;
+
+type BranchRecord = {
+    branch_id?: string;
+    branch_code?: string;
+    branch_name?: string;
+    name?: string;
+};
+
+const linkedCollegeData = allData as unknown as { colleges: CollegeRecord[]; branches: BranchRecord[] };
+const linkedColleges = linkedCollegeData.colleges;
 
 export default function CounselingSimulator() {
     const { user, isAdmin } = useAuth();
@@ -131,9 +152,8 @@ export default function CounselingSimulator() {
     const [isDeclarationChecked, setIsDeclarationChecked] = useState(false);
 
     // Load data
-    const data = require('@/lib/data/colleges_unified.json');
-    const colleges = data.colleges;
-    const allBranches = data.branches;
+    const colleges = linkedColleges;
+    const allBranches = linkedCollegeData.branches;
 
     // --- Candidate Profile ---
     const [userProfile, setUserProfile] = useState(() => {
@@ -317,7 +337,7 @@ export default function CounselingSimulator() {
                 if (saved.mockAllotment) setMockAllotment(saved.mockAllotment);
                 if (saved.selectedChoice) setSelectedChoice(saved.selectedChoice);
                 if (saved.choiceSubmitted) setChoiceSubmitted(saved.choiceSubmitted);
-                if (saved.submittedRound) setSubmittedRound(saved.submittedRound);
+                if (saved.submittedRound !== undefined) setSubmittedRound(saved.submittedRound);
                 if (saved.previousAllotment) setPreviousAllotment(saved.previousAllotment);
 
 
@@ -339,7 +359,7 @@ export default function CounselingSimulator() {
                 options,
                 mockAllotment,
                 step: currentStep,
-                currentRound: globalConfig?.currentRound || 1,
+                currentRound: globalConfig?.currentRound ?? 0,
                 submittedRound: submittedRound,
                 previousAllotment: previousAllotment,
                 updatedAt: new Date().toISOString(),
@@ -360,7 +380,7 @@ export default function CounselingSimulator() {
             } catch { }
         }
         return {
-            currentRound: 1,
+            currentRound: 0,
             isResultsLive: true,
             resultsReleaseDate: "2026-06-15T10:00:00Z",
             nextRoundStartDate: "2026-06-20T10:00:00Z"
@@ -431,15 +451,6 @@ export default function CounselingSimulator() {
         { code: 'TT', name: 'TEXTILES TECHNOLOGY' }
     ];
 
-    const getRawBranchIds = (repCode: string) => {
-        const branchIds: string[] = [repCode];
-        if (repCode === 'CSE') branchIds.push('CS', 'BCS', 'BTCS', 'BTCS & EAI&ML');
-        if (repCode === 'ISE') branchIds.push('IS', 'BIS');
-        if (repCode === 'ECE') branchIds.push('EC', 'BEC', 'BTE & CE');
-        if (repCode === 'AIML') branchIds.push('AI', 'ML', 'BTCS & EAI&ML');
-        return branchIds;
-    };
-
     // Derived: Selected Options for right pane
     const selectedOptions = Object.entries(options)
         .filter(([_, priority]) => priority !== '')
@@ -449,16 +460,44 @@ export default function CounselingSimulator() {
             const bId = parts[1];
             const college = colleges.find((c: any) => c.college_id === cId);
             const branch = representativeBranches.find(rb => rb.code === bId) || allBranches.find((b: any) => (b.branch_code || b.branch_id) === bId);
+            const branchName = branch ? ('name' in branch ? branch.name : branch.branch_name) : bId;
             return {
                 priority: parseInt(priority),
                 collegeId: cId,
                 branchId: bId,
                 collegeName: college?.full_name || college?.name || '',
-                branchName: branch?.name || branch?.branch_name || bId,
+                branchName: branchName || bId,
                 fees: college?.fees || 'N/A'
             };
         })
         .sort((a, b) => a.priority - b.priority);
+
+    /**
+     * Runs the KEA-accurate allotment engine.
+     * Uses the round-specific JSON file (Mock / R1 / R2 / R3) so data
+     * never mixes between rounds.
+     * Returns null if no option clears the cutoff.
+     */
+    const findAllotmentFromOptions = async () => {
+        const studentRank = parseInt(String(userProfile.rank || '').replace(/,/g, ''), 10);
+        if (!studentRank || isNaN(studentRank)) return null;
+
+        return runKcetAllotment({
+            options: selectedOptions.map(o => ({
+                priority:    o.priority,
+                collegeId:   o.collegeId,
+                collegeName: o.collegeName,
+                branchId:    o.branchId,
+                branchName:  o.branchName,
+                fees:        o.fees,
+            })),
+            studentRank,
+            category:        userProfile.category || 'GM',
+            isRural:         !!userProfile.isRural,
+            isKannadaMedium: !!userProfile.isKannadaMedium,
+            round:           (globalConfig?.currentRound ?? 0) as KcetRound,
+        });
+    };
 
     const handlePriorityChange = (collegeId: string, branchId: string, value: string) => {
         if (value !== '' && !/^\d+$/.test(value)) return;
@@ -598,38 +637,7 @@ export default function CounselingSimulator() {
     const handleCheckAllotment = async (downloadOnly = false) => {
         setIsSubmitting(true);
         setTimeout(async () => {
-            let allottedSeat = null;
-
-            for (const opt of selectedOptions) {
-                const col = colleges.find((c: any) => c.college_id === opt.collegeId);
-                if (!col) continue;
-
-                const branchCutoffs = col.kcet_cutoffs.filter((cut: any) =>
-                    cut.branch_id === opt.branchId ||
-                    getRawBranchIds(opt.branchId).includes(cut.branch_id)
-                );
-
-                const gmCutoff = branchCutoffs.find((cut: any) => cut.category === 'GM');
-                const gmRank = gmCutoff?.r1 || gmCutoff?.r2 || gmCutoff?.r3;
-
-                const catCutoff = branchCutoffs.find((cut: any) => cut.category === userProfile.category);
-                const catRank = catCutoff?.r1 || catCutoff?.r2 || catCutoff?.r3;
-
-                const userRank = Number(userProfile.rank);
-
-                if ((gmRank && userRank <= gmRank) || (catRank && userRank <= catRank)) {
-                    allottedSeat = {
-                        collegeId: opt.collegeId,
-                        collegeName: col.name,
-                        branchId: opt.branchId,
-                        branchName: opt.branchName,
-                        cutoffRank: gmRank && userRank <= gmRank ? gmRank : catRank,
-                        collegeFees: col.fees || "96,000",
-                        choiceNo: opt.priority
-                    };
-                    break;
-                }
-            }
+            const allottedSeat = await findAllotmentFromOptions();
 
             setMockAllotment(allottedSeat);
             setIsSubmitting(false);
@@ -655,35 +663,11 @@ export default function CounselingSimulator() {
         });
     };
 
-    const handleDownloadAllotment = () => {
+    const handleDownloadAllotment = async () => {
         let allotment = mockAllotment;
 
         if (!allotment && selectedOptions.length > 0) {
-            const userRank = parseInt(userProfile.rank?.replace(/,/g, '') || "0");
-            for (const opt of selectedOptions) {
-                const col = colleges.find((c: any) => c.college_id === opt.collegeId);
-                if (!col) continue;
-                const branchCutoffs = col.kcet_cutoffs.filter((cut: any) =>
-                    cut.branch_id === opt.branchId ||
-                    getRawBranchIds(opt.branchId).includes(cut.branch_id)
-                );
-                const gmCutoff = branchCutoffs.find((cut: any) => cut.category === 'GM');
-                const gmRank = gmCutoff?.r1 || gmCutoff?.r2 || gmCutoff?.r3 || null;
-                const catCutoff = branchCutoffs.find((cut: any) => cut.category === userProfile.category);
-                const catRank = catCutoff?.r1 || catCutoff?.r2 || catCutoff?.r3 || null;
-                if ((gmRank && userRank <= gmRank) || (catRank && userRank <= catRank)) {
-                    allotment = {
-                        collegeId: opt.collegeId,
-                        collegeName: opt.collegeName || col.name,
-                        branchId: opt.branchId,
-                        branchName: opt.branchName,
-                        cutoffRank: gmRank && userRank <= gmRank ? gmRank : catRank,
-                        collegeFees: col.fees || "96,000",
-                        choiceNo: opt.priority
-                    };
-                    break;
-                }
-            }
+            allotment = await findAllotmentFromOptions();
             if (allotment) {
                 setMockAllotment(allotment);
                 saveSimulationState('landing', { mockAllotment: allotment });
@@ -893,7 +877,7 @@ export default function CounselingSimulator() {
                 authCaptcha={authCaptcha}
                 setAuthCaptcha={setAuthCaptcha}
                 handleCheckAllotment={handleCheckAllotment}
-                currentRound={globalConfig?.currentRound || 1}
+                currentRound={globalConfig?.currentRound ?? 0}
             />
         );
     }
@@ -905,7 +889,7 @@ export default function CounselingSimulator() {
                 cetNo={cetNo}
                 mockAllotment={mockAllotment}
                 onNavigate={setStep}
-                currentRound={globalConfig?.currentRound || 1}
+                currentRound={globalConfig?.currentRound ?? 0}
             />
         );
     }
@@ -1067,6 +1051,7 @@ export default function CounselingSimulator() {
                                 choiceSubmitted={choiceSubmitted}
                                 setChoiceSubmitted={setChoiceSubmitted}
                                 onNavigate={setStep}
+                                globalConfig={globalConfig}
                             />
                         )}
 
