@@ -189,11 +189,11 @@ export default function LandingPage({
                                                                 onClick={() => {
                                                                     const confirmed = window.confirm(`Advance to ${nextRoundLabel}?`);
                                                                     if (confirmed) {
-                                                                        setMockAllotment(null); setSelectedChoice(null); setChoiceSubmitted(false); setPreviousAllotment(null);
+                                                                        setMockAllotment(null); setSelectedChoice(null); setChoiceSubmitted(false);
                                                                         const keysToRemove: string[] = [];
                                                                         for (let i = 0; i < localStorage.length; i++) {
                                                                             const key = localStorage.key(i);
-                                                                            if (key && ['sim_mock_allotment', 'sim_selected_choice', 'sim_choice_submitted', 'sim_previous_allotment'].includes(key)) {
+                                                                            if (key && ['sim_mock_allotment', 'sim_selected_choice', 'sim_choice_submitted'].includes(key)) {
                                                                                 keysToRemove.push(key);
                                                                             }
                                                                         }
