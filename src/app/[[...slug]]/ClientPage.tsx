@@ -638,6 +638,12 @@ export default function CounselingSimulator() {
     };
 
     const handleCheckAllotment = async (downloadOnly = false) => {
+        if (selectedOptions.length === 0 && !previousAllotment && !mockAllotment) {
+            alert('Please complete your Option Entry first before checking the allotment result.');
+            setIsSubmitting(false);
+            return;
+        }
+
         setIsSubmitting(true);
         setTimeout(async () => {
             const allottedSeat = await findAllotmentFromOptions();
@@ -667,6 +673,11 @@ export default function CounselingSimulator() {
     };
 
     const handleDownloadAllotment = async () => {
+        if (selectedOptions.length === 0 && !mockAllotment && !previousAllotment) {
+            alert('Please complete your Option Entry first before downloading the allotment result.');
+            return;
+        }
+
         let allotment = mockAllotment;
 
         if (!allotment && selectedOptions.length > 0) {
