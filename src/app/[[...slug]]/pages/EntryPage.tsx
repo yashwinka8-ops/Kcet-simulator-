@@ -163,7 +163,7 @@ export default function EntryPage({
                                         if (col) {
                                             const rawBranchIds = Array.from(new Set(col.kcet_cutoffs.map((cut: any) => cut.branch_id))) as string[];
 
-                                            filteredRows = rawBranchIds.map(id => {
+                                             filteredRows = rawBranchIds.map(id => {
                                                 let rep = representativeBranches.find(rb => id === rb.code || getRawBranchIds(rb.code).includes(id));
 
                                                 if (!rep && !id.startsWith('BTCS') && !id.startsWith('BTE')) {
@@ -171,7 +171,11 @@ export default function EntryPage({
                                                 }
 
                                                 const branchData = allBranches.find((b: any) => (b.branch_code || b.branch_id) === id);
-                                                const displayName = branchData?.branch_name || (rep ? rep.name : id);
+                                                // Clean up condensed names (PDF extraction sometimes strips spaces between words)
+                                                const rawName = branchData?.branch_name || branchData?.name || '';
+                                                const cleanedName = rawName.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\s+/g, ' ').trim();
+                                                // Never show NEW_X as display text — use cleaned name or rep branch name
+                                                const displayName = cleanedName || (rep ? rep.name : id.startsWith('NEW_') ? 'OTHER ENGINEERING' : id);
 
                                                 return {
                                                     college: col,
@@ -192,6 +196,16 @@ export default function EntryPage({
                                             </div>
                                         );
                                     }
+
+                                    // Deduplicate by representative code (bCode) per college
+                                    const seenKeys = new Set();
+                                    filteredRows = filteredRows.filter(row => {
+                                        const bCode = row.branch.code || row.branch.branch_code || row.branch.branch_id;
+                                        const key = `${row.college.college_id}:::${bCode}`;
+                                        if (seenKeys.has(key)) return false;
+                                        seenKeys.add(key);
+                                        return true;
+                                    });
 
                                     if (filteredRows.length === 0) {
                                         return (

@@ -459,8 +459,11 @@ export default function CounselingSimulator() {
             const cId = parts[0];
             const bId = parts[1];
             const college = colleges.find((c: any) => c.college_id === cId);
-            const branch = representativeBranches.find(rb => rb.code === bId) || allBranches.find((b: any) => (b.branch_code || b.branch_id) === bId);
-            const branchName = branch ? ('name' in branch ? branch.name : branch.branch_name) : bId;
+            const repBranch = representativeBranches.find(rb => rb.code === bId);
+            const rawBranch = allBranches.find((b: any) => (b.branch_code || b.branch_id) === bId);
+            const rawName = (rawBranch as any)?.branch_name || (rawBranch as any)?.name || '';
+            const cleanedRawName = rawName.replace(/\s+/g, ' ').trim();
+            const branchName = repBranch?.name || cleanedRawName || (bId.startsWith('NEW_') ? 'OTHER ENGINEERING' : bId);
             return {
                 priority: parseInt(priority),
                 collegeId: cId,
