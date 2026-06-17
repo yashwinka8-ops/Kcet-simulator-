@@ -23,6 +23,53 @@ export default function ChoiceEntryPage({
     const [localChoice, setLocalChoice] = useState<number | null>(selectedChoice);
     const [showConfirm, setShowConfirm] = useState(false);
 
+    const is2026 = globalConfig?.counselingYear === '2026';
+    let showChoice2 = false;
+    let showChoice3 = false;
+
+    if (is2026) {
+        if (currentRound === 1) {
+            showChoice2 = false;
+            showChoice3 = true;
+        } else if (currentRound === 2) {
+            showChoice2 = true;
+            showChoice3 = true;
+        } else if (currentRound === 3) {
+            showChoice2 = true;
+            showChoice3 = false;
+        } else if (currentRound === 4) {
+            showChoice2 = true;
+            showChoice3 = false;
+        }
+    } else {
+        if (currentRound === 1) {
+            showChoice2 = true;
+            showChoice3 = true;
+        } else if (currentRound === 2) {
+            showChoice2 = true;
+            showChoice3 = true;
+        } else if (currentRound === 3) {
+            showChoice2 = false;
+            showChoice3 = false;
+        }
+    }
+
+    if (currentRound === 0) {
+        return (
+            <div className="min-h-screen bg-[#F8F9FA] flex flex-col items-center justify-center p-6 text-center" style={{ fontFamily: 'Arial, sans-serif' }}>
+                <div className="bg-white border border-gray-300 rounded p-8 max-w-md shadow-sm">
+                    <h1 className="text-xl font-bold text-red-600 mb-4">Choice Entry Closed</h1>
+                    <p className="text-gray-700 text-sm mb-6 leading-relaxed">
+                        Choice entry is not available for the Mock Round. The Mock Round allotment is for informational purposes only. Please return to the dashboard.
+                    </p>
+                    <button onClick={() => onNavigate('landing')} className="bg-[#1a73e8] text-white px-6 py-2 rounded text-sm hover:bg-blue-700 transition-colors font-bold shadow-sm">
+                        Go to Dashboard
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
     const handleChoiceSelect = (choice: number) => {
         if (choiceSubmitted) return;
         setLocalChoice(choice);
@@ -142,7 +189,7 @@ export default function ChoiceEntryPage({
                     </div>
 
                     {/* Choice 2 */}
-                    {currentRound < 3 && (
+                    {showChoice2 && (
                     <div 
                         className={`border rounded p-5 cursor-pointer ${localChoice === 2 ? 'border-yellow-500 bg-[#fffdf0]' : 'border-yellow-300 bg-[#fffef5]'}`}
                         onClick={() => handleChoiceSelect(2)}
@@ -188,6 +235,7 @@ export default function ChoiceEntryPage({
                     )}
 
                     {/* Choice 3 */}
+                    {showChoice3 && (
                     <div 
                         className={`border rounded p-5 cursor-pointer ${localChoice === 3 ? 'border-teal-500 bg-[#eef8f8]' : 'border-teal-300 bg-[#f4fafa]'}`}
                         onClick={() => handleChoiceSelect(3)}
@@ -222,6 +270,7 @@ export default function ChoiceEntryPage({
                             </div>
                         </div>
                     </div>
+                    )}
 
                     {/* Choice 4 */}
                     <div 

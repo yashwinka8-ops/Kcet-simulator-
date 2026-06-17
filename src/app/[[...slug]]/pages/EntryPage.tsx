@@ -130,7 +130,8 @@ export default function EntryPage({
                                 </div>
                             </div>
 
-                            {/* Table Header */}
+
+                                        {/* Table Header */}
                             <div className="bg-[#E0FFFF] border-b border-[#b0b0b0] flex text-[12px] font-bold text-black items-stretch">
                                 <div className="w-12 text-center py-2 border-r border-[#b0b0b0] flex items-center justify-center">SL.No.</div>
                                 <div className="flex-1 px-4 py-2 border-r border-[#b0b0b0] flex items-center">College Course</div>

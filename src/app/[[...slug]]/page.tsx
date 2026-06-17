@@ -1,8 +1,10 @@
 import ClientPage from './ClientPage';
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
     return [
-        { slug: [] },
+        { slug: undefined as any },   // root path "/"
         { slug: ['login'] },
         { slug: ['dashboard'] },
         { slug: ['declaration'] },
@@ -15,7 +17,8 @@ export function generateStaticParams() {
         { slug: ['choice_entry'] },
         { slug: ['payment'] },
         { slug: ['payment_receipt'] },
-        { slug: ['payment_success'] }
+        { slug: ['payment_success'] },
+        { slug: ['privacy'] },
     ];
 }
 

@@ -48,6 +48,10 @@ export default function LandingPage({
     const nextRoundLabel = getRoundLabel(currentRound + 1, 'long');
     const resultLabel = `${currentRoundLabel} Provisional Allotment Results`;
 
+    const is2026 = globalConfig?.counselingYear === '2026';
+    const maxRound = is2026 ? 4 : 3;
+    const isFinalRound = currentRound === maxRound;
+
     return (
         <div className="min-h-screen bg-white flex flex-col font-sans" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
             <LandingHeader
@@ -167,11 +171,36 @@ export default function LandingPage({
                                             </table>
 
                                             {!choiceSubmitted ? (
-                                                <div className="text-center w-full">
-                                                    <button onClick={() => onNavigate('allotment_auth')} className="text-blue-700 underline hover:text-blue-900 cursor-pointer text-[11px] font-bold">
-                                                        {resultLabel}
-                                                    </button>
-                                                </div>
+                                                 <div className="text-center w-full flex flex-col items-center gap-3">
+                                                     <button onClick={() => onNavigate('allotment_auth')} className="text-blue-700 underline hover:text-blue-900 cursor-pointer text-[11px] font-bold">
+                                                         {resultLabel}
+                                                     </button>
+                                                     {currentRound === 0 && (
+                                                         <button
+                                                             onClick={() => {
+                                                                 const confirmed = window.confirm("Advance to Round 1 Provisional Allotment Results?");
+                                                                 if (confirmed) {
+                                                                     setMockAllotment(null); setSelectedChoice(null); setChoiceSubmitted(false);
+                                                                     const keysToRemove: string[] = [];
+                                                                     for (let i = 0; i < localStorage.length; i++) {
+                                                                         const key = localStorage.key(i);
+                                                                         if (key && ['sim_mock_allotment', 'sim_selected_choice', 'sim_choice_submitted'].includes(key)) {
+                                                                             keysToRemove.push(key);
+                                                                         }
+                                                                     }
+                                                                     keysToRemove.forEach(key => localStorage.removeItem(key));
+                                                                     const nextRound = 1;
+                                                                     if (setGlobalConfig) setGlobalConfig({ ...globalConfig, currentRound: nextRound });
+                                                                     alert("Advanced to Round 1.");
+                                                                     onNavigate('allotment_auth');
+                                                                 }
+                                                             }}
+                                                             className="mt-1 bg-[#00529B] hover:bg-[#003d75] text-white px-3 py-1.5 rounded font-bold text-[10px] uppercase shadow-sm w-[90%]"
+                                                         >
+                                                             Round 1 Provisional Allotment Results
+                                                         </button>
+                                                     )}
+                                                 </div>
                                             ) : (
                                                 <div className="bg-[#e6f2ff] border border-[#b3d4ff] text-black text-[11px] font-bold px-4 py-3 text-center w-full shadow-inner rounded-sm mt-2">
                                                     <p className="text-blue-900 font-bold mb-2">Simulation status: Choice {selectedChoice} Recorded</p>
@@ -183,33 +212,37 @@ export default function LandingPage({
                                                     )}
 
                                                     {(selectedChoice === 2 || selectedChoice === 3) && (
-                                                        <div className="flex flex-col items-center gap-2">
-                                                            <p className="text-amber-700 text-[10px]">Waiting for next round.</p>
-                                                            <button
-                                                                onClick={() => {
-                                                                    const confirmed = window.confirm(`Advance to ${nextRoundLabel}?`);
-                                                                    if (confirmed) {
-                                                                        setMockAllotment(null); setSelectedChoice(null); setChoiceSubmitted(false);
-                                                                        const keysToRemove: string[] = [];
-                                                                        for (let i = 0; i < localStorage.length; i++) {
-                                                                            const key = localStorage.key(i);
-                                                                            if (key && ['sim_mock_allotment', 'sim_selected_choice', 'sim_choice_submitted'].includes(key)) {
-                                                                                keysToRemove.push(key);
-                                                                            }
-                                                                        }
-                                                                        keysToRemove.forEach(key => localStorage.removeItem(key));
-                                                                        const nextRound = currentRound + 1;
-                                                                        if (setGlobalConfig) setGlobalConfig({ ...globalConfig, currentRound: nextRound });
-                                                                        alert(`Advanced to ${getRoundLabel(nextRound, 'long')}.`);
-                                                                        onNavigate('allotment_auth');
-                                                                    }
-                                                                }}
-                                                                className="mt-2 bg-[#00529B] hover:bg-[#003d75] text-white px-3 py-1.5 rounded font-bold text-[10px] uppercase shadow-sm w-full"
-                                                            >
-                                                                {nextRoundLabel} Provisional Allotment Results
-                                                            </button>
-                                                        </div>
-                                                    )}
+                                                         <div className="flex flex-col items-center gap-2">
+                                                             <p className="text-amber-700 text-[10px]">Waiting for next round.</p>
+                                                             {!isFinalRound ? (
+                                                                 <button
+                                                                     onClick={() => {
+                                                                         const confirmed = window.confirm(`Advance to ${nextRoundLabel}?`);
+                                                                         if (confirmed) {
+                                                                             setMockAllotment(null); setSelectedChoice(null); setChoiceSubmitted(false);
+                                                                             const keysToRemove: string[] = [];
+                                                                             for (let i = 0; i < localStorage.length; i++) {
+                                                                                 const key = localStorage.key(i);
+                                                                                 if (key && ['sim_mock_allotment', 'sim_selected_choice', 'sim_choice_submitted'].includes(key)) {
+                                                                                     keysToRemove.push(key);
+                                                                                 }
+                                                                             }
+                                                                             keysToRemove.forEach(key => localStorage.removeItem(key));
+                                                                             const nextRound = currentRound + 1;
+                                                                             if (setGlobalConfig) setGlobalConfig({ ...globalConfig, currentRound: nextRound });
+                                                                             alert(`Advanced to ${getRoundLabel(nextRound, 'long')}.`);
+                                                                             onNavigate('allotment_auth');
+                                                                         }
+                                                                     }}
+                                                                     className="mt-2 bg-[#00529B] hover:bg-[#003d75] text-white px-3 py-1.5 rounded font-bold text-[10px] uppercase shadow-sm w-full"
+                                                                 >
+                                                                     {nextRoundLabel} Provisional Allotment Results
+                                                                 </button>
+                                                             ) : (
+                                                                 <p className="text-gray-500 text-[10px] font-normal italic mt-1">This is the final round. No further rounds are available in the simulator.</p>
+                                                             )}
+                                                         </div>
+                                                     )}
 
                                                     {selectedChoice === 4 && (
                                                         <p className="text-red-600 text-[10px]">You have exited the counseling process.</p>
@@ -236,18 +269,26 @@ export default function LandingPage({
                             <div className="p-5 flex flex-col gap-4 text-[11px] font-bold min-h-[140px]">
                                 {mockAllotment ? (
                                     <>
-                                        <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('choice_entry'); }} className="text-blue-700 underline hover:text-blue-900 w-fit">
-                                            Choice Entry (Choice Print)
-                                        </a>
-                                        <div className="h-px bg-gray-200 w-full my-1" />
-                                        {(choiceSubmitted && selectedChoice === 1) ? (
-                                            <a href="#" onClick={(e) => { e.preventDefault(); alert('This is a demo site. In real KCET, you would pay fees here.'); }} className="text-green-700 font-bold underline hover:text-green-900 w-fit">
-                                                Pay Fees / Download Admission Order
-                                            </a>
+                                        {currentRound === 0 ? (
+                                            <p className="text-red-600 font-normal leading-relaxed text-[10px]">
+                                                Choice entry is not available for Mock Round. You can edit/reorder options for Round 1 on the left.
+                                            </p>
                                         ) : (
-                                            <a href="#" onClick={(e) => { e.preventDefault(); alert('Payment is not available or not required for your choice.'); }} className="text-blue-700 underline hover:text-blue-900 w-fit">
-                                                Payment Details
-                                            </a>
+                                            <>
+                                                <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('choice_entry'); }} className="text-blue-700 underline hover:text-blue-900 w-fit">
+                                                    Choice Entry (Choice Print)
+                                                </a>
+                                                <div className="h-px bg-gray-200 w-full my-1" />
+                                                {(choiceSubmitted && selectedChoice === 1) ? (
+                                                    <a href="#" onClick={(e) => { e.preventDefault(); alert('This is a demo site. In real KCET, you would pay fees here.'); }} className="text-green-700 font-bold underline hover:text-green-900 w-fit">
+                                                        Pay Fees / Download Admission Order
+                                                    </a>
+                                                ) : (
+                                                    <a href="#" onClick={(e) => { e.preventDefault(); alert('Payment is not available or not required for your choice.'); }} className="text-blue-700 underline hover:text-blue-900 w-fit">
+                                                        Payment Details
+                                                    </a>
+                                                )}
+                                            </>
                                         )}
                                     </>
                                 ) : (
@@ -309,6 +350,16 @@ export default function LandingPage({
                                             <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
                                         </svg>
                                         <span>Azalea</span>
+                                    </div>
+                                </div>
+                                <hr className="border-gray-200" />
+                                <div>
+                                    <span className="font-bold text-red-600 flex items-center gap-1.5 mb-1">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-ping inline-block" />
+                                        Latest Updates:
+                                    </span>
+                                    <div className="leading-relaxed text-black">
+                                        The <span className="font-bold">2026 Counseling Simulator Logic</span> is now live! We've added the new 5-round sequence including the <span className="font-bold">Pre-Round</span>. You can enable this logic in the <button onClick={() => onNavigate('profile')} className="text-blue-700 hover:text-blue-900 underline font-bold">Account Settings</button>.
                                     </div>
                                 </div>
                                 <hr className="border-gray-200" />

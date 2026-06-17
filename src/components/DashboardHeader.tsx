@@ -23,7 +23,7 @@ const CAPLogo = () => (
     </div>
 );
 
-const RanksDropdown = () => {
+const RanksDropdown = ({ userProfile }: { userProfile?: any }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const streams = [
@@ -55,8 +55,8 @@ const RanksDropdown = () => {
                                 className="flex text-[10px] text-black font-medium border-b border-gray-100 last:border-0 px-3 py-1 hover:bg-gray-50"
                             >
                                 <div className="flex-1">{stream}</div>
-                                <div className="w-16 text-center">
-                                    {stream === 'Engineering' ? '12500' : ''}
+                                <div className="w-16 text-center font-bold text-red-600">
+                                    {stream === 'Engineering' ? (userProfile?.rank || '') : ''}
                                 </div>
                             </div>
                         ))}
@@ -96,7 +96,7 @@ export function LandingHeader({ onNavigate, onLogout, userProfile }: LandingHead
                 >
                     ADMISSION TO UGCET &amp; OTHER<br />PROFESSIONAL COURSES- 2026
                 </h1>
-                <RanksDropdown />
+                <RanksDropdown userProfile={userProfile} />
             </div>
 
             {/* Right: Nav Buttons */}
@@ -201,7 +201,7 @@ export function MainHeader({ step, onNavigate, onLogout, userProfile }: MainHead
                             Log Out
                         </button>
                     </div>
-                    <RanksDropdown />
+                    <RanksDropdown userProfile={userProfile} />
                 </div>
             </div>
         </header>

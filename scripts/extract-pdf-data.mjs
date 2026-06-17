@@ -30,6 +30,10 @@ const RAW_BRANCH_MAP = {
   'COMPUTER SCIENCE AND ENGINEERING ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING': 'AI',
   'COMPUTER SCIENCE ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING': 'AI',
   'B TECH IN ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING': 'AI',
+  'B TECH IN COMPUTER SCIENCE & ENGINEERING (ARTIFICAL INTELLIGENCE & MACHINE LEARNING)': 'AI',
+  'B TECH INCOMPUTERSCIENCE &ENGINEERING(ARTIFICALINTELLIGENCE &MACHINELEARNING)': 'AI',
+  'B TECH IN COMPUTER SCIENCE & ENGINEERING (ARTIFICIAL INTELLIGENCE & MACHINE LEARNING)': 'AI',
+  'B TECH INCOMPUTERSCIENCE &ENGINEERING(ARTIFICIALINTELLIGENCE &MACHINELEARNING)': 'AI',
   'COMPUTER SCIENCE AND ENGINEERING CYBER SECURITY': 'CY',
   'COMPUTER SCIENCE CYBER SECURITY': 'CY',
   'COMPUTER SCIENCE AND ENGINEERING DATA SCIENCE': 'DS',
@@ -135,7 +139,7 @@ function getBranchCode(raw) {
   const sanitized = raw.toUpperCase().replace(/[^A-Z]/g, '');
   if (SANITIZED_MAP.has(sanitized)) return SANITIZED_MAP.get(sanitized);
   
-  if (sanitized.includes('COMPUTERSCIENCE') && sanitized.includes('ARTIFICIALINTELLIGENCE')) return 'AI';
+  if (sanitized.includes('COMPUTERSCIENCE') && (sanitized.includes('ARTIFICIALINTELLIGENCE') || sanitized.includes('ARTIFICALINTELLIGENCE'))) return 'AI';
   if (sanitized.includes('COMPUTERSCIENCE') && sanitized.includes('CYBER')) return 'CY';
   if (sanitized.includes('COMPUTERSCIENCE') && sanitized.includes('DATA')) return 'DS';
   if (sanitized.includes('COMPUTERSCIENCE')) return 'CS';
@@ -144,8 +148,10 @@ function getBranchCode(raw) {
   if (sanitized.includes('MECHANICAL')) return 'ME';
   if (sanitized.includes('CIVIL')) return 'CE';
   if (sanitized.includes('ELECTRICAL') && sanitized.includes('ELECTRONICS')) return 'EE';
-  if (sanitized.includes('ARTIFICIALINTELLIGENCE') && sanitized.includes('DATA')) return 'AD';
-  if (sanitized.includes('ARTIFICIALINTELLIGENCE') && sanitized.includes('MACHINE')) return 'AI';
+  if (sanitized.includes('ARTIFICIALINTELLIGENCE') || sanitized.includes('ARTIFICALINTELLIGENCE')) {
+    if (sanitized.includes('DATA')) return 'AD';
+    if (sanitized.includes('MACHINE')) return 'AI';
+  }
   
   return null;
 }
@@ -185,7 +191,22 @@ async function main() {
   for (const { name, file, textFile, cats } of FILES) {
     console.log(`\n=== ${file} (${name}) ===`);
     const text = await readCutoffText(pdfDir, file, textFile);
-    const lines = text.split(/\r?\n/).map(l => l.trimEnd());
+    const rawLines = text.split(/\r?\n/).map(l => l.trimEnd()).filter(l => l.trim() !== '');
+    const lines = [];
+    let idx = 0;
+    while (idx < rawLines.length) {
+      const line = rawLines[idx].trim();
+      if (line.startsWith("Generated on:") && idx + 1 < rawLines.length && rawLines[idx+1].trim().startsWith("Page ")) {
+        let skipCount = 2;
+        if (idx + 2 < rawLines.length && /^\d+$/.test(rawLines[idx+2].trim())) {
+          skipCount = 3;
+        }
+        idx += skipCount;
+      } else {
+        lines.push(rawLines[idx]);
+        idx++;
+      }
+    }
     const numCats = cats.length;
     const catSet = new Set(cats);
 
@@ -223,14 +244,41 @@ async function main() {
 
         i++;
 
-        const vals = [];
-        while (i < lines.length && !isCollegeLine(lines[i]) && vals.length < numCats) {
+        const rawVals = [];
+        while (i < lines.length && !isCollegeLine(lines[i])) {
           const vl = lines[i].trim();
           if (isNoiseLine(vl)) { i++; continue; }
           if (catSet.has(vl)) { i++; continue; }
           if (!isRankValue(vl)) break;
-          vals.push(vl);
+          rawVals.push(vl);
           i++;
+        }
+
+        // Merge decimal fragments first (where a value has a dot, and the next value is just digits)
+        let vals = [];
+        let j = 0;
+        let mergesNeeded = rawVals.length - numCats;
+        while (j < rawVals.length) {
+          const v = rawVals[j];
+          if (j + 1 < rawVals.length &&
+              v !== '--' &&
+              v.includes('.') &&
+              /^\d+$/.test(rawVals[j+1]) &&
+              mergesNeeded > 0) {
+            vals.push(v + rawVals[j+1]);
+            j += 2;
+            mergesNeeded--;
+          } else {
+            vals.push(v);
+            j++;
+          }
+        }
+
+        // Truncate/pad to numCats if needed
+        if (vals.length > numCats) {
+          vals = vals.slice(0, numCats);
+        } else if (vals.length < numCats) {
+          while (vals.length < numCats) vals.push('--');
         }
 
         if (vals.length === numCats) {

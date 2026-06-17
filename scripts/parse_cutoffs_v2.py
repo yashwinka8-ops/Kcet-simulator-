@@ -418,6 +418,21 @@ def parse_txt(filepath):
 
     raw_lines = [l for l in raw_lines if l]
 
+    # Pre-process to strip page footers (Generated on, Page X of, and page number line)
+    clean_raw_lines = []
+    idx = 0
+    while idx < len(raw_lines):
+        line = raw_lines[idx]
+        if line.startswith("Generated on:") and idx + 1 < len(raw_lines) and raw_lines[idx+1].startswith("Page "):
+            skip_count = 2
+            if idx + 2 < len(raw_lines) and re.match(r"^\d+$", raw_lines[idx+2]):
+                skip_count = 3
+            idx += skip_count
+        else:
+            clean_raw_lines.append(line)
+            idx += 1
+    raw_lines = clean_raw_lines
+
     SKIP_PREFIXES = (
         "Non-Interactive",
         "UGCET-",
@@ -470,9 +485,29 @@ def parse_txt(filepath):
 
             expected = len(current_categories)
 
-            # Merge decimal fragments
+            # First, merge actual decimal fragments (where a line has a dot, and the next line is a number fragment)
             j = 0
             merged_vals = []
+            merges_needed = len(vals) - expected
+            while j < len(vals):
+                v = vals[j]
+                if (j + 1 < len(vals) and
+                        v != "--" and
+                        "." in v and
+                        re.match(r"^[0-9]+$", vals[j+1]) and
+                        merges_needed > 0):
+                    merged_vals.append(v + vals[j+1])
+                    j += 2
+                    merges_needed -= 1
+                else:
+                    merged_vals.append(v)
+                    j += 1
+            vals = merged_vals
+
+            # Next, merge integer fragments if still needed (where v has no dot, and next val is a digit sequence)
+            j = 0
+            merged_vals = []
+            merges_needed = len(vals) - expected
             while j < len(vals):
                 v = vals[j]
                 if (j + 1 < len(vals) and
@@ -480,14 +515,16 @@ def parse_txt(filepath):
                         "." not in v and
                         re.match(r"^[0-9]+$", v) and
                         re.match(r"^[0-9]+$", vals[j+1]) and
-                        len(vals) > expected):
+                        merges_needed > 0):
                     merged_vals.append(v + vals[j+1])
                     j += 2
+                    merges_needed -= 1
                 else:
                     merged_vals.append(v)
                     j += 1
             vals = merged_vals
 
+            # Finally, do a safety sweep of decimal fragments if anything was missed
             while len(vals) > expected:
                 merged = False
                 for k in range(len(vals) - 1):

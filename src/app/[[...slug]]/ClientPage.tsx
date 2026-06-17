@@ -383,7 +383,10 @@ export default function CounselingSimulator() {
             currentRound: 0,
             isResultsLive: true,
             resultsReleaseDate: "2026-06-15T10:00:00Z",
-            nextRoundStartDate: "2026-06-20T10:00:00Z"
+            nextRoundStartDate: "2026-06-20T10:00:00Z",
+            counselingYear: '2025',
+            rankInflation: 'none',
+            topperExitSim: 'disabled'
         };
     });
 
@@ -485,6 +488,15 @@ export default function CounselingSimulator() {
         const studentRank = parseInt(String(userProfile.rank || '').replace(/,/g, ''), 10);
         if (!studentRank || isNaN(studentRank)) return null;
 
+        const rawRound = globalConfig?.currentRound ?? 0;
+        const mappedRound = (rawRound === 4) ? 3 : rawRound;
+        let multiplier = 1.0;
+        if (globalConfig?.rankInflation === 'moderate') multiplier = 1.05;
+        else if (globalConfig?.rankInflation === 'high') multiplier = 1.10;
+
+        const is2026 = globalConfig?.counselingYear === '2026';
+        const topperExitEnabled = is2026 && (rawRound >= 2) && (globalConfig?.topperExitSim === 'enabled');
+
         return runKcetAllotment({
             options: selectedOptions.map(o => ({
                 priority:    o.priority,
@@ -498,7 +510,9 @@ export default function CounselingSimulator() {
             category:        userProfile.category || 'GM',
             isRural:         !!userProfile.isRural,
             isKannadaMedium: !!userProfile.isKannadaMedium,
-            round:           (globalConfig?.currentRound ?? 0) as KcetRound,
+            round:           mappedRound as KcetRound,
+            multiplier:      multiplier,
+            topperExitSim:   topperExitEnabled,
         });
     };
 
@@ -556,6 +570,77 @@ export default function CounselingSimulator() {
     const handleDraftChange = (collegeId: string, branchId: string, value: string) => {
         if (value !== '' && !/^\d+$/.test(value)) return;
         setDraftOptions(prev => ({ ...prev, [`${collegeId}:::${branchId}`]: value }));
+    };
+
+    const handleImportFromChoiceList = () => {
+        const localRaw = localStorage.getItem('kcet_simulator_options');
+        if (!localRaw) {
+            alert("No options found in your Choice List. Go to 'Choice List' page and select some colleges first!");
+            return;
+        }
+        try {
+            const parsed = JSON.parse(localRaw);
+            if (Object.keys(parsed).length === 0) {
+                alert("Your Choice List is empty. Please add some colleges in the Choice List page first!");
+                return;
+            }
+            setOptions(parsed);
+            saveSimulationState('entry', { options: parsed });
+            alert(`Successfully imported ${Object.keys(parsed).length} choices from your Choice List!`);
+        } catch (e) {
+            console.error("Error importing choices:", e);
+            alert("Error reading Choice List data.");
+        }
+    };
+
+    const handleExportJSON = () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(options, null, 2));
+        const downloadAnchor = document.createElement('a');
+        downloadAnchor.setAttribute("href", dataStr);
+        downloadAnchor.setAttribute("download", `kcet_simulator_choices_${cetNo}.json`);
+        document.body.appendChild(downloadAnchor);
+        downloadAnchor.click();
+        downloadAnchor.remove();
+    };
+
+    const handleImportJSON = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const imported = JSON.parse(event.target?.result as string);
+                if (typeof imported !== 'object' || Array.isArray(imported)) {
+                    alert("Invalid file format. Please upload a valid KCET simulator options JSON file.");
+                    return;
+                }
+                
+                const validOptions: Record<string, string> = {};
+                let count = 0;
+                for (const key in imported) {
+                    if (key.includes(':::') && typeof imported[key] === 'string') {
+                        validOptions[key] = imported[key];
+                        count++;
+                    }
+                }
+                
+                if (count === 0) {
+                    alert("The uploaded JSON file does not contain valid choice options.");
+                    return;
+                }
+                
+                if (window.confirm(`Importing ${count} choices from the JSON file. This will replace your current choices. Proceed?`)) {
+                     setOptions(validOptions);
+                     saveSimulationState('entry', { options: validOptions });
+                     alert(`Successfully imported ${count} choices!`);
+                }
+            } catch (err) {
+                alert("Failed to parse JSON file.");
+            }
+        };
+        reader.readAsText(file);
+        e.target.value = '';
     };
 
     const handleUpdateList = async () => {
@@ -998,6 +1083,9 @@ export default function CounselingSimulator() {
                                     setChoiceSubmitted={setChoiceSubmitted}
                                     setPreviousAllotment={setPreviousAllotment}
                                     setOptions={setOptions}
+                                    handleImportFromChoiceList={handleImportFromChoiceList}
+                                    handleExportJSON={handleExportJSON}
+                                    handleImportJSON={handleImportJSON}
                                 />
                             </motion.div>
                         )}

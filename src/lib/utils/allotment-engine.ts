@@ -51,7 +51,7 @@
 // Types
 // ─────────────────────────────────────────────────────────────────
 
-export type KcetRound = 0 | 1 | 2 | 3;
+export type KcetRound = 0 | 1 | 2 | 3 | 4;
 
 export interface AllotmentOption {
   /** UI priority number (1 = first preference) */
@@ -247,7 +247,9 @@ export async function loadRoundCutoffs(round: KcetRound): Promise<Record<string,
       case 0: return (await import('@/lib/data/raw_cutoffs/kcet-cutoff-mock-round.json')).default as any;
       case 1: return (await import('@/lib/data/raw_cutoffs/first-round.json')).default as any;
       case 2: return (await import('@/lib/data/raw_cutoffs/kcet-round-2.json')).default as any;
-      case 3: return (await import('@/lib/data/raw_cutoffs/round-3.json')).default as any;
+      case 3:
+      case 4:
+        return (await import('@/lib/data/raw_cutoffs/round-3.json')).default as any;
     }
   } catch (err) {
     console.error(`[AllotmentEngine] Failed to load cutoff data for round ${round}:`, err);
@@ -329,6 +331,7 @@ function checkOptionQualification(
   studentRank: number,
   eligibleCategories: string[],
   branchCutoffs: Record<string, number | null>,
+  multiplier: number = 1.0,
 ): CategoryMatch | null {
   const qualifyingMatches: CategoryMatch[] = [];
 
@@ -338,11 +341,14 @@ function checkOptionQualification(
     // null or missing → no seats in this category → skip
     if (cutoffRank === null || cutoffRank === undefined || cutoffRank <= 0) continue;
 
+    // Apply custom multiplier dynamically (e.g. 0.9 to tighten, 1.05 to relax)
+    const adjustedCutoff = Math.floor(cutoffRank * multiplier);
+
     // Student qualifies if their rank is ≤ the closing rank
-    if (studentRank <= cutoffRank) {
+    if (studentRank <= adjustedCutoff) {
       qualifyingMatches.push({
         category: cat,
-        cutoffRank,
+        cutoffRank: adjustedCutoff,
         priorityScore: getCategoryPriority(cat),
       });
     }
@@ -367,6 +373,14 @@ export interface RunAllotmentParams {
   isKannadaMedium: boolean;
   round: KcetRound;
   roundData?: Record<string, any>;
+  multiplier?: number;
+  topperExitSim?: boolean;
+}
+
+function isTopOption(collegeId: string, branchId: string): boolean {
+  const topColleges = ['E003', 'E005', 'E006', 'E007', 'E151', 'E217'];
+  const topBranches = ['CSE', 'CS', 'ISE', 'IS', 'ECE', 'EC', 'AIML', 'AI', 'AIDS', 'AD'];
+  return topColleges.includes(collegeId) && topBranches.includes(branchId);
 }
 
 /**
@@ -383,7 +397,7 @@ export interface RunAllotmentParams {
 export async function runKcetAllotment(
   params: RunAllotmentParams,
 ): Promise<AllotmentResult | null> {
-  const { options, studentRank, category, isRural, isKannadaMedium, round, roundData: preloaded } = params;
+  const { options, studentRank, category, isRural, isKannadaMedium, round, roundData: preloaded, multiplier = 1.0, topperExitSim = false } = params;
 
   if (!studentRank || studentRank <= 0 || isNaN(studentRank)) return null;
 
@@ -403,7 +417,12 @@ export async function runKcetAllotment(
     const branchCutoffs = resolveBranchCutoffs(cutoffsMap, opt.branchId);
     if (!branchCutoffs) continue;
 
-    const match = checkOptionQualification(studentRank, eligibleCategories, branchCutoffs);
+    let optionMultiplier = multiplier;
+    if (topperExitSim && isTopOption(opt.collegeId, opt.branchId)) {
+      optionMultiplier = optionMultiplier * 1.025;
+    }
+
+    const match = checkOptionQualification(studentRank, eligibleCategories, branchCutoffs, optionMultiplier);
 
     if (match) {
       return {
@@ -427,10 +446,30 @@ export async function runKcetAllotment(
 // ─────────────────────────────────────────────────────────────────
 
 export function getRoundLabel(round: KcetRound, style: 'short' | 'long' = 'short'): string {
-  const labels: Record<KcetRound, string> = {
-    0: 'Mock', 1: 'Round 1', 2: 'Round 2', 3: 'Round 3',
+  let is2026 = false;
+  if (typeof window !== 'undefined') {
+    try {
+      const configRaw = localStorage.getItem('sim_global_config');
+      if (configRaw) {
+        const config = JSON.parse(configRaw);
+        if (config.counselingYear === '2026') {
+          is2026 = true;
+        }
+      }
+    } catch {}
+  }
+
+  const labels: Record<KcetRound, string> = is2026 ? {
+    0: 'Mock', 1: 'Pre-Round', 2: 'Round 1', 3: 'Round 2', 4: 'Round 3',
+  } : {
+    0: 'Mock', 1: 'Round 1', 2: 'Round 2', 3: 'Round 3', 4: 'Round 3',
   };
-  return style === 'long'
-    ? (round === 0 ? 'Mock Round' : labels[round])
-    : labels[round];
+  
+  const label = labels[round] || `Round ${round}`;
+  if (style === 'long') {
+    if (round === 0) return 'Mock Round';
+    if (is2026 && round === 1) return 'Pre-Round';
+    return label;
+  }
+  return label;
 }

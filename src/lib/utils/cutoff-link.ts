@@ -1,4 +1,4 @@
-export type AllotmentRound = 0 | 1 | 2 | 3;
+export type AllotmentRound = 0 | 1 | 2 | 3 | 4;
 
 export interface LinkedCutoff {
     branch_id: string;
@@ -51,14 +51,38 @@ export function getRoundRank(cutoff: LinkedCutoff, round: number) {
 }
 
 export function getRoundLabel(round: number, style: 'short' | 'long' = 'short') {
-    const labels: Record<number, string> = {
+    let is2026 = false;
+    if (typeof window !== 'undefined') {
+        try {
+            const configRaw = localStorage.getItem('sim_global_config');
+            if (configRaw) {
+                const config = JSON.parse(configRaw);
+                if (config.counselingYear === '2026') {
+                    is2026 = true;
+                }
+            }
+        } catch {}
+    }
+
+    const labels: Record<number, string> = is2026 ? {
+        0: 'Mock',
+        1: 'Pre-Round',
+        2: 'First',
+        3: 'Second',
+        4: 'Third',
+    } : {
         0: 'Mock',
         1: 'First',
         2: 'Second',
         3: 'Third',
     };
     const label = labels[round] || `Round ${round}`;
-    return style === 'long' && round !== 0 ? `${label} Round` : round === 0 && style === 'long' ? 'Mock Round' : label;
+    if (style === 'long') {
+        if (round === 0) return 'Mock Round';
+        if (is2026 && round === 1) return 'Pre-Round';
+        return `${label} Round`;
+    }
+    return label;
 }
 
 export function getEligibleCategories(category: string, isRural: boolean, isKannadaMedium: boolean) {
