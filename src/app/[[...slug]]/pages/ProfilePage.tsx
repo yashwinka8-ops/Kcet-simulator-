@@ -22,6 +22,7 @@ interface ProfilePageProps {
     handleImportFromChoiceList?: () => void;
     handleExportJSON?: () => void;
     handleImportJSON?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleDownloadAllRoundsReport?: () => Promise<void>;
 }
 
 export default function ProfilePage({
@@ -41,10 +42,12 @@ export default function ProfilePage({
     setOptions,
     handleImportFromChoiceList,
     handleExportJSON,
-    handleImportJSON
+    handleImportJSON,
+    handleDownloadAllRoundsReport
 }: ProfilePageProps) {
     const currentRound = globalConfig?.currentRound ?? 0;
     const nextRound = currentRound + 1;
+    const isLastRound = currentRound === (globalConfig?.counselingYear === '2026' ? 4 : 3);
 
     const [showResetModal, setShowResetModal] = useState(false);
     const [showImportModal, setShowImportModal] = useState(false);
@@ -238,6 +241,23 @@ export default function ProfilePage({
             <div className="mt-8">
                 <div className="border border-dashed border-amber-400 bg-amber-50 rounded-lg p-4">
                     <div className="flex flex-col gap-4">
+                        {/* Multi-Round Report Download for Final Round */}
+                        {isLastRound && handleDownloadAllRoundsReport && (
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-amber-200 pb-3">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse" />
+                                    <span className="text-[11px] font-black text-amber-800 uppercase tracking-widest">Final Simulation Summary</span>
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={handleDownloadAllRoundsReport}
+                                    className="flex items-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-black uppercase tracking-wider rounded transition-colors shadow-sm"
+                                >
+                                    <Download className="w-3.5 h-3.5" />
+                                    Download All Rounds Report (PDF)
+                                </button>
+                            </div>
+                        )}
                         {/* Counseling Logic Selection Row */}
                         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-amber-200 pb-3">
                             <div className="flex items-center gap-2">

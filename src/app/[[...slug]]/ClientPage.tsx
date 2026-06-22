@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { exportChoiceEntryToPDF } from '@/lib/utils/choice-report';
-import { exportAllotmentToPDF } from '@/lib/utils/allotment-report';
+import { exportAllotmentToPDF, exportMultiRoundReportToPDF } from '@/lib/utils/allotment-report';
 import allData from '@/lib/data/all_data.json';
 import { getRawBranchIds, getRoundLabel } from '@/lib/utils/cutoff-link';
 import { runKcetAllotment, type KcetRound } from '@/lib/utils/allotment-engine';
@@ -757,6 +757,72 @@ export default function CounselingSimulator() {
         });
     };
 
+    const handleDownloadAllRoundsReport = async () => {
+        const studentRank = parseInt(String(userProfile.rank || '').replace(/,/g, ''), 10);
+        if (!studentRank || isNaN(studentRank)) {
+            alert('Please enter a valid rank first.');
+            return;
+        }
+
+        if (selectedOptions.length === 0) {
+            alert('Please add some options before downloading the report.');
+            return;
+        }
+
+        setIsScraping(true);
+
+        try {
+            const is2026 = globalConfig?.counselingYear === '2026';
+            const rounds: number[] = is2026 ? [0, 1, 2, 3, 4] : [0, 1, 2, 3];
+            const roundsData: { roundLabel: string; allotment: any }[] = [];
+
+            let multiplier = 1.0;
+            if (globalConfig?.rankInflation === 'moderate') multiplier = 1.05;
+            else if (globalConfig?.rankInflation === 'high') multiplier = 1.10;
+
+            for (const roundVal of rounds) {
+                const mappedRound = (is2026 && roundVal === 4) ? 3 : (is2026 ? roundVal : roundVal);
+                const topperExitEnabled = is2026 && (roundVal >= 2) && (globalConfig?.topperExitSim === 'enabled');
+
+                const allotment = await runKcetAllotment({
+                    options: selectedOptions.map(o => ({
+                        priority:    o.priority,
+                        collegeId:   o.collegeId,
+                        collegeName: o.collegeName,
+                        branchId:    o.branchId,
+                        branchName:  o.branchName,
+                        fees:        o.fees,
+                    })),
+                    studentRank,
+                    category:        userProfile.category || 'GM',
+                    isRural:         !!userProfile.isRural,
+                    isKannadaMedium: !!userProfile.isKannadaMedium,
+                    round:           mappedRound as KcetRound,
+                    multiplier:      multiplier,
+                    topperExitSim:   topperExitEnabled,
+                });
+
+                const roundLabel = getRoundLabel(roundVal as KcetRound, 'short');
+                roundsData.push({
+                    roundLabel,
+                    allotment
+                });
+            }
+
+            exportMultiRoundReportToPDF(roundsData, {
+                name: userProfile.studentName || user?.name || 'CANDIDATE NAME',
+                cetNo: userProfile.kcetNumber || cetNo || 'N/A',
+                rank: String(studentRank),
+                category: userProfile.category || 'GM'
+            });
+        } catch (err) {
+            console.error("Failed to generate multi-round PDF:", err);
+            alert("An error occurred while generating the PDF report.");
+        } finally {
+            setIsScraping(false);
+        }
+    };
+
     const handleDownloadAllotment = async () => {
         if (selectedOptions.length === 0 && !mockAllotment && !previousAllotment) {
             alert('Please complete your Option Entry first before downloading the allotment result.');
@@ -1086,6 +1152,7 @@ export default function CounselingSimulator() {
                                     handleImportFromChoiceList={handleImportFromChoiceList}
                                     handleExportJSON={handleExportJSON}
                                     handleImportJSON={handleImportJSON}
+                                    handleDownloadAllRoundsReport={handleDownloadAllRoundsReport}
                                 />
                             </motion.div>
                         )}
