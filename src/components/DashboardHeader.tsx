@@ -215,20 +215,27 @@ interface SimplePageHeaderProps {
 }
 
 export function SimplePageHeader({ accentColor = '#800000' }: SimplePageHeaderProps) {
+    // Overriding props for the new 2026 redesign
     return (
-        <div
-            className="border-b-[3px] p-4 flex items-center justify-center relative"
-            style={{ borderColor: accentColor }}
-        >
-            <div className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 flex flex-col items-center">
-                <CAPLogo />
+        <div className="bg-[#18325C] border-b-[4px] border-[#DDA31D] py-3 px-6 flex items-center shadow-md">
+            <div className="flex items-center gap-4 border-r border-gray-400/30 pr-6 mr-6">
+                <div className="bg-white w-14 h-12 flex items-center justify-center rounded-[2px] overflow-hidden p-1 shadow-sm">
+                    {/* Placeholder for the KEA Box Logo */}
+                    <div className="flex items-end justify-center gap-[2px] w-full h-full text-[#9C27B0]">
+                        <div className="font-extrabold text-[18px] leading-none">K</div>
+                        <div className="font-extrabold text-[14px] leading-none mb-1">E</div>
+                        <div className="font-extrabold text-[18px] leading-none">A</div>
+                    </div>
+                </div>
             </div>
-            <h1
-                className="text-lg md:text-xl font-bold uppercase tracking-wide text-center max-w-[70%]"
-                style={{ color: accentColor }}
-            >
-                ADMISSION TO UGCET &amp; OTHER PROFESSIONAL COURSES- 2026
-            </h1>
+            <div className="flex flex-col">
+                <h1 className="text-[16px] md:text-[18px] font-bold text-white tracking-wide leading-tight">
+                    ADMISSION TO UGCET &amp; OTHER PROFESSIONAL COURSES&#8211; 2026
+                </h1>
+                <p className="text-[#9CA3AF] text-[12px] md:text-[13px] tracking-wide mt-0.5">
+                    CENTRALISED ALLOTMENT PROCESS
+                </p>
+            </div>
         </div>
     );
 }

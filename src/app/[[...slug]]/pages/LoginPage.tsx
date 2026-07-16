@@ -28,72 +28,116 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
     };
 
     return (
-        <div className="min-h-screen bg-white flex flex-col" style={{ fontFamily: 'Arial, sans-serif' }}>
-            <SimplePageHeader accentColor="#8B2065" />
+        <div className="min-h-screen bg-[#F0F4F9] flex flex-col font-sans">
+            <SimplePageHeader />
 
-            <div className="h-[2px] bg-black" />
+            <div className="flex-1 flex flex-col items-center py-12 px-4 gap-6">
 
-            <div className="flex-1 flex items-center justify-center py-10 px-4">
-                <div className="w-full max-w-xs">
-                    <div className="flex items-center justify-center mb-0 w-full px-2">
-                        <img
-                            src="/ChatGPT%20Image%20Jun%207,%202026,%2011_35_02%20AM.png"
-                            alt="KEA Banner"
-                            className="w-full h-auto object-contain max-h-24"
-                        />
-                    </div>
+                {/* Main Action Card */}
+                <div className="bg-white rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.05)] p-6 w-full max-w-md border border-gray-100">
 
-                    <h1 className="text-[22px] font-bold text-center text-[#0a3161] mb-6 -mt-3">Option Entry Login</h1>
-
-                    <div className="flex flex-col items-center gap-1.5 mb-3">
-                        <div className="w-7 h-7 rounded-full bg-[#8B2065] text-white flex items-center justify-center text-sm font-bold shadow">
-                            1
-                        </div>
-                        <p className="font-bold text-gray-700 text-sm text-center">Scan QR / Enter CETNO</p>
-                        <p className="text-[11px] text-gray-500 text-center leading-snug">
-                            You can find the QR, Application No, Cet No on<br />your verification slip.
+                    {/* Top Text Instruction */}
+                    <div className="mb-6 border border-[#DDA31D] bg-[#FFFBF0] rounded-md p-3">
+                        <p className="text-[12px] text-gray-700 text-center leading-relaxed">
+                            You can find the QR code, Application No, Cet No on your verification slip.
                         </p>
                     </div>
 
-                    {isScanActive ? (
-                        <div className="border border-gray-300 rounded w-full h-36 flex flex-col items-center justify-center bg-gray-50 gap-2 mb-2">
-                            <div className="w-8 h-8 border-4 border-[#8B2065] border-t-transparent rounded-full animate-spin" />
-                            <p className="text-[11px] text-gray-500 font-medium">Camera Initializing...</p>
-                            <p className="text-[10px] text-gray-400">Point QR code at the camera</p>
-                        </div>
-                    ) : (
-                        <textarea
-                            value={cetNoInput}
-                            onChange={e => setCetNoInput(e.target.value)}
-                            onKeyDown={e => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleCetLogin())}
-                            className="w-full border border-gray-400 rounded h-36 p-2.5 text-sm focus:outline-none focus:border-[#8B2065] resize-none mb-2 block"
-                            placeholder=""
-                        />
-                    )}
-
-                    <button
-                        onClick={() => setIsScanActive(v => !v)}
-                        className="w-full bg-[#8B2065] hover:bg-[#701A51] text-white py-2 rounded text-sm font-semibold mb-1 transition-colors"
-                    >
-                        {isScanActive ? 'Scanning...' : 'Start Scan'}
-                    </button>
-
-                    <div className="text-center mb-2">
+                    {/* Tabs */}
+                    <div className="flex bg-[#F8F9FA] rounded-md p-1 mb-6 border border-gray-200">
+                        <button
+                            onClick={() => setIsScanActive(true)}
+                            className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-[14px] font-semibold rounded ${
+                                isScanActive ? 'bg-[#18325C] text-white shadow' : 'text-gray-600 hover:text-gray-800'
+                            } transition-all`}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16v5h-5"/><path d="M21 21v-5h-5"/><path d="M21 21h-5v-5"/></svg>
+                            Scan QR Code
+                        </button>
                         <button
                             onClick={() => setIsScanActive(false)}
-                            className="text-xs text-gray-600 hover:text-gray-800 underline-offset-2 hover:underline"
+                            className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-[14px] font-semibold rounded ${
+                                !isScanActive ? 'bg-[#18325C] text-white shadow' : 'text-gray-600 hover:text-gray-800'
+                            } transition-all`}
                         >
-                            Stop Scan
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                            Enter CET No
                         </button>
                     </div>
 
-                    <button
-                        onClick={handleCetLogin}
-                        className="w-full bg-[#8B2065] hover:bg-[#701A51] text-white py-2 rounded text-sm font-semibold transition-colors"
-                    >
-                        Login with CETNO (Guest)
-                    </button>
+                    {/* Content Area */}
+                    <div className="flex flex-col items-center">
+                        {isScanActive ? (
+                            <>
+                                {/* QR Scanner Box */}
+                                <div className="bg-[#0f172a] rounded-lg w-[220px] h-[220px] relative flex items-center justify-center mb-4 shadow-inner">
+                                    {/* Corner Brackets */}
+                                    <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-[#DDA31D]"></div>
+                                    <div className="absolute top-4 right-4 w-6 h-6 border-r-2 border-t-2 border-[#DDA31D]"></div>
+                                    <div className="absolute bottom-4 left-4 w-6 h-6 border-l-2 border-b-2 border-[#DDA31D]"></div>
+                                    <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-[#DDA31D]"></div>
+                                </div>
+                                <p className="text-[12px] text-gray-500 text-center mb-6">
+                                    Point the camera at the QR code on<br />your verification slip
+                                </p>
+
+                                <div className="flex gap-4 w-full justify-center">
+                                    <button className="flex items-center gap-2 bg-[#18325C] text-white px-5 py-2.5 rounded text-[14px] font-medium hover:bg-[#112341] transition-colors shadow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                        Start Scan
+                                    </button>
+                                    <button
+                                        onClick={() => setIsScanActive(false)}
+                                        className="flex items-center gap-2 bg-white text-gray-600 border border-gray-200 px-5 py-2.5 rounded text-[14px] font-medium hover:bg-gray-50 transition-colors shadow-sm"
+                                    >
+                                        <div className="w-3 h-3 bg-gray-400 rounded-sm"></div>
+                                        Stop
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <div className="w-full flex flex-col gap-4 mt-2">
+                                <label className="text-[13px] font-semibold text-gray-700">Enter your CET Number</label>
+                                <input
+                                    type="text"
+                                    value={cetNoInput}
+                                    onChange={e => setCetNoInput(e.target.value)}
+                                    onKeyDown={e => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleCetLogin())}
+                                    className="w-full border border-gray-300 rounded px-4 py-3 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#18325C] focus:border-transparent transition-all shadow-sm"
+                                    placeholder="e.g., 25UXXXX"
+                                />
+                                <button
+                                    onClick={handleCetLogin}
+                                    className="w-full mt-2 bg-[#18325C] hover:bg-[#112341] text-white py-3 rounded text-[14px] font-medium transition-colors shadow"
+                                >
+                                    Proceed to Login
+                                </button>
+                            </div>
+                        )}
+                    </div>
                 </div>
+
+                {/* Receive OTP Via Section */}
+                <div className="bg-[#F8F9FA] rounded-lg border border-gray-200 p-5 w-full max-w-md shadow-sm">
+                    <p className="text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-4">
+                        RECEIVE OTP VIA
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                        <button className="flex items-center gap-2 bg-[#18325C] text-white px-4 py-2 rounded-full text-[13px] font-medium hover:bg-[#112341] transition-colors shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                            SMS
+                        </button>
+                        <button className="flex items-center gap-2 bg-white text-gray-700 border border-gray-200 px-4 py-2 rounded-full text-[13px] font-medium hover:bg-gray-50 transition-colors shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                            WhatsApp
+                        </button>
+                        <button className="flex items-center gap-2 bg-white text-gray-700 border border-gray-200 px-4 py-2 rounded-full text-[13px] font-medium hover:bg-gray-50 transition-colors shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            Email
+                        </button>
+                    </div>
+                </div>
+
             </div>
 
             <PageFooter />
@@ -109,13 +153,13 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
 
                         <div className="p-6 overflow-y-auto flex-1 space-y-4 text-sm text-gray-700">
                             <p><strong>1. Educational & Simulation Purposes Only</strong><br />
-                                This platform ("KCET Simulator") is built strictly for educational and demonstrative purposes. The mock allotments generated by this simulator are not real and do not guarantee you a seat in any institution.</p>
+                                This platform (&quot;KCET Simulator&quot;) is built strictly for educational and demonstrative purposes. The mock allotments generated by this simulator are not real and do not guarantee you a seat in any institution.</p>
 
                             <p><strong>2. No Affiliation with KEA</strong><br />
                                 This website is an independent community-driven project and is NOT affiliated, associated, authorized, endorsed by, or in any way officially connected with the Karnataka Examinations Authority (KEA).</p>
 
                             <p><strong>3. Privacy & Data Storage</strong><br />
-                                We deeply respect your privacy. We do not collect, transmit, share, or store any of your personal data on external servers. All the information you input (including CET Numbers, Names, Ranks, Categories, and Option Entries) is stored 100% locally in your device's browser storage.</p>
+                                We deeply respect your privacy. We do not collect, transmit, share, or store any of your personal data on external servers. All the information you input (including CET Numbers, Names, Ranks, Categories, and Option Entries) is stored 100% locally in your device&apos;s browser storage.</p>
 
                             <p><strong>4. Accuracy of Cutoffs & Algorithm</strong><br />
                                 All mock allotments provided on this platform are simulated based on the official KCET 2025 Round 1, Round 2, and Round 3 cutoff data. Our algorithm is an approximation.</p>
