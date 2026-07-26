@@ -11,26 +11,32 @@ export interface LinkedCutoff {
 
 
 export const branchAliases: Record<string, string[]> = {
-    CSE: ['CSE', 'CS', 'BCS', 'BTCS', 'BTCS & EAI&ML'],
-    ISE: ['ISE', 'IS', 'BIS'],
-    ECE: ['ECE', 'EC', 'BEC', 'BTE & CE'],
-    AIML: ['AIML', 'AI', 'ML', 'BTCS & EAI&ML'],
-    AIDS: ['AIDS', 'AD'],
-    EEE: ['EEE', 'EE'],
-    MECH: ['MECH', 'ME'],
-    CIVIL: ['CIVIL', 'CE'],
-    BT: ['BT'],
+    CSE:  ['CSE', 'CS', 'BCS', 'BTCS', 'BW', 'BQ', 'BV', 'CO', 'DL', 'DV', 'ZC', 'DK', 'DM', 'YN'],
+    ISE:  ['ISE', 'IS', 'BIS', 'IE', 'IZ', 'CU', 'CX', 'BI', 'BU'],
+    ECE:  ['ECE', 'EC', 'BEC', 'BB', 'YO', 'EB', 'II', 'DY', 'YV', 'YG', 'CM', 'EV', 'VL'],
+    AIML: ['AIML', 'AM', 'AI', 'CA', 'CF', 'BH', 'AW', 'YD', 'YK', 'LM', 'ZW', 'ZB', 'AV', 'LE'],
+    AIDS: ['AIDS', 'AD', 'BG', 'ZH', 'ZR', 'DC', 'IA'],
+    EEE:  ['EEE', 'EE', 'BJ', 'YP', 'YF'],
+    MECH: ['MECH', 'ME', 'DB', 'MK', 'MM', 'ZT', 'YT', 'YI'],
+    CIVIL:['CIVIL', 'CE', 'BP', 'CK', 'CV', 'DU', 'DX', 'YE', 'ZL'],
+    BT:   ['BT', 'BO', 'YJ', 'BA', 'EA'],
     CHEM: ['CHEM', 'CH'],
-    CYBER: ['CYBER', 'CY'],
-    DS: ['DS'],
-    EIE: ['EIE', 'EI'],
-    ETE: ['ETE', 'ET'],
-    AERO: ['AERO', 'AN'],
-    ASE: ['ASE', 'AE'],
-    AUTO: ['AUTO', 'AU'],
-    IEM: ['IEM', 'IM'],
-    RAI: ['RAI', 'RI'],
-    TT: ['TT'],
+    CYBER:['CYBER', 'CY', 'BX', 'LG', 'LH', 'DW', 'ZU'],
+    DS:   ['DS', 'BF', 'BZ', 'CN', 'CQ', 'LD', 'YB', 'ZQ'],
+    EIE:  ['EIE', 'EI', 'EL'],
+    ETE:  ['ETE', 'ET', 'TC'],
+    AERO: ['AERO', 'AE', 'AN', 'BL', 'ZA', 'SE'],
+    AUTO: ['AUTO', 'AU', 'AT'],
+    IEM:  ['IEM', 'IM', 'IP'],
+    RAI:  ['RAI', 'RI', 'RA', 'RO', 'DF', 'DH', 'DI', 'DJ', 'YA', 'BR'],
+    TT:   ['TT', 'ST', 'TX'],
+    VLSI: ['VLSI', 'VL', 'DN', 'CM', 'EV', 'YC'],
+    ML:   ['ML', 'MD', 'YL'],
+    IOT:  ['IOT', 'OT', 'IC', 'IO', 'LK'],
+    CB:   ['CB', 'ZO', 'LJ'],
+    CC:   ['CC', 'CL', 'ER', 'ES', 'EZ'],
+    CD:   ['CD', 'ZM'],
+    IT:   ['IT', 'CW', 'BI', 'ZV', 'LF', 'YW', 'BY', 'YX', 'YY', 'YU']
 };
 
 export function getRawBranchIds(code: string) {
@@ -51,26 +57,7 @@ export function getRoundRank(cutoff: LinkedCutoff, round: number) {
 }
 
 export function getRoundLabel(round: number, style: 'short' | 'long' = 'short') {
-    let is2026 = false;
-    if (typeof window !== 'undefined') {
-        try {
-            const configRaw = localStorage.getItem('sim_global_config');
-            if (configRaw) {
-                const config = JSON.parse(configRaw);
-                if (config.counselingYear === '2026') {
-                    is2026 = true;
-                }
-            }
-        } catch {}
-    }
-
-    const labels: Record<number, string> = is2026 ? {
-        0: 'Mock',
-        1: 'Pre-Round',
-        2: 'First',
-        3: 'Second',
-        4: 'Third',
-    } : {
+    const labels: Record<number, string> = {
         0: 'Mock',
         1: 'First',
         2: 'Second',
@@ -79,7 +66,6 @@ export function getRoundLabel(round: number, style: 'short' | 'long' = 'short') 
     const label = labels[round] || `Round ${round}`;
     if (style === 'long') {
         if (round === 0) return 'Mock Round';
-        if (is2026 && round === 1) return 'Pre-Round';
         return `${label} Round`;
     }
     return label;
@@ -90,11 +76,11 @@ export function getEligibleCategories(category: string, isRural: boolean, isKann
     let base = normalized;
     if (normalized === 'GMK' || normalized === 'GMR') base = 'GM';
     if (/^[123][AB]?[KR]$/.test(normalized)) base = `${normalized.slice(0, -1)}G`;
-    if (normalized === 'SCK' || normalized === 'SCR') base = 'SCG';
+    if (/^S[1234][KR]$/.test(normalized)) base = `${normalized.slice(0, -1)}G`;
     if (normalized === 'STK' || normalized === 'STR') base = 'STG';
     
     // Normalize raw inputs like '2A' to '2AG'
-    if (['1', '2A', '2B', '3A', '3B', 'SC', 'ST'].includes(base)) {
+    if (['1', '2A', '2B', '3A', '3B', 'S1', 'S2', 'S3', 'S4', 'ST'].includes(base)) {
         base = base + 'G';
     }
 

@@ -1,4 +1,4 @@
-export type Category = "1G" | "1K" | "1R" | "2AG" | "2AK" | "2AR" | "2BG" | "2BK" | "2BR" | "3AG" | "3AK" | "3AR" | "3BG" | "3BK" | "3BR" | "GM" | "GMK" | "GMR" | "SCG" | "SCK" | "SCR" | "STG" | "STK" | "STR";
+export type Category = "1G" | "1K" | "1R" | "2AG" | "2AK" | "2AR" | "2BG" | "2BK" | "2BR" | "3AG" | "3AK" | "3AR" | "3BG" | "3BK" | "3BR" | "GM" | "GMK" | "GMR" | "S1G" | "S1K" | "S1R" | "S2G" | "S2K" | "S2R" | "S3G" | "S3K" | "S3R" | "S4G" | "S4K" | "S4R" | "STG" | "STK" | "STR";
 export type Gender = "Male" | "Female";
 export type Round = 1 | 2 | 3;
 export type PredictionLevel = "safe" | "moderate" | "dream";

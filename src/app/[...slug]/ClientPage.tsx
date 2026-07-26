@@ -352,12 +352,19 @@ export default function CounselingSimulator() {
         const userId = user?.id || cetNo;
         if (!userId) return;
         try {
+            // Read mockAllotment from localStorage directly to avoid stale closure
+            let latestAllotment = mockAllotment;
+            try {
+                const raw = localStorage.getItem('sim_mock_allotment');
+                if (raw) latestAllotment = JSON.parse(raw);
+            } catch {}
+
             const state = {
                 userId: userId,
                 email: user?.email || '',
                 userProfile,
                 options,
-                mockAllotment,
+                mockAllotment: latestAllotment,
                 step: currentStep,
                 currentRound: globalConfig?.currentRound ?? 0,
                 submittedRound: submittedRound,
@@ -384,7 +391,7 @@ export default function CounselingSimulator() {
             isResultsLive: true,
             resultsReleaseDate: "2026-06-15T10:00:00Z",
             nextRoundStartDate: "2026-06-20T10:00:00Z",
-            counselingYear: '2025',
+            counselingYear: '2026',
             rankInflation: 'none',
             topperExitSim: 'disabled'
         };
@@ -640,7 +647,71 @@ export default function CounselingSimulator() {
             }
         };
         reader.readAsText(file);
-        e.target.value = '';
+        
+        if (e.target) e.target.value = '';
+    };
+
+    const handleImportPDF = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        try {
+            if (!(window as any).pdfjsLib) {
+                await new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+                    script.onload = () => {
+                        (window as any).pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+                        resolve(true);
+                    };
+                    script.onerror = reject;
+                    document.body.appendChild(script);
+                });
+            }
+
+            const pdfjsLib = (window as any).pdfjsLib;
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+            let fullText = '';
+
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const textContent = await page.getTextContent();
+                const pageText = textContent.items.map((item: any) => item.str).join(' ');
+                fullText += pageText + ' ';
+            }
+
+            const noNewlineText = fullText.replace(/\n/g, ' ');
+            const regex = /(?:^|\s)(\d+)\s*(E\d{3})\s*([A-Z]{2})/g;
+            let match;
+            const validOptions: Record<string, string> = {};
+            let count = 0;
+            
+            while ((match = regex.exec(noNewlineText)) !== null) {
+                const choiceNum = match[1];
+                const colCode = match[2];
+                const brCode = match[3];
+                validOptions[`${colCode}:::${brCode}`] = choiceNum;
+                count++;
+            }
+
+            if (count === 0) {
+                alert("Could not find any valid choices in the uploaded PDF. Please make sure it's the correct KEA Option Entry PDF.");
+                return;
+            }
+
+            if (window.confirm(`Found ${count} choices from the Option Entry PDF. This will replace your current choices. Proceed?`)) {
+                setOptions(validOptions);
+                saveSimulationState('entry', { options: validOptions });
+                alert(`Successfully imported ${count} choices from PDF!`);
+            }
+
+        } catch (error) {
+            console.error("Upload error:", error);
+            alert("Error parsing PDF. Please try again.");
+        } finally {
+            if (e.target) e.target.value = '';
+        }
     };
 
     const handleUpdateList = async () => {
@@ -723,19 +794,40 @@ export default function CounselingSimulator() {
     };
 
     const handleCheckAllotment = async (downloadOnly = false) => {
-        if (selectedOptions.length === 0 && !previousAllotment && !mockAllotment) {
+        if (selectedOptions.length === 0 && !previousAllotment) {
             alert('Please complete your Option Entry first before checking the allotment result.');
             setIsSubmitting(false);
             return;
         }
 
+        // Always clear old allotment first so stale data is never shown
+        setMockAllotment(null);
+        localStorage.removeItem('sim_mock_allotment');
         setIsSubmitting(true);
+
         setTimeout(async () => {
             const allottedSeat = await findAllotmentFromOptions();
+            console.log('[Allotment] Rank:', userProfile.rank, 'Options:', selectedOptions.length, 'Result:', allottedSeat);
 
             setMockAllotment(allottedSeat);
             setIsSubmitting(false);
-            await saveSimulationState('landing', { mockAllotment: allottedSeat });
+
+            // Save with explicit allottedSeat (not stale closure)
+            const userId = user?.id || cetNo;
+            if (userId) {
+                try {
+                    const saved = localStorage.getItem('simulation_state_' + userId);
+                    const existing = saved ? JSON.parse(saved) : {};
+                    localStorage.setItem('simulation_state_' + userId, JSON.stringify({
+                        ...existing,
+                        mockAllotment: allottedSeat,
+                        updatedAt: new Date().toISOString(),
+                    }));
+                } catch {}
+            }
+            if (allottedSeat) {
+                localStorage.setItem('sim_mock_allotment', JSON.stringify(allottedSeat));
+            }
 
             if (downloadOnly) {
                 exportAllotmentToPDF(allottedSeat, {
@@ -887,7 +979,7 @@ export default function CounselingSimulator() {
         await saveSimulationState('landing');
     };
 
-    const categories = ['GM', 'GMR', 'GMK', '1G', '1R', '1K', '2AG', '2AR', '2AK', '2BG', '2BR', '2BK', '3AG', '3AR', '3AK', '3BG', '3BR', '3BK', 'SCG', 'SCR', 'SCK', 'STG', 'STR', 'STK'];
+    const categories = ['GM', 'GMR', 'GMK', '1G', '1R', '1K', '2AG', '2AR', '2AK', '2BG', '2BR', '2BK', '3AG', '3AR', '3AK', '3BG', '3BR', '3BK', 'S1G', 'S1R', 'S1K', 'S2G', 'S2R', 'S2K', 'S3G', 'S3R', 'S3K', 'S4G', 'S4R', 'S4K', 'STG', 'STR', 'STK'];
 
     // Auth Check
     const { loginWithGoogle, logout, setAsGuest, isLoading: authLoading, isGuest } = useAuth();
@@ -1152,6 +1244,7 @@ export default function CounselingSimulator() {
                                     handleImportFromChoiceList={handleImportFromChoiceList}
                                     handleExportJSON={handleExportJSON}
                                     handleImportJSON={handleImportJSON}
+                                    handleImportPDF={handleImportPDF}
                                     handleDownloadAllRoundsReport={handleDownloadAllRoundsReport}
                                 />
                             </motion.div>
@@ -1211,7 +1304,6 @@ export default function CounselingSimulator() {
                                 <CollegesPage onNavigate={setStep} colleges={colleges} />
                             </motion.div>
                         )}
-
                         {step === 'choice_entry' && (
                             <ChoiceEntryPage 
                                 mockAllotment={mockAllotment}
@@ -1221,6 +1313,7 @@ export default function CounselingSimulator() {
                                 setChoiceSubmitted={setChoiceSubmitted}
                                 onNavigate={setStep}
                                 globalConfig={globalConfig}
+                                setPreviousAllotment={setPreviousAllotment}
                             />
                         )}
 

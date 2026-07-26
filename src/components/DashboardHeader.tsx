@@ -1,136 +1,66 @@
 'use client';
 
-import React, { useState } from 'react';
-import { ChevronDown, GraduationCap } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import {
+    Home,
+    BookOpen,
+    Building2,
+    LogOut,
+    Bookmark,
+    Phone,
+    Mail,
+    AlertTriangle,
+    Trophy,
+    Clock
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// --- Logos ---
-const CAPLogo = () => (
-    <div className="flex flex-col shrink-0">
-        <div className="flex items-end relative -mb-0.5">
-            <div className="text-[#CE1126] font-sans font-bold text-[32px] md:text-[38px] tracking-tighter leading-none">CA</div>
-            <div className="relative">
-                <div className="absolute -top-[14px] -left-[10px] md:-top-[16px] md:-left-[12px] text-[#111] z-10 transform -rotate-[12deg]">
-                    <GraduationCap size={30} className="md:w-8 md:h-8 w-[26px] h-[26px]" fill="currentColor" strokeWidth={0.5} />
-                </div>
-                <div className="text-[#CE1126] font-sans font-bold text-[32px] md:text-[38px] tracking-tighter leading-none relative z-0">P</div>
-            </div>
-            <div className="text-[#111] font-sans font-medium text-[10px] md:text-[12px] uppercase mb-[4px] ml-1 leading-none tracking-tight">NIC</div>
+// --- KEA Logo Component (White box with Magenta K E A text matching real KEA portal) ---
+export const KEALogo = () => (
+    <div className="flex items-center gap-4 shrink-0 select-none">
+        {/* Exact KEA Logo Custom SVG */}
+        <div className="w-[48px] h-[48px] bg-white flex items-end justify-center overflow-hidden shrink-0 p-1">
+            <svg viewBox="0 0 100 100" className="w-full h-full fill-[#A54582] font-sans font-black">
+                {/* Podiums (No gaps) */}
+                <rect x="0" y="55" width="34" height="45" />
+                <rect x="33" y="35" width="34" height="65" />
+                <rect x="66" y="65" width="34" height="35" />
+                {/* Letters */}
+                <text x="17" y="50" textAnchor="middle" fontSize="38" letterSpacing="-1">K</text>
+                <text x="50" y="30" textAnchor="middle" fontSize="38" letterSpacing="-1">E</text>
+                <text x="83" y="60" textAnchor="middle" fontSize="38" letterSpacing="-1">A</text>
+            </svg>
         </div>
-        <div className="text-gray-600 font-sans text-[7px] md:text-[8px] leading-[1.1] font-medium max-w-[140px] tracking-tight">
-            Centralised Seat Allotment Process<br />for Professional Degree Courses
+
+        {/* Vertical divider */}
+        <div className="w-[2px] h-9 bg-[#D99A29] opacity-90 mx-1" />
+
+        {/* Header Text */}
+        <div className="flex flex-col text-white pt-1">
+            <span className="font-extrabold text-[13px] md:text-[15px] leading-tight tracking-wide">
+                ADMISSION TO UGCET &amp; OTHER PROFESSIONAL COURSES- 2026
+            </span>
+            <span className="text-[9px] md:text-[11px] text-[#A2B1C6] font-medium tracking-wide">
+                CENTRALISED ALLOTMENT PROCESS
+            </span>
         </div>
     </div>
 );
 
-const RanksDropdown = ({ userProfile }: { userProfile?: any }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const streams = [
-        "Medical", "Dental", "Ayush", "Yoga & Naturopathy", "Architecture",
-        "Engineering", "Agri(Bsc)(Theory)", "Agriculture(Pract.)", "Food Sci(Pract.)",
-        "Food Sci(Theory)", "Nursing", "Veter Sci(Theory)", "Veter Sci(Pract.)",
-        "Sericulture(Theory)", "Sericulture(Pract.)", "D-Pharma", "B-Pharma"
-    ];
-
-    return (
-        <div className="relative inline-block mt-1 z-50">
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-1 border-[1px] border-[#0066cc] px-3 py-1 rounded-[3px] text-[13px] font-medium bg-white text-[#0066cc] hover:bg-gray-50"
-            >
-                Ranks ∇
-            </button>
-
-            {isOpen && (
-                <div className="absolute top-full right-0 mt-1 bg-white border border-gray-400 shadow-2xl w-[250px]">
-                    <div className="flex bg-white text-[10px] font-bold border-b border-gray-300 px-3 py-1">
-                        <div className="flex-1">Stream</div>
-                        <div className="w-16 text-center">Rank</div>
-                    </div>
-                    <div className="max-h-[350px] overflow-y-auto">
-                        {streams.map((stream, idx) => (
-                            <div
-                                key={idx}
-                                className="flex text-[10px] text-black font-medium border-b border-gray-100 last:border-0 px-3 py-1 hover:bg-gray-50"
-                            >
-                                <div className="flex-1">{stream}</div>
-                                <div className="w-16 text-center font-bold text-red-600">
-                                    {stream === 'Engineering' ? (userProfile?.rank || '') : ''}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-};
-
-// --- Variant: Landing page header (nav buttons: Home, Courses, Colleges, Log Out) ---
-interface LandingHeaderProps {
-    onNavigate: (step: string) => void;
-    onLogout: () => void;
-    userProfile?: any;
+// --- Simple Header for Auth / Standalone Pages ---
+interface SimplePageHeaderProps {
+    accentColor?: string;
 }
 
-export function LandingHeader({ onNavigate, onLogout, userProfile }: LandingHeaderProps) {
+export function SimplePageHeader({ accentColor = '#1B365D' }: SimplePageHeaderProps) {
     return (
-        <div className="border-b-[2px] border-gray-300 py-3 px-4 md:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            {/* Left: CAP Logo & User Details */}
-            <div className="flex items-center gap-4 shrink-0 mt-1">
-                <CAPLogo />
-                {userProfile && userProfile.studentName && (
-                    <div className="flex flex-col text-[#222] font-sans ml-2">
-                        <span className="text-[14px]">Welcome {userProfile.studentName}</span>
-                        <span className="text-[14px]">CET NO: {userProfile.kcetNumber} Claimed : Karnataka,</span>
-                    </div>
-                )}
-            </div>
-
-            {/* Center: Title & Ranks */}
-            <div className="flex flex-col items-center flex-1 pt-1 gap-1">
-                <h1
-                    className="text-[#CE3B4B] text-[16px] md:text-[18px] lg:text-[20px] font-medium tracking-wide uppercase text-center"
-                    style={{ lineHeight: '1.3' }}
-                >
-                    ADMISSION TO UGCET &amp; OTHER<br />PROFESSIONAL COURSES- 2026
-                </h1>
-                <RanksDropdown userProfile={userProfile} />
-            </div>
-
-            {/* Right: Nav Buttons */}
-            <div className="flex items-center gap-[4px] shrink-0 mt-2 md:mt-0">
-                <button
-                    onClick={() => onNavigate('landing')}
-                    className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-                >
-                    Home
-                </button>
-                <button
-                    onClick={() => onNavigate('courses')}
-                    className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-                >
-                    Courses
-                </button>
-                <button
-                    onClick={() => onNavigate('colleges')}
-                    className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-                >
-                    Colleges
-                </button>
-                <button
-                    onClick={onLogout}
-                    className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-                >
-                    Log Out
-                </button>
-            </div>
+        <div className="bg-[#1B365D] border-b-4 border-[#D99A29] py-3.5 px-6 md:px-10 flex items-center justify-between shadow-md">
+            <KEALogo />
         </div>
     );
 }
 
-// --- Variant: Entry/Courses/Colleges header (active-state nav buttons) ---
+// --- Main Header with Navigation (100% Screenshot Matching Top Header) ---
 interface MainHeaderProps {
     step: string;
     onNavigate: (step: string) => void;
@@ -139,103 +69,165 @@ interface MainHeaderProps {
 }
 
 export function MainHeader({ step, onNavigate, onLogout, userProfile }: MainHeaderProps) {
+    const studentName = userProfile?.studentName || 'STUDENT';
+    const cetNo = userProfile?.kcetNumber || 'CET NO';
+    const initials = studentName.split(' ').map((n: string) => n[0]).join('').substring(0, 2).toUpperCase() || 'ST';
+
     return (
-        <header className="border-b border-gray-200 bg-[#F8F9FA] px-4 md:px-10 py-4">
-            <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6">
-                {/* Left: CAP Logo & User Details */}
-                <div className="flex items-center gap-4 shrink-0">
-                    <CAPLogo />
-                    {userProfile && userProfile.studentName && (
-                        <div className="flex flex-col text-[#222] font-sans ml-2">
-                            <span className="text-[14px]">Welcome {userProfile.studentName}</span>
-                            <span className="text-[14px]">CET NO: {userProfile.kcetNumber} Claimed : Karnataka,</span>
-                        </div>
-                    )}
-                </div>
+        <header className="bg-[#1B365D] text-white shadow-md select-none border-b-4 border-[#D99A29]">
+            <div className="w-full px-4 md:px-10 py-3.5 flex flex-col md:flex-row items-center justify-between gap-3">
+                {/* Left side: KEA Logo & Title */}
+                <KEALogo />
 
-                {/* Middle: Title */}
-                <div className="text-center flex-1">
-                    <h1
-                        className="text-[#CE3B4B] text-[16px] md:text-[18px] lg:text-[20px] font-medium tracking-wide uppercase text-center"
-                        style={{ lineHeight: '1.3' }}
+                {/* Right side: User Badge & Nav Buttons - 100% Match with Screenshot */}
+                <div className="flex flex-wrap items-center gap-3 md:gap-5 shrink-0">
+                    
+                    {/* User profile pill: 2-line stacked text + Yellow Circle Badge */}
+                    <button 
+                        onClick={() => onNavigate('profile')}
+                        className="flex items-center gap-3 bg-[#1E3B66]/60 border border-[#3B629B]/60 hover:bg-[#1E3B66] hover:border-[#D99A29]/50 transition-colors rounded-full pl-1.5 pr-5 py-1 shadow-sm cursor-pointer text-left"
                     >
-                        ADMISSION TO UGCET &amp; OTHER<br />PROFESSIONAL COURSES- 2026
-                    </h1>
-                </div>
+                        <div className="w-8 h-8 rounded-full bg-[#D99A29] text-[#1E293B] font-extrabold flex items-center justify-center text-xs shrink-0 shadow-inner">
+                            {initials}
+                        </div>
+                        <div className="flex flex-col text-left leading-tight">
+                            <span className="font-extrabold text-white text-[13px] tracking-wide">{studentName}</span>
+                            <span className="text-[11px] font-medium text-[#8EA6C9]">CET: {cetNo}</span>
+                        </div>
+                    </button>
 
-                {/* Right: Nav Buttons */}
-                <div className="flex flex-col items-end gap-2">
-                    <div className="flex items-center gap-[4px] shrink-0 mt-2 md:mt-0">
-                        <button
-                            onClick={() => onNavigate('landing')}
-                            className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-                        >
-                            Home
-                        </button>
-                        <button
-                            onClick={() => onNavigate('courses')}
-                            className={cn(
-                                "px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-colors",
-                                step === 'courses'
-                                    ? "bg-[#000080] text-white"
-                                    : "bg-white text-[#000080] hover:bg-gray-50"
-                            )}
-                        >
-                            Courses
-                        </button>
-                        <button
-                            onClick={() => onNavigate('colleges')}
-                            className={cn(
-                                "px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-colors",
-                                step === 'colleges'
-                                    ? "bg-[#000080] text-white"
-                                    : "bg-white text-[#000080] hover:bg-gray-50"
-                            )}
-                        >
-                            Colleges
-                        </button>
-                        <button
-                            onClick={onLogout}
-                            className="px-[10px] py-[2px] text-[11px] font-bold border border-[#7A7A7A] rounded-[3px] bg-white text-[#000080] hover:bg-gray-50 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-                        >
-                            Log Out
-                        </button>
-                    </div>
-                    <RanksDropdown userProfile={userProfile} />
+                    {/* Home Button: Dark pill with yellow border & yellow text/icon */}
+                    <button
+                        onClick={() => onNavigate('landing')}
+                        className="flex items-center gap-2 bg-[#2E4B75]/70 border border-[#D99A29] rounded-full px-4 py-1.5 text-[13px] font-bold text-[#D99A29] shadow-sm hover:bg-[#2E4B75] transition-all"
+                    >
+                        <Home className="w-4 h-4 fill-[#D99A29] text-[#D99A29]" />
+                        <span>Home</span>
+                    </button>
+
+                    {/* Option Entry Button: Yellow text + list icon */}
+                    <button
+                        onClick={() => onNavigate('entry')}
+                        className="flex items-center gap-1.5 text-[14px] font-bold text-[#D99A29] hover:text-amber-300 transition-colors px-1"
+                    >
+                        <BookOpen className="w-4 h-4 text-[#D99A29]" />
+                        <span>Option Entry</span>
+                    </button>
+
+                    {/* Courses Button: Inline icon + white text */}
+                    <button
+                        onClick={() => onNavigate('courses')}
+                        className="flex items-center gap-2 text-[14px] font-bold text-white hover:text-slate-200 transition-colors px-1"
+                    >
+                        <BookOpen className="w-4 h-4 text-white" />
+                        <span>Courses</span>
+                    </button>
+
+                    {/* Colleges Button: Inline icon + white text */}
+                    <button
+                        onClick={() => onNavigate('colleges')}
+                        className="flex items-center gap-2 text-[14px] font-bold text-white hover:text-slate-200 transition-colors px-1"
+                    >
+                        <Building2 className="w-4 h-4 text-white" />
+                        <span>Colleges</span>
+                    </button>
+
+                    {/* Log Out Button: White rounded pill with soft pink/red text & icon */}
+                    <button
+                        onClick={onLogout}
+                        className="flex items-center gap-2 bg-[#F1F5F9] hover:bg-white rounded-full px-5 py-1.5 text-[14px] font-bold text-[#F87171] shadow-sm transition-all"
+                    >
+                        <LogOut className="w-4 h-4 text-[#F87171]" />
+                        <span>Log Out</span>
+                    </button>
                 </div>
             </div>
         </header>
     );
 }
 
-// --- Variant: Simple centered header (login page, allotment auth) ---
-interface SimplePageHeaderProps {
-    /** Border colour, defaults to maroon (#800000) */
-    accentColor?: string;
+// --- Landing / Dashboard Sub-header Banner ---
+interface SubHeaderProps {
+    userProfile?: any;
 }
 
-export function SimplePageHeader({ accentColor = '#800000' }: SimplePageHeaderProps) {
-    // Overriding props for the new 2026 redesign
+export function SubHeaderBanner({ userProfile }: SubHeaderProps) {
+    const category = userProfile?.category || '3A';
+    const mobileMasked = 'XXXXXXXXXX';
+    const emailMasked = 'x***@g***.com';
+
+    // Live session timer countdown
+    const [timeLeft, setTimeLeft] = useState(1551); // 25:51 default
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTimeLeft(prev => (prev > 0 ? prev - 1 : 0));
+        }, 1000);
+        return () => clearInterval(timer);
+    }, []);
+
+    const formatTimer = (seconds: number) => {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    };
+
     return (
-        <div className="bg-[#18325C] border-b-[4px] border-[#DDA31D] py-3 px-6 flex items-center shadow-md">
-            <div className="flex items-center gap-4 border-r border-gray-400/30 pr-6 mr-6">
-                <div className="bg-white w-14 h-12 flex items-center justify-center rounded-[2px] overflow-hidden p-1 shadow-sm">
-                    {/* Placeholder for the KEA Box Logo */}
-                    <div className="flex items-end justify-center gap-[2px] w-full h-full text-[#9C27B0]">
-                        <div className="font-extrabold text-[18px] leading-none">K</div>
-                        <div className="font-extrabold text-[14px] leading-none mb-1">E</div>
-                        <div className="font-extrabold text-[18px] leading-none">A</div>
+        <div className="bg-[#122744] border-b border-slate-700/80 text-white px-4 md:px-8 py-2.5 shadow-inner">
+            <div className="w-full flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+                {/* Left: Page Title & Breadcrumb + Badges */}
+                <div className="flex flex-wrap items-center gap-4">
+                    <div className="flex flex-col justify-center">
+                        <h2 className="text-base font-bold tracking-tight text-white leading-none">Dashboard</h2>
+                        <span className="text-[10px] text-slate-400 font-medium">Home</span>
+                    </div>
+
+                    <div className="hidden sm:block h-6 w-px bg-slate-600/60 mx-1" />
+
+                    {/* Metadata Badges matching screenshot */}
+                    <div className="flex flex-wrap items-center gap-2 text-xs">
+                        <div className="flex items-center gap-1.5 bg-[#0F2038] border border-slate-700/80 px-2.5 py-1 rounded-md text-slate-200">
+                            <Bookmark className="w-3.5 h-3.5 text-slate-400" />
+                            <span>Category: {category}</span>
+                        </div>
+
+                        <div className="flex items-center gap-1.5 bg-[#0F2038] border border-slate-700/80 px-2.5 py-1 rounded-md text-slate-200">
+                            <Phone className="w-3.5 h-3.5 text-slate-400" />
+                            <span>{mobileMasked}</span>
+                        </div>
+
+                        <div className="flex items-center gap-1.5 bg-[#0F2038] border border-slate-700/80 px-2.5 py-1 rounded-md text-slate-200">
+                            <Mail className="w-3.5 h-3.5 text-slate-400" />
+                            <span>{emailMasked}</span>
+                        </div>
+
+                        <div className="flex items-center gap-1.5 bg-[#7F1D1D] border border-red-800 text-white px-2.5 py-1 rounded-md font-semibold text-[11px]">
+                            <AlertTriangle className="w-3.5 h-3.5 text-white" />
+                            <span>Payment Pending</span>
+                        </div>
+
+                        <div className="flex items-center gap-1.5 bg-[#0F2038] border border-slate-700/80 px-2.5 py-1 rounded-md text-slate-200">
+                            <Trophy className="w-3.5 h-3.5 text-amber-400" />
+                            <span>12 Ranks</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="flex flex-col">
-                <h1 className="text-[16px] md:text-[18px] font-bold text-white tracking-wide leading-tight">
-                    ADMISSION TO UGCET &amp; OTHER PROFESSIONAL COURSES&#8211; 2026
-                </h1>
-                <p className="text-[#9CA3AF] text-[12px] md:text-[13px] tracking-wide mt-0.5">
-                    CENTRALISED ALLOTMENT PROCESS
-                </p>
+
+                {/* Right: Session Timer matching screenshot */}
+                <div className="flex items-center gap-2.5 bg-[#0F2038] border border-slate-700/80 px-3 py-1.5 rounded-lg text-xs self-start lg:self-center shrink-0">
+                    <Clock className="w-4 h-4 text-slate-400" />
+                    <div className="flex flex-col text-right">
+                        <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">SESSION EXPIRES IN:</span>
+                        <span className="font-mono font-extrabold text-white text-base leading-none tracking-wider">{formatTimer(timeLeft)}</span>
+                    </div>
+                </div>
             </div>
         </div>
     );
 }
+            </div>
+        </div>
+    );
+}
+
+export const LandingHeader = MainHeader;

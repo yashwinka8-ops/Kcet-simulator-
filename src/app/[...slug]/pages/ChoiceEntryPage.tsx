@@ -8,6 +8,7 @@ interface ChoiceEntryPageProps {
     setChoiceSubmitted: (v: boolean) => void;
     onNavigate: (step: string) => void;
     globalConfig?: any;
+    setPreviousAllotment?: (allotment: any) => void;
 }
 
 export default function ChoiceEntryPage({
@@ -18,6 +19,7 @@ export default function ChoiceEntryPage({
     setChoiceSubmitted,
     onNavigate,
     globalConfig,
+    setPreviousAllotment,
 }: ChoiceEntryPageProps) {
     const currentRound = globalConfig?.currentRound ?? 0;
     const [localChoice, setLocalChoice] = useState<number | null>(selectedChoice);
@@ -28,10 +30,7 @@ export default function ChoiceEntryPage({
     let showChoice3 = false;
 
     if (is2026) {
-        if (currentRound === 1) {
-            showChoice2 = false;
-            showChoice3 = true;
-        } else if (currentRound === 2) {
+        if (currentRound === 0 || currentRound === 1 || currentRound === 2) {
             showChoice2 = true;
             showChoice3 = true;
         } else if (currentRound === 3) {
@@ -42,32 +41,13 @@ export default function ChoiceEntryPage({
             showChoice3 = false;
         }
     } else {
-        if (currentRound === 1) {
-            showChoice2 = true;
-            showChoice3 = true;
-        } else if (currentRound === 2) {
+        if (currentRound === 0 || currentRound === 1 || currentRound === 2) {
             showChoice2 = true;
             showChoice3 = true;
         } else if (currentRound === 3) {
             showChoice2 = false;
             showChoice3 = false;
         }
-    }
-
-    if (currentRound === 0) {
-        return (
-            <div className="min-h-screen bg-[#F8F9FA] flex flex-col items-center justify-center p-6 text-center" style={{ fontFamily: 'Arial, sans-serif' }}>
-                <div className="bg-white border border-gray-300 rounded p-8 max-w-md shadow-sm">
-                    <h1 className="text-xl font-bold text-red-600 mb-4">Choice Entry Closed</h1>
-                    <p className="text-gray-700 text-sm mb-6 leading-relaxed">
-                        Choice entry is not available for the Mock Round. The Mock Round allotment is for informational purposes only. Please return to the dashboard.
-                    </p>
-                    <button onClick={() => onNavigate('landing')} className="bg-[#1a73e8] text-white px-6 py-2 rounded text-sm hover:bg-blue-700 transition-colors font-bold shadow-sm">
-                        Go to Dashboard
-                    </button>
-                </div>
-            </div>
-        );
     }
 
     const handleChoiceSelect = (choice: number) => {
@@ -93,6 +73,13 @@ export default function ChoiceEntryPage({
         }
         setSelectedChoice(localChoice);
         setChoiceSubmitted(true);
+        if (setPreviousAllotment) {
+            if (localChoice === 2) {
+                setPreviousAllotment(mockAllotment);
+            } else if (localChoice === 3 || localChoice === 4 || localChoice === 1) {
+                setPreviousAllotment(null);
+            }
+        }
         setShowConfirm(false);
         if (localChoice === 4) {
             alert('You have exited the counseling. You will not be considered for further rounds.');

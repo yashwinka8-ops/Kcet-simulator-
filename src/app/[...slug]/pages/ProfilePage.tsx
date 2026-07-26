@@ -22,6 +22,7 @@ interface ProfilePageProps {
     handleImportFromChoiceList?: () => void;
     handleExportJSON?: () => void;
     handleImportJSON?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleImportPDF?: (e: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
     handleDownloadAllRoundsReport?: () => Promise<void>;
 }
 
@@ -43,6 +44,7 @@ export default function ProfilePage({
     handleImportFromChoiceList,
     handleExportJSON,
     handleImportJSON,
+    handleImportPDF,
     handleDownloadAllRoundsReport
 }: ProfilePageProps) {
     const currentRound = globalConfig?.currentRound ?? 0;
@@ -258,177 +260,36 @@ export default function ProfilePage({
                                 </button>
                             </div>
                         )}
-                        {/* Counseling Logic Selection Row */}
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-amber-200 pb-3">
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                                <span className="text-[11px] font-black text-amber-800 uppercase tracking-widest">Counseling Year Logic</span>
-                            </div>
-                            <div className="flex flex-wrap items-center gap-4">
-                                <label className="flex items-center gap-1.5 text-[11px] font-bold text-amber-900 cursor-pointer">
-                                    <input
-                                        type="radio"
-                                        name="counselingYear"
-                                        value="2025"
-                                        checked={(globalConfig?.counselingYear || '2025') === '2025'}
-                                        onChange={() => {
-                                            if (setGlobalConfig) setGlobalConfig({ ...globalConfig, counselingYear: '2025', currentRound: 0 });
-                                            if (setMockAllotment) setMockAllotment(null);
-                                            if (setSelectedChoice) setSelectedChoice(null);
-                                            if (setChoiceSubmitted) setChoiceSubmitted(false);
-                                            if (setPreviousAllotment) setPreviousAllotment(null);
-                                            alert("Counseling logic changed to '2025 and earlier'. Simulator reset to Mock Round.");
-                                        }}
-                                        className="accent-[#00529B]"
-                                    />
-                                    2025 & Earlier (4 Rounds)
-                                </label>
-                                <label className="flex items-center gap-1.5 text-[11px] font-bold text-amber-900 cursor-pointer">
-                                    <input
-                                        type="radio"
-                                        name="counselingYear"
-                                        value="2026"
-                                        checked={globalConfig?.counselingYear === '2026'}
-                                        onChange={() => {
-                                            if (setGlobalConfig) setGlobalConfig({ ...globalConfig, counselingYear: '2026', currentRound: 0 });
-                                            if (setMockAllotment) setMockAllotment(null);
-                                            if (setSelectedChoice) setSelectedChoice(null);
-                                            if (setChoiceSubmitted) setChoiceSubmitted(false);
-                                            if (setPreviousAllotment) setPreviousAllotment(null);
-                                            alert("Counseling logic changed to '2026'. Simulator reset to Mock Round.");
-                                        }}
-                                        className="accent-[#00529B]"
-                                    />
-                                    2026 (5 Rounds - Pre-Round added)
-                                </label>
-                            </div>
-                        </div>
-
-                        {/* NEET Delay / Rank Inflation Selection Row */}
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-amber-200 pb-3">
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                                <span className="text-[11px] font-black text-amber-800 uppercase tracking-widest">NEET Delay Impact</span>
-                            </div>
-                            <div className="flex flex-wrap items-center gap-4">
-                                <label className="flex items-center gap-1.5 text-[11px] font-bold text-amber-900 cursor-pointer">
-                                    <input
-                                        type="radio"
-                                        name="rankInflation"
-                                        value="none"
-                                        checked={(globalConfig?.rankInflation || 'none') === 'none'}
-                                        onChange={() => {
-                                            if (setGlobalConfig) setGlobalConfig({ ...globalConfig, rankInflation: 'none' });
-                                            alert("Rank inflation set to None (0%). Option cutoffs remain original.");
-                                        }}
-                                        className="accent-[#00529B]"
-                                    />
-                                    None (0% Inflation)
-                                </label>
-                                <label className="flex items-center gap-1.5 text-[11px] font-bold text-amber-900 cursor-pointer">
-                                    <input
-                                        type="radio"
-                                        name="rankInflation"
-                                        value="moderate"
-                                        checked={globalConfig?.rankInflation === 'moderate'}
-                                        onChange={() => {
-                                            if (setGlobalConfig) setGlobalConfig({ ...globalConfig, rankInflation: 'moderate' });
-                                            alert("Rank inflation set to Moderate (+5%). Cutoff ranks are increased by 5%.");
-                                        }}
-                                        className="accent-[#00529B]"
-                                    />
-                                    Moderate (+5% Inflation)
-                                </label>
-                                <label className="flex items-center gap-1.5 text-[11px] font-bold text-amber-900 cursor-pointer">
-                                    <input
-                                        type="radio"
-                                        name="rankInflation"
-                                        value="high"
-                                        checked={globalConfig?.rankInflation === 'high'}
-                                        onChange={() => {
-                                            if (setGlobalConfig) setGlobalConfig({ ...globalConfig, rankInflation: 'high' });
-                                            alert("Rank inflation set to High (+10%). Cutoff ranks are increased by 10%.");
-                                        }}
-                                        className="accent-[#00529B]"
-                                    />
-                                    High (+10% Inflation)
-                                </label>
-                            </div>
-                        </div>
-
-                        {/* 2026 Pre-Round Topper Exit Simulation Row */}
-                        {(globalConfig?.counselingYear === '2026') && (
-                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-amber-200 pb-3">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-                                    <span className="text-[11px] font-black text-amber-800 uppercase tracking-widest">Pre-Round Topper Exit Sim</span>
-                                </div>
-                                <div className="flex flex-wrap items-center gap-4">
-                                    <label className="flex items-center gap-1.5 text-[11px] font-bold text-amber-900 cursor-pointer">
-                                        <input
-                                            type="radio"
-                                            name="topperExitSim"
-                                            value="disabled"
-                                            checked={(globalConfig?.topperExitSim || 'disabled') === 'disabled'}
-                                            onChange={() => {
-                                                if (setGlobalConfig) setGlobalConfig({ ...globalConfig, topperExitSim: 'disabled' });
-                                                alert("Pre-Round topper exit simulation disabled.");
-                                            }}
-                                            className="accent-[#00529B]"
-                                        />
-                                        Disabled (0% Vacancy Boost)
-                                    </label>
-                                    <label className="flex items-center gap-1.5 text-[11px] font-bold text-amber-900 cursor-pointer">
-                                        <input
-                                            type="radio"
-                                            name="topperExitSim"
-                                            value="enabled"
-                                            checked={globalConfig?.topperExitSim === 'enabled'}
-                                            onChange={() => {
-                                                if (setGlobalConfig) setGlobalConfig({ ...globalConfig, topperExitSim: 'enabled' });
-                                                alert("Pre-Round topper exit simulation enabled. Dynamic +2.5% seat vacancy boost applied to top branches.");
-                                            }}
-                                            className="accent-[#00529B]"
-                                        />
-                                        Enabled (2.5% Vacancy Boost)
-                                    </label>
-                                </div>
-                            </div>
-                        )}
-
                         {/* Controls Row */}
                         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                             <div className="flex items-center gap-2">
                                 <span className="text-[11px] font-black text-amber-800 uppercase tracking-widest">Simulation Controls</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                {currentRound < ((globalConfig?.counselingYear === '2026') ? 4 : 3) && (
+                                {currentRound < 3 && (
                                     <button
                                         type="button"
                                         onClick={() => {
-                                            const confirmed = window.confirm(
-                                                `Advance to ${getRoundLabel(nextRound, 'long')}?`
-                                            );
+                                            const confirmed = window.confirm(`Advance to Round ${currentRound + 1} Allotment Phase?`);
                                             if (!confirmed) return;
+                                            
                                             if (setMockAllotment) setMockAllotment(null);
                                             if (setSelectedChoice) setSelectedChoice(null);
                                             if (setChoiceSubmitted) setChoiceSubmitted(false);
-                                            if (setPreviousAllotment) setPreviousAllotment(null);
-                                            const keysToRemove: string[] = [];
+                                            const keysToRemove = [];
                                             for (let i = 0; i < localStorage.length; i++) {
                                                 const key = localStorage.key(i);
-                                                if (key && ['sim_mock_allotment', 'sim_selected_choice', 'sim_choice_submitted', 'sim_previous_allotment'].includes(key)) {
+                                                if (key && ['sim_mock_allotment', 'sim_selected_choice', 'sim_choice_submitted'].includes(key)) {
                                                     keysToRemove.push(key);
                                                 }
                                             }
                                             keysToRemove.forEach(key => localStorage.removeItem(key));
-                                            if (setGlobalConfig) setGlobalConfig({ ...globalConfig, currentRound: nextRound });
-                                            alert(`Advanced to ${getRoundLabel(nextRound, 'long')}.`);
+                                            if (setGlobalConfig) setGlobalConfig({ ...globalConfig, counselingYear: '2026', currentRound: currentRound + 1 });
+                                            alert(`Advanced to Round ${currentRound + 1}.`);
                                         }}
-                                        className="flex items-center gap-1.5 px-4 py-2 bg-[#00529B] hover:bg-[#003d75] text-white text-[11px] font-black uppercase tracking-wider rounded transition-colors shadow-sm"
+                                        className="bg-[#00529B] text-white hover:bg-blue-800 font-bold px-3 py-1.5 rounded text-xs shadow"
                                     >
-                                        <RefreshCw className="w-3.5 h-3.5" />
-                                        Next Round
+                                        Proceed to Round {currentRound + 1} →
                                     </button>
                                 )}
 
@@ -574,13 +435,24 @@ export default function ProfilePage({
                             </p>
                             
                             <div 
-                                onClick={() => document.getElementById('import-file-input')?.click()}
+                                onClick={() => document.getElementById('import-json-input')?.click()}
                                 className="flex items-start gap-3 p-4 border border-gray-200 rounded hover:bg-[#E0F2F1]/30 hover:border-[#00796B] cursor-pointer transition-all group"
                             >
                                 <Upload className="w-5 h-5 text-gray-500 group-hover:text-[#00796B] mt-1 shrink-0" />
                                 <div>
                                     <div className="font-bold text-[13px] text-black group-hover:text-[#00796B]">Upload JSON Backup File</div>
                                     <div className="text-[11px] text-gray-500 font-normal">Restore options from a previously saved options list file on your device.</div>
+                                </div>
+                            </div>
+
+                            <div 
+                                onClick={() => document.getElementById('import-pdf-input')?.click()}
+                                className="flex items-start gap-3 p-4 border border-gray-200 rounded hover:bg-[#E3F2FD]/40 hover:border-blue-600 cursor-pointer transition-all group"
+                            >
+                                <Upload className="w-5 h-5 text-gray-500 group-hover:text-blue-600 mt-1 shrink-0" />
+                                <div>
+                                    <div className="font-bold text-[13px] text-black group-hover:text-blue-600">Upload KEA Option Entry PDF</div>
+                                    <div className="text-[11px] text-gray-500 font-normal">Auto-scrape choices from your official KEA option entry downloaded PDF.</div>
                                 </div>
                             </div>
 
@@ -600,10 +472,21 @@ export default function ProfilePage({
 
                             <input 
                                 type="file" 
-                                id="import-file-input"
+                                id="import-json-input"
                                 accept=".json" 
                                 onChange={(e) => {
                                     if (handleImportJSON) handleImportJSON(e);
+                                    setShowImportModal(false);
+                                }} 
+                                className="hidden" 
+                            />
+
+                            <input 
+                                type="file" 
+                                id="import-pdf-input"
+                                accept=".pdf" 
+                                onChange={async (e) => {
+                                    if (handleImportPDF) await handleImportPDF(e);
                                     setShowImportModal(false);
                                 }} 
                                 className="hidden" 

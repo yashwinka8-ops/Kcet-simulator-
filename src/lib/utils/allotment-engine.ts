@@ -109,14 +109,23 @@ export const CATEGORY_PRIORITY: Record<string, number> = {
   '1G':  16,
   '1R':  17,
   '1K':  18,
-  // ── SC ────────────────────────────────────────────────────────
-  SCG: 19,
-  SCR: 20,
-  SCK: 21,
+  // ── SC (S1-S4 in 2026) ────────────────────────────────────────
+  S1G: 19,
+  S1R: 20,
+  S1K: 21,
+  S2G: 22,
+  S2R: 23,
+  S2K: 24,
+  S3G: 25,
+  S3R: 26,
+  S3K: 27,
+  S4G: 28,
+  S4R: 29,
+  S4K: 30,
   // ── ST ────────────────────────────────────────────────────────
-  STG: 22,
-  STR: 23,
-  STK: 24,
+  STG: 31,
+  STR: 32,
+  STK: 33,
 };
 
 /** Fallback score for any unrecognised category (treated as least competitive). */
@@ -132,29 +141,32 @@ function getCategoryPriority(cat: string): number {
 // ─────────────────────────────────────────────────────────────────
 
 const BRANCH_ALIASES: Record<string, string[]> = {
-  CSE:  ['CSE', 'CS', 'BCS', 'BTCS'],
-  ISE:  ['ISE', 'IS', 'BIS'],
-  ECE:  ['ECE', 'EC', 'BEC'],
-  AIML: ['AIML', 'AM', 'AI'],
-  AIDS: ['AIDS', 'AD'],
-  EEE:  ['EEE', 'EE'],
-  MECH: ['MECH', 'ME'],
-  CIVIL:['CIVIL', 'CE'],
-  BT:   ['BT'],
+  CSE:  ['CSE', 'CS', 'BCS', 'BTCS', 'BW', 'BQ', 'BV', 'CO', 'DL', 'DV', 'ZC', 'DK', 'DM', 'YN'],
+  ISE:  ['ISE', 'IS', 'BIS', 'IE', 'IZ', 'CU', 'CX', 'BI', 'BU'],
+  ECE:  ['ECE', 'EC', 'BEC', 'BB', 'YO', 'EB', 'II', 'DY', 'YV', 'YG', 'CM', 'EV', 'VL'],
+  AIML: ['AIML', 'AM', 'AI', 'CA', 'CF', 'BH', 'AW', 'YD', 'YK', 'LM', 'ZW', 'ZB', 'AV', 'LE'],
+  AIDS: ['AIDS', 'AD', 'BG', 'ZH', 'ZR', 'DC', 'IA'],
+  EEE:  ['EEE', 'EE', 'BJ', 'YP', 'YF'],
+  MECH: ['MECH', 'ME', 'DB', 'MK', 'MM', 'ZT', 'YT', 'YI'],
+  CIVIL:['CIVIL', 'CE', 'BP', 'CK', 'CV', 'DU', 'DX', 'YE', 'ZL'],
+  BT:   ['BT', 'BO', 'YJ', 'BA', 'EA'],
   CHEM: ['CHEM', 'CH'],
-  CYBER:['CYBER', 'CY'],
-  DS:   ['DS'],
-  EIE:  ['EIE', 'EI'],
-  ETE:  ['ETE', 'ET'],
-  AERO: ['AERO', 'AE', 'AN'],
-  AUTO: ['AUTO', 'AU'],
-  IEM:  ['IEM', 'IM'],
-  RAI:  ['RAI', 'RI', 'RA'],
-  TT:   ['TT'],
-  VLSI: ['VLSI', 'VL'],
-  ML:   ['ML'],
-  IOT:  ['IOT'],
-  CC:   ['CC'],
+  CYBER:['CYBER', 'CY', 'BX', 'LG', 'LH', 'DW', 'ZU'],
+  DS:   ['DS', 'BF', 'BZ', 'CN', 'CQ', 'LD', 'YB', 'ZQ'],
+  EIE:  ['EIE', 'EI', 'EL'],
+  ETE:  ['ETE', 'ET', 'TC'],
+  AERO: ['AERO', 'AE', 'AN', 'BL', 'ZA', 'SE'],
+  AUTO: ['AUTO', 'AU', 'AT'],
+  IEM:  ['IEM', 'IM', 'IP'],
+  RAI:  ['RAI', 'RI', 'RA', 'RO', 'DF', 'DH', 'DI', 'DJ', 'YA', 'BR'],
+  TT:   ['TT', 'ST', 'TX'],
+  VLSI: ['VLSI', 'VL', 'DN', 'CM', 'EV', 'YC'],
+  ML:   ['ML', 'MD', 'YL'],
+  IOT:  ['IOT', 'OT', 'IC', 'IO', 'LK'],
+  CB:   ['CB', 'ZO', 'LJ'],
+  CC:   ['CC', 'CL', 'ER', 'ES', 'EZ'],
+  CD:   ['CD', 'ZM'],
+  IT:   ['IT', 'CW', 'BI', 'ZV', 'LF', 'YW', 'BY', 'YX', 'YY', 'YU']
 };
 
 // ─────────────────────────────────────────────────────────────────
@@ -171,13 +183,13 @@ const BRANCH_ALIASES: Record<string, string[]> = {
 function toBaseG(cat: string): string {
   if (cat === 'GM' || cat === 'GMR' || cat === 'GMK') return 'GM';
   if (/^[123][AB]?[KR]$/.test(cat)) return cat.slice(0, -1) + 'G';
-  if (/^SC[KR]$/.test(cat)) return 'SCG';
+  if (/^S[1234][KR]$/.test(cat)) return cat.slice(0, -1) + 'G';
   if (/^ST[KR]$/.test(cat)) return 'STG';
   if (/^1[KR]$/.test(cat))  return '1G';
 
   const shorthand: Record<string, string> = {
     '1': '1G', '2A': '2AG', '2B': '2BG',
-    '3A': '3AG', '3B': '3BG', 'SC': 'SCG', 'ST': 'STG',
+    '3A': '3AG', '3B': '3BG', 'S1': 'S1G', 'S2': 'S2G', 'S3': 'S3G', 'S4': 'S4G', 'ST': 'STG',
   };
   return shorthand[cat] ?? cat;
 }
@@ -446,29 +458,16 @@ export async function runKcetAllotment(
 // ─────────────────────────────────────────────────────────────────
 
 export function getRoundLabel(round: KcetRound, style: 'short' | 'long' = 'short'): string {
-  let is2026 = false;
-  if (typeof window !== 'undefined') {
-    try {
-      const configRaw = localStorage.getItem('sim_global_config');
-      if (configRaw) {
-        const config = JSON.parse(configRaw);
-        if (config.counselingYear === '2026') {
-          is2026 = true;
-        }
-      }
-    } catch {}
-  }
-
-  const labels: Record<KcetRound, string> = is2026 ? {
-    0: 'Mock', 1: 'Pre-Round', 2: 'Round 1', 3: 'Round 2', 4: 'Round 3',
-  } : {
+  const labels: Record<KcetRound, string> = {
     0: 'Mock', 1: 'Round 1', 2: 'Round 2', 3: 'Round 3', 4: 'Round 3',
   };
   
   const label = labels[round] || `Round ${round}`;
   if (style === 'long') {
     if (round === 0) return 'Mock Round';
-    if (is2026 && round === 1) return 'Pre-Round';
+    if (round === 1) return 'First Round';
+    if (round === 2) return 'Second Round';
+    if (round === 3) return 'Third Round';
     return label;
   }
   return label;
