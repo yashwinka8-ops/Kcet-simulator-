@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Printer, RefreshCw, CheckCircle2, AlertCircle } from 'lucide-react';
 import { getRoundLabel } from '@/lib/utils/cutoff-link';
+import { getSeatProbability } from '@/lib/utils/trend-predictor';
 
 interface AllotmentResultPageProps {
     userProfile: any;
@@ -22,6 +23,11 @@ export default function AllotmentResultPage({
     const roundText = getRoundLabel(currentRound, 'long').toUpperCase();
     const today = new Date();
     const dateStr = `${today.getDate().toString().padStart(2, '0')}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getFullYear()}`;
+
+    const candidateRankNum = userProfile?.rank ? parseInt(String(userProfile.rank).replace(/,/g, ''), 10) : 8892;
+    const probability = currentRound >= 2 && mockAllotment?.cutoffRank
+        ? getSeatProbability(candidateRankNum, mockAllotment.cutoffRank)
+        : null;
 
     // Form states
     const [inputCetNo, setInputCetNo] = useState(userProfile?.kcetNumber || cetNo || '2600ED0052');
@@ -102,14 +108,33 @@ export default function AllotmentResultPage({
 
                         {/* Seat Allotted Green Banner */}
                         {mockAllotment ? (
-                            <div className="bg-[#EAF7ED] border border-[#B2E3BE] text-[#1E7E34] text-[11px] sm:text-[12px] font-medium py-2 px-3 rounded-[3px] mb-4 text-center flex items-center justify-center gap-1.5">
+                            <div className="bg-[#EAF7ED] border border-[#B2E3BE] text-[#1E7E34] text-[11px] sm:text-[12px] font-medium py-2 px-3 rounded-[3px] mb-3 text-center flex items-center justify-center gap-1.5">
                                 <CheckCircle2 className="w-4 h-4 text-[#1E7E34] shrink-0" />
                                 <span>🎉 Congratulations — you have been allotted a seat.</span>
                             </div>
                         ) : (
-                            <div className="bg-[#FFF1F0] border border-[#FFA39E] text-[#CF1322] text-[11px] sm:text-[12px] font-medium py-2 px-3 rounded-[3px] mb-4 text-center flex items-center justify-center gap-1.5">
+                            <div className="bg-[#FFF1F0] border border-[#FFA39E] text-[#CF1322] text-[11px] sm:text-[12px] font-medium py-2 px-3 rounded-[3px] mb-3 text-center flex items-center justify-center gap-1.5">
                                 <AlertCircle className="w-4 h-4 text-[#CF1322] shrink-0" />
                                 <span>No seat allotted in this round based on your options and rank.</span>
+                            </div>
+                        )}
+
+                        {/* 2026 Predictive Shift Banner for R2/R3 */}
+                        {currentRound >= 2 && (
+                            <div className="bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E3A8A] text-[11px] p-3 rounded-[3px] mb-4 space-y-1">
+                                <div className="font-bold flex items-center justify-between">
+                                    <span className="flex items-center gap-1">
+                                        📈 2026 Round {currentRound} Predictive Shift Engine
+                                    </span>
+                                    {probability && (
+                                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${probability.badgeBg} ${probability.badgeText} ${probability.badgeBorder}`}>
+                                            {probability.label}
+                                        </span>
+                                    )}
+                                </div>
+                                <p className="text-[10.5px] text-slate-600 leading-relaxed">
+                                    Cutoffs modeled using 2026 R1 baseline combined with historical 2024-2025 branch relaxation shifts.
+                                </p>
                             </div>
                         )}
 

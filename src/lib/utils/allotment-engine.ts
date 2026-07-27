@@ -51,6 +51,8 @@
 // Types
 // ─────────────────────────────────────────────────────────────────
 
+import { getBranchShiftMultiplier } from './trend-predictor';
+
 export type KcetRound = 0 | 1 | 2 | 3 | 4;
 
 export interface AllotmentOption {
@@ -430,6 +432,9 @@ export async function runKcetAllotment(
     if (!branchCutoffs) continue;
 
     let optionMultiplier = multiplier;
+    if (round >= 2) {
+      optionMultiplier *= getBranchShiftMultiplier(round, opt.branchId);
+    }
     if (topperExitSim && isTopOption(opt.collegeId, opt.branchId)) {
       optionMultiplier = optionMultiplier * 1.025;
     }

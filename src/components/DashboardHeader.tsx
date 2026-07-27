@@ -15,7 +15,37 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-import Image from 'next/image';
+// --- KEA Logo Component (White box with Magenta K E A text matching real KEA portal) ---
+export const KEALogo = () => (
+    <div className="flex items-center gap-4 shrink-0 select-none">
+        {/* Exact KEA Logo Custom SVG */}
+        <div className="w-[48px] h-[48px] bg-white flex items-end justify-center overflow-hidden shrink-0 p-1">
+            <svg viewBox="0 0 100 100" className="w-full h-full fill-[#A54582] font-sans font-black">
+                {/* Podiums (No gaps) */}
+                <rect x="0" y="55" width="34" height="45" />
+                <rect x="33" y="35" width="34" height="65" />
+                <rect x="66" y="65" width="34" height="35" />
+                {/* Letters */}
+                <text x="17" y="50" textAnchor="middle" fontSize="38" letterSpacing="-1">K</text>
+                <text x="50" y="30" textAnchor="middle" fontSize="38" letterSpacing="-1">E</text>
+                <text x="83" y="60" textAnchor="middle" fontSize="38" letterSpacing="-1">A</text>
+            </svg>
+        </div>
+
+        {/* Vertical divider */}
+        <div className="w-[2px] h-9 bg-[#D99A29] opacity-90 mx-1" />
+
+        {/* Header Text */}
+        <div className="flex flex-col text-white pt-1">
+            <span className="font-extrabold text-[13px] md:text-[15px] leading-tight tracking-wide">
+                ADMISSION TO UGCET &amp; OTHER PROFESSIONAL COURSES- 2026
+            </span>
+            <span className="text-[9px] md:text-[11px] text-[#A2B1C6] font-medium tracking-wide">
+                CENTRALISED ALLOTMENT PROCESS
+            </span>
+        </div>
+    </div>
+);
 
 // --- Simple Header for Auth / Standalone Pages ---
 interface SimplePageHeaderProps {
@@ -25,32 +55,12 @@ interface SimplePageHeaderProps {
 export function SimplePageHeader({ accentColor = '#1B365D' }: SimplePageHeaderProps) {
     return (
         <div className="bg-[#1B365D] border-b-4 border-[#D99A29] py-3.5 px-6 md:px-10 flex items-center justify-between shadow-md">
-            <div className="flex items-center gap-4 shrink-0 select-none">
-                <div className="w-[48px] h-[48px] bg-white flex items-end justify-center overflow-hidden shrink-0 p-1">
-                    <svg viewBox="0 0 100 100" className="w-full h-full fill-[#A54582] font-sans font-black">
-                        <rect x="0" y="55" width="34" height="45" />
-                        <rect x="33" y="35" width="34" height="65" />
-                        <rect x="66" y="65" width="34" height="35" />
-                        <text x="17" y="50" textAnchor="middle" fontSize="38" letterSpacing="-1">K</text>
-                        <text x="50" y="30" textAnchor="middle" fontSize="38" letterSpacing="-1">E</text>
-                        <text x="83" y="60" textAnchor="middle" fontSize="38" letterSpacing="-1">A</text>
-                    </svg>
-                </div>
-                <div className="w-[2px] h-9 bg-[#D99A29] opacity-90 mx-1" />
-                <div className="flex flex-col text-white pt-1">
-                    <span className="font-extrabold text-[13px] md:text-[15px] leading-tight tracking-wide">
-                        ADMISSION TO UGCET &amp; OTHER PROFESSIONAL COURSES- 2026
-                    </span>
-                    <span className="text-[9px] md:text-[11px] text-[#A2B1C6] font-medium tracking-wide">
-                        CENTRALISED ALLOTMENT PROCESS
-                    </span>
-                </div>
-            </div>
+            <KEALogo />
         </div>
     );
 }
 
-// --- Main Header with Navigation (100% Screenshot Matching White Header) ---
+// --- Main Header with Navigation (100% Screenshot Matching Top Header) ---
 interface MainHeaderProps {
     step: string;
     onNavigate: (step: string) => void;
@@ -61,63 +71,75 @@ interface MainHeaderProps {
 export function MainHeader({ step, onNavigate, onLogout, userProfile }: MainHeaderProps) {
     const studentName = userProfile?.studentName || 'STUDENT';
     const cetNo = userProfile?.kcetNumber || 'CET NO';
+    const initials = studentName.split(' ').map((n: string) => n[0]).join('').substring(0, 2).toUpperCase() || 'ST';
 
     return (
-        <header className="bg-white text-gray-800 shadow-sm select-none border-b border-gray-200">
-            {/* Top thin blue bar */}
-            <div className="h-1.5 w-full bg-[#1e3a8a]" />
-            
-            <div className="w-full px-4 py-2 flex flex-col md:flex-row items-center justify-between gap-4 max-w-[1500px] mx-auto">
-                {/* Left side: KEA Official Logo & Title Text */}
-                <div className="flex items-center gap-4 shrink-0">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0">
-                        <img 
-                            src="https://cetonline.karnataka.gov.in/kea/assets/images/kea-logo-kan.png" 
-                            alt="Government of Karnataka Logo" 
-                            className="w-full h-full object-contain"
-                        />
-                    </div>
+        <header className="bg-[#1B365D] text-white shadow-md select-none border-b-4 border-[#D99A29]">
+            <div className="w-full px-4 md:px-10 py-3.5 flex flex-col md:flex-row items-center justify-between gap-3">
+                {/* Left side: KEA Logo & Title */}
+                <KEALogo />
+
+                {/* Right side: User Badge & Nav Buttons - 100% Match with Screenshot */}
+                <div className="flex flex-wrap items-center gap-3 md:gap-5 shrink-0">
                     
-                    <div className="flex flex-col leading-tight">
-                        <div className="flex items-center gap-2">
-                            <span className="text-[10px] sm:text-[11px] font-bold text-gray-800">ಕರ್ನಾಟಕ ಸರ್ಕಾರ</span>
-                            <span className="text-[10px] sm:text-[11px] font-bold text-gray-800">GOVERNMENT OF KARNATAKA</span>
+                    {/* User profile pill: 2-line stacked text + Yellow Circle Badge */}
+                    <button 
+                        onClick={() => onNavigate('profile')}
+                        className="flex items-center gap-3 bg-[#1E3B66]/60 border border-[#3B629B]/60 hover:bg-[#1E3B66] hover:border-[#D99A29]/50 transition-colors rounded-full pl-1.5 pr-5 py-1 shadow-sm cursor-pointer text-left"
+                    >
+                        <div className="w-8 h-8 rounded-full bg-[#D99A29] text-[#1E293B] font-extrabold flex items-center justify-center text-xs shrink-0 shadow-inner">
+                            {initials}
                         </div>
-                        <div className="flex items-center gap-2">
-                            <span className="text-[11px] sm:text-[13px] font-black text-[#1e3a8a]">ಕರ್ನಾಟಕ ಪರೀಕ್ಷಾ ಪ್ರಾಧಿಕಾರ</span>
+                        <div className="flex flex-col text-left leading-tight">
+                            <span className="font-extrabold text-white text-[13px] tracking-wide">{studentName}</span>
+                            <span className="text-[11px] font-medium text-[#8EA6C9]">CET: {cetNo}</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <span className="text-[12px] sm:text-[14px] font-black text-[#1e3a8a]">KARNATAKA EXAMINATIONS AUTHORITY</span>
-                        </div>
-                        <div className="flex items-center gap-4 mt-0.5">
-                            <span className="text-[11px] sm:text-[13px] font-black text-[#dc2626]">Common Admission Cell</span>
-                            <span className="text-[11px] sm:text-[13px] font-black text-[#1e3a8a]">UGCET-2024</span>
-                        </div>
-                    </div>
-                </div>
+                    </button>
 
-                {/* Right side: Candidate Info & Hidden Nav Links */}
-                <div className="flex flex-col items-end gap-2 shrink-0">
-                    {/* Navigation links (Subtle so they don't break the exact UI match) */}
-                    <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-wider text-gray-500">
-                        <button onClick={() => onNavigate('landing')} className="hover:text-[#1e3a8a] transition-colors">Home</button>
-                        <span>|</span>
-                        <button onClick={() => onNavigate('entry')} className="hover:text-[#1e3a8a] transition-colors">Option Entry</button>
-                        <span>|</span>
-                        <button onClick={onLogout} className="hover:text-red-600 transition-colors">Log Out</button>
-                    </div>
+                    {/* Home Button: Dark pill with yellow border & yellow text/icon */}
+                    <button
+                        onClick={() => onNavigate('landing')}
+                        className="flex items-center gap-2 bg-[#2E4B75]/70 border border-[#D99A29] rounded-full px-4 py-1.5 text-[13px] font-bold text-[#D99A29] shadow-sm hover:bg-[#2E4B75] transition-all"
+                    >
+                        <Home className="w-4 h-4 fill-[#D99A29] text-[#D99A29]" />
+                        <span>Home</span>
+                    </button>
 
-                    {/* Candidate Details Box */}
-                    <div className="bg-[#f8fafc] border border-gray-200 px-4 py-2 rounded shadow-sm text-right flex flex-col min-w-[240px]">
-                        <div className="flex justify-between items-center gap-4 border-b border-gray-100 pb-1 mb-1">
-                            <span className="text-[11px] font-bold text-gray-600">CET No :</span>
-                            <span className="text-[12px] font-black text-[#1e3a8a]">{cetNo}</span>
-                        </div>
-                        <div className="flex justify-between items-center gap-4">
-                            <span className="text-[11px] font-bold text-gray-600">CANDIDATE NAME :</span>
-                            <span className="text-[12px] font-black text-[#1e3a8a] truncate max-w-[200px]">{studentName}</span>
-                        </div>
-                    </div>
+                    {/* Option Entry Button: Yellow text + list icon */}
+                    <button
+                        onClick={() => onNavigate('entry')}
+                        className="flex items-center gap-1.5 text-[14px] font-bold text-[#D99A29] hover:text-amber-300 transition-colors px-1"
+                    >
+                        <BookOpen className="w-4 h-4 text-[#D99A29]" />
+                        <span>Option Entry</span>
+                    </button>
+
+                    {/* Courses Button: Inline icon + white text */}
+                    <button
+                        onClick={() => onNavigate('courses')}
+                        className="flex items-center gap-2 text-[14px] font-bold text-white hover:text-slate-200 transition-colors px-1"
+                    >
+                        <BookOpen className="w-4 h-4 text-white" />
+                        <span>Courses</span>
+                    </button>
+
+                    {/* Colleges Button: Inline icon + white text */}
+                    <button
+                        onClick={() => onNavigate('colleges')}
+                        className="flex items-center gap-2 text-[14px] font-bold text-white hover:text-slate-200 transition-colors px-1"
+                    >
+                        <Building2 className="w-4 h-4 text-white" />
+                        <span>Colleges</span>
+                    </button>
+
+                    {/* Log Out Button: White rounded pill with soft pink/red text & icon */}
+                    <button
+                        onClick={onLogout}
+                        className="flex items-center gap-2 bg-[#F1F5F9] hover:bg-white rounded-full px-5 py-1.5 text-[14px] font-bold text-[#F87171] shadow-sm transition-all"
+                    >
+                        <LogOut className="w-4 h-4 text-[#F87171]" />
+                        <span>Log Out</span>
+                    </button>
                 </div>
             </div>
         </header>
