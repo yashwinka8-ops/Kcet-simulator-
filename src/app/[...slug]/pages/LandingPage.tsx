@@ -625,11 +625,7 @@ export default function LandingPage({
                 </div>
             </div>
 
-            <div className="w-full max-w-[1400px] mx-auto px-4 md:px-8 pb-10">
-                <CreditsPrivacyCard onNavigate={onNavigate} />
-            </div>
-
-            <PageFooter />
+            <PageFooter onNavigate={onNavigate} />
         </div>
     );
 }

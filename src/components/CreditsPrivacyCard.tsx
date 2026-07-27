@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { ShieldCheck, Sparkles, ArrowRight, Heart, Info, MessageSquare } from 'lucide-react';
 
 interface CreditsPrivacyCardProps {
     onNavigate: (step: string) => void;
@@ -8,72 +9,84 @@ interface CreditsPrivacyCardProps {
 
 export default function CreditsPrivacyCard({ onNavigate }: CreditsPrivacyCardProps) {
     return (
-        <div className="bg-white border border-gray-300 shadow-sm w-full max-w-xl mx-auto rounded-none overflow-hidden text-slate-800 font-sans text-xs">
+        <div className="bg-white border border-slate-200/90 rounded-2xl shadow-xl w-full max-w-2xl mx-auto overflow-hidden text-slate-800 font-sans transition-all duration-300 hover:shadow-2xl">
             
-            {/* Header Banner */}
-            <div className="bg-[#6c757d] text-white px-4 py-2.5 text-center">
-                <h2 className="text-xs sm:text-sm font-extrabold uppercase tracking-wide">
-                    CREDITS & PRIVACY POLICY
-                </h2>
+            {/* Header Banner matching KEA Theme */}
+            <div className="bg-gradient-to-r from-[#1B365D] via-[#20406C] to-[#1B365D] text-white px-6 py-4 border-b-4 border-[#D99A29] flex items-center justify-between relative overflow-hidden">
+                <div className="flex items-center gap-2.5 relative z-10">
+                    <ShieldCheck className="w-5 h-5 text-[#D99A29]" />
+                    <h2 className="text-sm md:text-base font-extrabold uppercase tracking-wider text-white">
+                        Credits &amp; Privacy Policy
+                    </h2>
+                </div>
+                <span className="text-[11px] bg-[#0F2038] text-[#D99A29] px-3 py-1 rounded-full font-bold border border-slate-700/80 shadow-inner relative z-10">
+                    KEA Simulator 2026
+                </span>
             </div>
 
-            <div className="p-5 space-y-4">
+            <div className="p-6 md:p-8 space-y-6">
                 
                 {/* Credits Section */}
-                <div>
-                    <h3 className="font-bold text-slate-900 text-xs mb-2">Credits:</h3>
-                    <div className="space-y-1.5 pl-1">
-                        <div className="flex items-center gap-2 text-slate-800">
-                            <svg className="w-4 h-4 text-[#5865F2] shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
-                            </svg>
-                            <span className="font-medium text-[#4040F2]">flux_ai (aka Yashwin)</span>
+                <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-slate-900 font-bold text-xs uppercase tracking-wide">
+                        <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
+                        <span>Project Credits</span>
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                        {/* flux_ai badge */}
+                        <div className="flex items-center gap-2 bg-[#0F2038] text-white px-3.5 py-2 rounded-xl border border-slate-700 shadow-sm">
+                            <MessageSquare className="w-4 h-4 text-[#3B82F6]" />
+                            <span className="text-xs font-semibold">flux_ai <span className="text-slate-400 font-normal">(aka Yashwin)</span></span>
                         </div>
-                        <div className="flex items-center gap-2 text-slate-800">
-                            <svg className="w-4 h-4 text-[#5865F2] shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
-                            </svg>
-                            <span className="font-medium text-[#4040F2]">Azalea</span>
+                        {/* Azalea badge */}
+                        <div className="flex items-center gap-2 bg-[#0F2038] text-white px-3.5 py-2 rounded-xl border border-slate-700 shadow-sm">
+                            <MessageSquare className="w-4 h-4 text-[#3B82F6]" />
+                            <span className="text-xs font-semibold">Azalea</span>
                         </div>
                     </div>
                 </div>
 
-                <hr className="border-gray-200" />
+                <div className="h-px bg-slate-200/80" />
 
                 {/* Latest Updates Section */}
-                <div>
-                    <h3 className="font-bold text-red-600 text-xs mb-1">Latest Updates:</h3>
-                    <p className="text-slate-700 leading-relaxed">
-                        The <strong>2026 Counseling Simulator Logic</strong> is live with official 2026 cutoffs! Simulated using the standard 3-round counseling sequence (Mock, Round 1, Round 2, Round 3).
+                <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-emerald-700 font-bold text-xs uppercase tracking-wide">
+                        <Sparkles className="w-4 h-4 text-emerald-600" />
+                        <span>Latest Updates</span>
+                    </div>
+                    <p className="text-slate-600 text-xs md:text-sm leading-relaxed pl-1">
+                        The <strong className="text-slate-900 font-bold">2026 Counseling Simulator Logic</strong> is live with official 2026 cutoffs! Simulated using the standard 3-round counseling sequence (Mock Round, Round 1, Round 2, Round 3).
                     </p>
                 </div>
 
-                <hr className="border-gray-200" />
+                <div className="h-px bg-slate-200/80" />
 
                 {/* Privacy Policy & Disclaimer Section */}
-                <div>
-                    <h3 className="font-bold text-slate-900 text-xs mb-1">Privacy Policy & Disclaimer:</h3>
-                    <p className="text-slate-700 leading-relaxed">
-                        This platform is built purely for educational purposes and is <strong className="text-red-600 font-bold">NOT</strong> affiliated with the official Karnataka Examinations Authority (KEA). No legal actions can be taken against the creators. We do not collect, transmit, or store any of your personal data on external servers; all data remains completely secured within your local browser storage.
-                    </p>
+                <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-slate-900 font-bold text-xs uppercase tracking-wide">
+                        <Info className="w-4 h-4 text-[#1B365D]" />
+                        <span>Privacy Policy &amp; Disclaimer</span>
+                    </div>
+                    <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl text-slate-600 text-xs md:text-sm leading-relaxed">
+                        This platform is built purely for educational purposes and is <strong className="text-red-600 font-bold">NOT</strong> affiliated with the official Karnataka Examinations Authority (KEA). No legal actions can be taken against the creators. We do not collect, transmit, or store any personal data on external servers; all data remains 100% secured within your local browser storage.
+                    </div>
                 </div>
 
-                <hr className="border-gray-200" />
+                <div className="h-px bg-slate-200/80" />
 
-                {/* Footnote & Disclaimer Link */}
-                <div className="space-y-2 text-center pt-1">
-                    <p className="text-slate-500 italic text-[11px]">
-                        * Allotments are simulated based on official 2026 &amp; 2025 KCET Round cutoffs.
-                    </p>
+                {/* Footnote & Action Button */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-1">
+                    <span className="text-slate-400 italic text-[11px] text-center sm:text-left">
+                        * Allotments simulated based on official 2026 &amp; 2025 KCET Round cutoffs.
+                    </span>
 
-                    <div>
-                        <button
-                            onClick={() => onNavigate('privacy_policy')}
-                            className="text-[#0000B3] font-bold underline hover:text-blue-900 text-xs"
-                        >
-                            Click here to read the full Privacy Policy & Legal Disclaimer
-                        </button>
-                    </div>
+                    <button
+                        onClick={() => onNavigate('privacy')}
+                        className="inline-flex items-center gap-2 bg-[#1B365D] hover:bg-[#122744] active:bg-[#0A182E] text-white font-bold px-5 py-2.5 rounded-xl transition-all shadow-md text-xs group cursor-pointer shrink-0"
+                    >
+                        <span>Full Privacy Policy &amp; Disclaimer</span>
+                        <ArrowRight className="w-4 h-4 text-[#D99A29] group-hover:translate-x-1 transition-transform" />
+                    </button>
                 </div>
 
             </div>

@@ -3,7 +3,7 @@ import ClientPage from './ClientPage';
 export function generateStaticParams() {
     const routes = [
         'login', 'landing', 'dashboard', 'declaration', 'profile', 'entry', 
-        'courses', 'colleges', 'allotment_auth', 'allotment_result', 'choice_entry', 'privacy'
+        'courses', 'colleges', 'allotment_auth', 'allotment_result', 'choice_entry', 'privacy', 'privacy_policy'
     ];
     
     return routes.map((route) => ({

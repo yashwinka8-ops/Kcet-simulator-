@@ -53,13 +53,14 @@ const linkedColleges = linkedCollegeData.colleges;
 
 export default function CounselingSimulator() {
     const { user, isAdmin } = useAuth();
-    const [step, setStepState] = useState<'login' | 'landing' | 'declaration' | 'profile' | 'entry' | 'courses' | 'colleges' | 'allotment_auth' | 'allotment_result' | 'choice_entry' | 'privacy'>('login');
+    const [step, setStepState] = useState<'login' | 'landing' | 'declaration' | 'profile' | 'entry' | 'courses' | 'colleges' | 'allotment_auth' | 'allotment_result' | 'choice_entry' | 'privacy' | 'privacy_policy'>('login');
 
     useEffect(() => {
         const handlePopState = () => {
             const path = window.location.pathname.split('/')[1] || '';
             let urlStep = path;
             if (path === 'dashboard') urlStep = 'landing';
+            if (path === 'privacy_policy') urlStep = 'privacy';
 
             const hasCetNo = !!localStorage.getItem('sim_cet_no');
             if (urlStep) {
@@ -83,15 +84,18 @@ export default function CounselingSimulator() {
     }, []);
 
     const setStep = (newStep: string) => {
-        setStepState(newStep as any);
+        let normalizedStep = newStep;
+        if (newStep === 'privacy_policy') normalizedStep = 'privacy';
+        setStepState(normalizedStep as any);
         if (typeof window !== 'undefined') {
             const path = window.location.pathname.split('/')[1] || '';
             let currentUrlStep = path;
             if (path === 'dashboard') currentUrlStep = 'landing';
+            if (path === 'privacy_policy') currentUrlStep = 'privacy';
 
-            if (currentUrlStep !== newStep) {
-                let targetPath = newStep;
-                if (newStep === 'landing') targetPath = 'dashboard';
+            if (currentUrlStep !== normalizedStep) {
+                let targetPath = normalizedStep;
+                if (normalizedStep === 'landing') targetPath = 'dashboard';
                 window.history.pushState({}, '', `/${targetPath}`);
             }
         }
@@ -1155,7 +1159,7 @@ export default function CounselingSimulator() {
         return <LoginPage onLogin={handleLogin} />;
     }
 
-    if (step === 'privacy') {
+    if (step === 'privacy' || step === 'privacy_policy') {
         return <PrivacyPolicyPage onNavigate={setStep} userProfile={userProfile} />;
     }
 
