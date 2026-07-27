@@ -150,8 +150,13 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                         </div>
 
                         {/* Notice Box */}
-                        <div className="border-l-4 border-[#D99A29] bg-[#F8FAFC] border border-slate-100 p-4 rounded-r-xl rounded-l-sm text-[13px] text-slate-500 font-medium text-center">
-                            QR Code, Application No &amp; CET No are on your verification slip.
+                        <div className="border-l-4 border-[#D99A29] bg-[#EFF6FF] border border-blue-100 p-4 rounded-r-xl rounded-l-sm text-[13px] text-[#1E3A8A] font-medium text-center space-y-1 shadow-sm">
+                            <div className="font-bold text-[#1B365D] flex items-center justify-center gap-1.5 text-[14px]">
+                                <span>💡 Quick Access — No details required!</span>
+                            </div>
+                            <p className="text-slate-600 text-[12px] leading-relaxed">
+                                You do <strong>NOT need to enter any real details</strong> or Application / CET numbers. Simply click <span className="font-bold text-[#1B365D]">"Send OTP"</span> below to instantly start!
+                            </p>
                         </div>
 
                         {/* Login Method Buttons (Joined Segmented Control) */}
@@ -188,22 +193,24 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                             <div className="space-y-5">
                                 {/* Application No */}
                                 <div>
-                                    <label className="block text-[11px] font-bold text-[#1B365D] uppercase tracking-wide mb-1.5">
-                                        APPLICATION NO
+                                    <label className="block text-[11px] font-bold text-[#1B365D] uppercase tracking-wide mb-1.5 flex justify-between items-center">
+                                        <span>APPLICATION NO</span>
+                                        <span className="text-[10px] text-slate-400 font-normal lowercase">(optional)</span>
                                     </label>
                                     <input
                                         type="text"
                                         value={applicationNo}
                                         onChange={e => setApplicationNo(e.target.value)}
                                         className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#1B365D] focus:border-[#1B365D] transition-colors placeholder:text-slate-400"
-                                        placeholder="Enter your Application No"
+                                        placeholder="Optional - click Send OTP to test"
                                     />
                                 </div>
 
                                 {/* Option Entry CET No */}
                                 <div>
-                                    <label className="block text-[11px] font-bold text-[#1B365D] uppercase tracking-wide mb-1.5">
-                                        OPTION ENTRY CET NO
+                                    <label className="block text-[11px] font-bold text-[#1B365D] uppercase tracking-wide mb-1.5 flex justify-between items-center">
+                                        <span>OPTION ENTRY CET NO</span>
+                                        <span className="text-[10px] text-slate-400 font-normal lowercase">(optional)</span>
                                     </label>
                                     <input
                                         type="text"
@@ -211,7 +218,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                                         onChange={e => setCetNoInput(e.target.value)}
                                         onKeyDown={e => e.key === 'Enter' && handleCetLogin()}
                                         className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#1B365D] focus:border-[#1B365D] transition-colors placeholder:text-slate-400"
-                                        placeholder="Enter your CET No"
+                                        placeholder="Optional (e.g. DG052)"
                                     />
                                 </div>
 
@@ -314,7 +321,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                                         value={captchaInput}
                                         onChange={e => setCaptchaInput(e.target.value)}
                                         className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#1B365D] focus:border-[#1B365D] transition-colors placeholder:text-slate-400"
-                                        placeholder="Enter the characters shown above"
+                                        placeholder="Optional - click Send OTP directly"
                                     />
                                 </div>
 
