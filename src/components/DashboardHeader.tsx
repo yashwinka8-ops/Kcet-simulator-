@@ -225,9 +225,5 @@ export function SubHeaderBanner({ userProfile }: SubHeaderProps) {
         </div>
     );
 }
-            </div>
-        </div>
-    );
-}
 
 export const LandingHeader = MainHeader;
